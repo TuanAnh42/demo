@@ -283,7 +283,7 @@ p,h4{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(../home/img/background-mission.png);
+  background-image: url(img/background-mission.png);
 }
 
 
@@ -309,7 +309,7 @@ p,h4{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(../home/img/background_ingredient.png);
+  background-image: url(img/background_ingredient.png);
 }
 
 .ingredient-column {
