@@ -291,7 +291,8 @@ p,h4{
   max-width: 700px;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
 .mission_text p {
@@ -301,11 +302,26 @@ p,h4{
   max-width: 400px;
 }
 
+.ingredient_img img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: -30px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 2, 0, 0.1);
+
+  
+}
+
+
+
 .ingredient {
   height: 100%;
   display: flex;
   justify-content: center;
   padding: 40px 20px;
+  border-radius: 20px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
