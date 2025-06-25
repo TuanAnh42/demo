@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 .container {
@@ -446,8 +447,10 @@ p,h4{
 
 .uses-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.5fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
   padding: 20px 10px;
   align-items: flex-start;
  
@@ -496,6 +499,56 @@ p,h4{
 .img_uses img {
   animation: floatUpDown 3s ease-in-out infinite;
 }
+.user_content{
+  max-width: 100%;
+  text-align: center;
+}
+.user_img{
+  display: flex;
+  justify-content: center;
+}
+.user_img img {
+  width: 100%;
+  max-width: 400px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.combo{
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 1200px;
+  background-color: #f9f9ff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.combo_content{
+  text-align: center;
+  max-width: 100%;
+  font-size: 20px;
+}
+
+.combo_list{
+  display: flex;
+  overflow-x: auto;         /* Cho phép cuộn ngang */
+  gap: 16px;
+  padding: 20px;
+  scroll-snap-type: x mandatory;  /* Snap từng ảnh khi cuộn */
+  -webkit-overflow-scrolling: touch;
+
+}
+.combo_item{
+  flex: 0 0 auto;
+  width: 400px;
+  /* scroll-snap-align: start; */
+ 
+  }
+.combo_item img{
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
 
 @keyframes floatUpDown {
   0% {
