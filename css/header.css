@@ -1,0 +1,200 @@
+/* Tổng thể header */
+.headerpage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 24px;
+    background-color: white;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.logo {
+    width: 200px;
+    height: 80px;
+}
+
+/* Thanh tìm kiếm */
+.search {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 99px;
+    padding: 4px 8px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.search input {
+    border: none;
+    font-size: 16px;
+    flex: 1;
+    outline: none;
+    padding-left: 8px;
+    background-color: transparent;
+}
+
+.icon_search {
+    color: #3c3c3c;
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.search button {
+    background-color: #1e1a5e;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-left: 8px;
+}
+
+/* Tài khoản + giỏ hàng */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+}
+
+.user-account {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+.user-account {
+    margin-right: 150px;
+
+}
+
+.account-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    min-width: 140px;
+    z-index: 999;
+}
+
+.user-account:hover .account-dropdown {
+    display: block;
+}
+
+.account-dropdown a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.account-dropdown a:hover {
+    background-color: #f0f0f0;
+    color: #211f5e;
+}
+
+.cart {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-trigger {
+    padding-bottom: 100px;
+    /* tăng khoảng cách để giữ hover */
+    display: inline;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 250px;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
+    z-index: 999;
+    top: 200%;
+    left: 40%;
+    transform: translateX(-50%);
+    padding: 5px 0;
+      border: 0.7px dashed black;
+}
+/* Mũi tên nhọn hướng lên */
+.dropdown-arrow {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 10px solid white;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 5px 10px;
+    color: black !important;
+    text-decoration: none;
+    
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+ 
+}
+
+.dropdown-content a:hover {
+    background-color: rgb(197, 187, 187);
+    color: orange !important;
+}
+
+
+
+/* Sticky menu dưới */
+.sticky_menu {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #211f5e;
+    padding: 20px 0;
+}
+
+/* Menu chính */
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    padding-right: 20px;
+}
+
+/* Nút menu mobile nếu dùng */
+.menu-toggle {
+    display: none;
+    /* Ẩn nếu không dùng responsive */
+}

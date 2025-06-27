@@ -36,41 +36,53 @@ setInterval(() => changeSlide(1), 5000);
 
 window.onload = () => showSlide(currentIndex);
 
-  function toggleMenu() {
-    const menu = document.getElementById("mainMenu");
-    menu.classList.toggle("show");
-  }
-  //hiệu ứng hiện
-    const reveals = document.querySelectorAll('.reveal');
+function toggleMenu() {
+  const menu = document.getElementById("mainMenu");
+  menu.classList.toggle("show");
+}
+//hiệu ứng hiện
+const reveals = document.querySelectorAll('.reveal');
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target); // chỉ hiện 1 lần
-            }
-        });
-    }, {
-        threshold: 0.1 // phần tử hiển thị ít nhất 10% thì kích hoạt
-    });
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target); // chỉ hiện 1 lần
+    }
+  });
+}, {
+  threshold: 0.1 // phần tử hiển thị ít nhất 10% thì kích hoạt
+});
 
-    reveals.forEach(reveal => {
-        observer.observe(reveal);
-    });
+reveals.forEach(reveal => {
+  observer.observe(reveal);
+});
+//nhúng header//
+fetch("../frontend/header.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("header-placeholder").innerHTML = html
+  });
+//nhúng footer
+fetch("../frontend/footer.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("footer-placeholder").innerHTML = html
+  });
 
-    // // Hiện nút khi cuộn xuống 200px
-    // window.onscroll = function () {
-    //     const btn = document.getElementById("backToTop");
-    //     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-    //         btn.style.display = "block";
-    //     } else {
-    //         btn.style.display = "none";
-    //     }
-    // };
-    // // Cuộn mượt lên đầu trang
-    // function scrollToTop() {
-    //     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // }
+// // Hiện nút khi cuộn xuống 200px
+// window.onscroll = function () {
+//     const btn = document.getElementById("backToTop");
+//     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+//         btn.style.display = "block";
+//     } else {
+//         btn.style.display = "none";
+//     }
+// };
+// // Cuộn mượt lên đầu trang
+// function scrollToTop() {
+//     window.scrollTo({ top: 0, behavior: 'smooth' });
+// }
 
 
 

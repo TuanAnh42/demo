@@ -18,181 +18,6 @@ h4 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.headerpage {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5px 24px;
-  flex-wrap: wrap;
-  background-color: white;
-
-}
-
-.logo {
-  width: 200px;
-  height: 80px;
-}
-
-.search {
-  display: flex;
-  align-items: center;
-  border: 1px solid black;
-  border-radius: 99px;
-  padding: 4px 8px;
-  width: 100%;
-  max-width: 400px;
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-}
-
-.search input {
-  border: none;
-  font-size: 16px;
-  flex: 1;
-  outline: none;
-  padding-left: 8px;
-  background-color: transparent;
-}
-
-.icon_search {
-  color: #3c3c3c;
-  margin-right: 8px;
-  font-size: 18px;
-}
-
-.search button {
-  background-color: #1e1a5e;
-  color: white;
-  border: none;
-  border-radius: 999px;
-  padding: 8px 16px;
-  cursor: pointer;
-  font-size: 15px;
-  margin-left: 8px;
-}
-
-.user-account {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.user-account i {
-  color: #1e1a5e;
-}
-
-.account-dropdown {
-  position: absolute;
-
-  top: 100%;
-  right: 0;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 10px 0;
-  display: none;
-  min-width: 140px;
-  z-index: 999;
-}
-
-.account-dropdown a {
-  display: block;
-  padding: 10px 20px;
-  color: #333;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.account-dropdown a:hover {
-  background-color: #f3f3f3;
-}
-
-.user-account:hover .account-dropdown {
-  display: block;
-}
-
-.language-select {
-  position: relative;
-  margin-left: 10px;
-}
-
-.language-select button {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  color: #333;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-/* Ẩn mặc định */
-.language-dropdown {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: #fff;
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
-  display: none;
-  z-index: 999;
-  min-width: 140px;
-}
-
-/* Hiện khi hover vào toàn bộ khối .language-select */
-.language-select:hover .language-dropdown {
-  display: block;
-}
-
-.language-dropdown a {
-  display: block;
-  padding: 10px;
-  font-size: 14px;
-  color: #333;
-  text-decoration: none;
-}
-
-.language-dropdown a:hover {
-  background-color: #f0f0f0;
-}
-
-
-.cart {
-  font-size: 20px;
-  margin-right: 10px;
-}
-
-/* Sticky menu fix */
-.sticky_menu {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: #211f5e;
-  padding: 25px 0;
-}
-
-/* Menu */
-.menu {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 50px;
-
-}
-
-.menu a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  font-size: 20px;
-  padding-right: 40px;
-}
 
 .banner_slide {
   position: relative;
@@ -288,7 +113,7 @@ h4 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(img/background-mission.png);
+  background-image: url(../img/background-mission.png);
 }
 
 
@@ -330,7 +155,7 @@ h4 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(img/background_ingredient.png);
+  background-image: url(../img/background_ingredient.png);
 }
 
 .ingredient-column {
@@ -442,7 +267,7 @@ h4 {
 }
 
 .uses {
-  background-image: url(img/background.png);
+  background-image: url(../img/background.png);
   background-repeat: no-repeat;
   background-size: cover;
 
