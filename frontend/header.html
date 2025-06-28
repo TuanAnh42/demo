@@ -39,28 +39,35 @@
     <div class="sticky_menu">
 
         <div class="menu" id="mainMenu">
-            <a href="#">หน้าแรก</a>
+            <a href="#" onclick="showHome()">หน้าแรก</a>
             <a href="#">ผลิตภัณฑ์</a>
             <div class="dropdown">
                 <div class="dropdown-trigger">
-                <a href="#">แนะนำเกี่ยวกับแบรนด์ UP5</a>
+                    <a href="#">แนะนำเกี่ยวกับแบรนด์ UP5</a>
                 </div>
                 <div class="dropdown-content">
                     <div class="dropdown-arrow"></div>
-                    <a href="#story">Câu chuyện thương hiệu</a>
-                    <a href="#process">Hành trình sản xuất</a>
-                    <a href="#quality">Cam kết chất lượng</a>
+                    <a href="#" onclick="loadPage('frontend/about.html','เรื่องราวของ Up5')">เรื่องราวของ Up5</a>
+                    <a href="#" onclick="loadPage('frontend/manufacture.html','การเดินทางการผลิต')">การเดินทางการผลิต</a>
+                    <a href="#" onclick="loadPage('frontend/quality.html','ความมุ่งมั่นด้านคุณภาพ')">ความมุ่งมั่นด้านคุณภาพ</a>
                 </div>
             </div>
-            <a href="#">โรคระบบทางเดินอาหาร</a>
+            <div class="dropdown">
+                <div class="dropdown-trigger">
+                    <a href="#">โรคระบบทางเดินอาหาร</a>
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdown-arrow"></div>
+                    <a href="#" onclick="loadPage('frontend/about.html','โรคกระเพาะอาหาร')">โรคกระเพาะอาหาร</a>
+                    <a href="#"
+                        onclick="loadPage('frontend/manufacture.html','โรคลำไส้ใหญ่')">โรคลำไส้ใหญ่</a>
+                </div>
+            </div>
             <a href="#">ใช้ทั่วไป</a>
             <a href="#">FAQs</a>
+
         </div>
-    </div>
-    <div>
-
-    </div>
-
+        
 </body>
 
 </html>

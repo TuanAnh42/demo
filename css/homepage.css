@@ -18,6 +18,28 @@ h4 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.breadcrumb {
+  font-size: 16px;
+  color: #444;
+}
+
+.breadcrumb a {
+  color: #1e1a5e;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #1e1a5e;
+  
+  margin-top: 50px;
+  margin-left: 440px;
+  margin-bottom: 10px;
+}
+
 
 .banner_slide {
   position: relative;

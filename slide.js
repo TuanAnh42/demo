@@ -69,6 +69,47 @@ fetch("frontend/footer.html")
   .then(html => {
     document.getElementById("footer-placeholder").innerHTML = html
   });
+function loadPage(url, title = "") {
+  document.getElementById("default-content").style.display = "none";
+  document.getElementById("main-content").style.display = "block";
+
+  // Cập nhật breadcrumb và tiêu đề lớn nếu có
+  const titleSection = document.querySelector(".dynamic-title-section");
+  const titleElement = document.getElementById("dynamic-title");
+  const breadcrumbTitle = document.getElementById("breadcrumb-title");
+
+  if (title) {
+    if (titleElement) titleElement.innerText = title;
+    if (breadcrumbTitle) breadcrumbTitle.innerText = title;
+    if (titleSection) titleSection.style.display = "block";
+  }
+
+  fetch(url)
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("main-content").innerHTML = html;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    })
+    .catch(err => console.error("Không thể tải nội dung:", err));
+}
+
+
+function showHome() {
+  document.getElementById("main-content").style.display = "none";
+  document.getElementById("default-content").style.display = "block";
+
+  // Ẩn phần tiêu đề và reset breadcrumb
+
+  const titleSection = document.querySelector(".dynamic-title-section");
+  const breadcrumbTitle = document.getElementById("breadcrumb-title");
+  if (titleSection) titleSection.style.display = "none";
+  if (breadcrumbTitle) breadcrumbTitle.innerText = "Trang chính";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+window.loadPage = loadPage;
+window.showHome = showHome;
 
 // // Hiện nút khi cuộn xuống 200px
 // window.onscroll = function () {

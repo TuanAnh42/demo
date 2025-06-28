@@ -1,0 +1,131 @@
+/* Danh sách La Mã I, II, III... */
+body {
+  scroll-behavior: smooth;
+  background-color: #f8f9fa !important;
+}
+
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 10px;
+  
+}
+
+.left-sidebar {
+    margin-top: -40px;
+ flex: 0 0 300px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  padding: 10px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.content-area {
+  flex-grow: 1;
+}
+
+.toc-box {
+  background: #f5f6f8;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+.toc-header {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.toc-header i {
+  margin-right: 8px;
+  color: black;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin-bottom: 10px;
+}
+
+.toc-list a {
+  color: #1e1a5e;
+  text-decoration: none;
+}
+
+.toc-list a:hover {
+  text-decoration: underline;
+}
+
+.content-area h2 {
+  margin-top: 40px;
+  color: #1e1a5e;
+}
+.manufacture-session{
+    margin-left: 65px;
+    margin-bottom: 200px;
+    line-height: 2.5;
+    width: 60%;
+    flex-wrap: wrap;
+    }
+.roman-list {
+    width: 90%;
+  list-style-type: upper-roman;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 2px;
+  color: #1e1a5e;
+  margin-top: 20px;
+  
+}
+
+/* Danh sách từng bước sản xuất / kiểm tra */
+.step-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+  
+}
+
+/* Mỗi bước */
+.step-list > li {
+  margin: 15px 0;
+  line-height: 1;
+  padding-left: 28px;
+  position: relative;
+  line-height: 2.5;
+  color: #333;
+}
+
+/* Biểu tượng đầu dòng (🔷, ✅...) */
+.step-list .icon {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  font-size: 18px;
+}
+
+/* Danh sách con: dấu chấm tròn thường */
+.bullet-list {
+  list-style-type: disc;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  color: #444;
+  font-weight: normal;
+}
+
+/* Nếu bạn muốn các đoạn văn có khoảng cách */
+.bullet-list li {
+  margin-bottom: 6px;
+}
