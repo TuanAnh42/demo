@@ -58,7 +58,7 @@ reveals.forEach(reveal => {
   observer.observe(reveal);
 });
 //nhúng header//
-fetch("../frontend/header.html")
+fetch("frontend/header.html")
   .then(res => res.text())
   .then(html => {
     document.getElementById("header-placeholder").innerHTML = html
