@@ -64,7 +64,7 @@ fetch("frontend/header.html")
     document.getElementById("header-placeholder").innerHTML = html
   });
 //nhúng footer
-fetch("../frontend/footer.html")
+fetch("frontend/footer.html")
   .then(res => res.text())
   .then(html => {
     document.getElementById("footer-placeholder").innerHTML = html
