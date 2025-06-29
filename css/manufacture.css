@@ -1,6 +1,11 @@
 /* Danh sách La Mã I, II, III... */
-body {
+html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* hoặc đúng bằng chiều cao menu sticky */
+}
+
+body {
+
   background-color: #f8f9fa !important;
 }
 
@@ -8,15 +13,15 @@ body {
   display: flex;
   gap: 30px;
   padding: 10px;
-  
+
 }
 
 .left-sidebar {
-    margin-top: -40px;
- flex: 0 0 300px;
+  /* margin-top: -40px; */
+  flex: 0 0 300px;
   background-color: white;
   border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   padding: 10px;
   height: fit-content;
   position: sticky;
@@ -70,23 +75,31 @@ body {
   margin-top: 40px;
   color: #1e1a5e;
 }
-.manufacture-session{
-    margin-left: 65px;
-    margin-bottom: 200px;
-    line-height: 2.5;
-    width: 60%;
-    flex-wrap: wrap;
-    }
+
+.manufacture-session {
+
+  margin-left: 65px;
+  margin-bottom: 200px;
+  line-height: 2.5;
+  width: 60%;
+  flex-wrap: wrap;
+}
+
+.manufacture-session h2 {
+  color: #1e1a5e;
+  font-size: 28px;
+  margin-top: -20px;
+  /* margin-bottom: 16px; */
+}
+
 .roman-list {
-    width: 90%;
+  width: 90%;
   list-style-type: upper-roman;
   margin-left: 20px;
-  font-weight: bold;
   font-size: 16px;
   line-height: 2px;
-  color: #1e1a5e;
   margin-top: 20px;
-  
+
 }
 
 /* Danh sách từng bước sản xuất / kiểm tra */
@@ -94,11 +107,11 @@ body {
   list-style: none;
   padding-left: 0;
   margin-top: 10px;
-  
+
 }
 
 /* Mỗi bước */
-.step-list > li {
+.step-list>li {
   margin: 15px 0;
   line-height: 1;
   padding-left: 28px;

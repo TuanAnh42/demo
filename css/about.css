@@ -6,6 +6,11 @@ body {
   padding: 0;
 
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* hoặc đúng bằng chiều cao menu sticky */
+}
+
 
 /* Bố cục 2 cột */
 .container {
@@ -14,7 +19,6 @@ body {
   gap: 24px;
 }
 .left-sidebar {
-margin-top: -40px;
   flex: 0 0 300px;
   background-color: white;
   border-radius: 16px;
@@ -68,10 +72,7 @@ margin-top: -40px;
   text-decoration: underline;
 }
 
-.content-area h2 {
-  margin-top: 40px;
-  color: #1e1a5e;
-}
+
 
 /* Nội dung chính bên phải */
 .about-header, .container > div:not(.left-sidebar) {
@@ -84,10 +85,11 @@ margin-top: -40px;
 }
 
 /* Tiêu đề lớn */
-.about-content h1   , h2 {
+.about-content h2 {
   color: #1e1a5e;
   font-size: 28px;
-  margin-bottom: 16px;
+  margin-top: -20px;
+  /* margin-bottom: 16px; */
 }
 
 /* Tiêu đề phần nhỏ */
@@ -120,6 +122,7 @@ margin-top: -40px;
 
 }
 .expert img {
+  margin-top: -5px;
   width: 30%;
   text-align: right;
   height: auto;

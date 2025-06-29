@@ -59,10 +59,10 @@ reveals.forEach(reveal => {
 });
 //nhúng header//
 fetch("frontend/header.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("header-placeholder").innerHTML = html
-  });
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("header-placeholder").innerHTML = html;
+    });
 //nhúng footer
 fetch("frontend/footer.html")
   .then(res => res.text())
@@ -73,13 +73,10 @@ function loadPage(url, title = "") {
   document.getElementById("default-content").style.display = "none";
   document.getElementById("main-content").style.display = "block";
 
-  // Cập nhật breadcrumb và tiêu đề lớn nếu có
   const titleSection = document.querySelector(".dynamic-title-section");
-  const titleElement = document.getElementById("dynamic-title");
   const breadcrumbTitle = document.getElementById("breadcrumb-title");
 
   if (title) {
-    if (titleElement) titleElement.innerText = title;
     if (breadcrumbTitle) breadcrumbTitle.innerText = title;
     if (titleSection) titleSection.style.display = "block";
   }
@@ -88,10 +85,20 @@ function loadPage(url, title = "") {
     .then(res => res.text())
     .then(html => {
       document.getElementById("main-content").innerHTML = html;
-      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      const hash = window.location.hash;
+      if (hash) {
+        const target = document.querySelector(hash);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     })
     .catch(err => console.error("Không thể tải nội dung:", err));
 }
+
 
 
 function showHome() {
@@ -103,13 +110,22 @@ function showHome() {
   const titleSection = document.querySelector(".dynamic-title-section");
   const breadcrumbTitle = document.getElementById("breadcrumb-title");
   if (titleSection) titleSection.style.display = "none";
-  if (breadcrumbTitle) breadcrumbTitle.innerText = "Trang chính";
+  if (breadcrumbTitle) breadcrumbTitle.innerText = "";
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 window.loadPage = loadPage;
 window.showHome = showHome;
+function changeImage(src) {
+  const mainImage = document.getElementById("mainImage");
+  mainImage.style.opacity = 0;
+  setTimeout(() => {
+    mainImage.src = src;
+    mainImage.style.opacity = 1;
+  }, 150);
+}
+
 
 // // Hiện nút khi cuộn xuống 200px
 // window.onscroll = function () {

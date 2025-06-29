@@ -1,9 +1,12 @@
+html {
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 100px;
+}
 
 .content-right ul li{
     list-style-type: disc;
 }
 body {
-  scroll-behavior: smooth;
   background-color: #f8f9fa !important;
 }
 
@@ -17,7 +20,6 @@ body {
 
 
 .left-sidebar {
-    margin-top: -40px;
  flex: 0 0 300px;
   background-color: white;
   border-radius: 16px;
@@ -71,23 +73,26 @@ body {
   text-decoration: underline;
 }
 
-.content-area h2 {
-  margin-top: 40px;
+.content-right h2 {
+
   color: #1e1a5e;
+  font-size: 28px;
+  margin-top: -30px;
+  /* margin-bottom: 16px; */
+
 }
 .content-right{
-    padding: 20px;
+    padding: 10px;
     line-height: 2.5;
-
     margin-left: 60px;
-    }
+}
 .roman-list{
     line-height: 2.5;
 }
 .roman-list img{
     width: 100%;
     height: auto;
-    
+
     margin-top: 10px;
 }
 .roman-list li{

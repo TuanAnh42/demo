@@ -6,176 +6,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neysure Product</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f6fa;
-    }
-
-    .product-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      gap: 40px;
-      padding: 40px 20px;
-    }
-
-    .product-image {
-      flex: 1;
-    }
-
-    .product-image img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    .product-details {
-      flex: 1.3;
-      color: #333;
-    }
-
-    .product-title {
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .price {
-      font-size: 28px;
-      font-weight: bold;
-      color: #2e1a62;
-      margin: 16px 0;
-    }
-
-    .option-boxes button,
-    .buy-buttons button {
-      padding: 10px 18px;
-      margin: 6px 6px 6px 0;
-      border: 1px solid #ccc;
-      background-color: white;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-
-    .option-boxes button.selected,
-    .buy-buttons button.selected {
-      border-color: #2e1a62;
-      font-weight: bold;
-    }
-
-    .quantity {
-      display: flex;
-      align-items: center;
-      margin: 16px 0;
-    }
-
-    .quantity button {
-      padding: 6px 14px;
-      font-size: 18px;
-      border: none;
-      background-color: #eee;
-      cursor: pointer;
-    }
-
-    .quantity input {
-      width: 50px;
-      text-align: center;
-      border: 1px solid #ccc;
-      margin: 0 8px;
-    }
-
-    .buy-buttons {
-      margin-top: 24px;
-    }
-
-    .buy-buttons .add-to-cart {
-      background-color: white;
-      color: #2e1a62;
-      border: 2px solid #2e1a62;
-    }
-
-    .buy-buttons .buy-now {
-      background-color: #2e1a62;
-      color: white;
-      border: none;
-    }
-
-    .features {
-      margin-top: 30px;
-      background-color: #fff;
-      padding: 16px;
-      border-radius: 12px;
-      box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
-    }
-
-    .features ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .features li::before {
-      content: "\f058";
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      color: #2e1a62;
-      margin-right: 8px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/product.css">
 </head>
 
 <body>
-  <div class="product-container">
-    <div class="product-image">
-      <img src="img/neysure-main.jpg" alt="neysure">
-    </div>
+  <div class="container">
+    <div class="product-main">
 
-    <div class="product-details">
-      <div class="product-title">
-        นม UP5 ขนาด 400 กรัม (สำหรับผู้ที่มีภาวะยูเรียในเลือดสูง)
+      <!-- CỘT 1: Hình ảnh sản phẩm -->
+      <div class="product-left">
+        <img id="mainImage" src="img/z6680689810990_56888da8ababe64686741f52c17e1926.jpg" alt="UP5 Product" class="main-img" />
+        <div class="thumbnail-row">
+          <img src="img/câu chuyện thương hiệu/nhà máy.jpg" class="thumb" onclick="changeImage(this.src)" />
+          <img src="img/câu chuyện thương hiệu/nhà máy 2.jpg" class="thumb" onclick="changeImage(this.src)" />
+          <img src="img/z6680689810990_56888da8ababe64686741f52c17e1926.jpg" class="thumb" onclick="changeImage(this.src)" />
+        </div>
       </div>
 
-      <div><span style="color: green;">สถานะ:</span> มีสินค้า</div>
-      <div style="margin-top: 6px; color: #f39c12;">★★★★★ 5.0 รีวิว</div>
+      <!-- CỘT 2: Nội dung sản phẩm -->
+      <div class="product-center">
+        <h1>นม UP5 ขนาด 400 กรัม (สำหรับผู้ที่มีภาวะยูเรียในเลือดสูง)</h1>
+        <p class="status">สถานะ: <span class="in-stock">มีสินค้า</span></p>
+        <div class="rating">⭐️⭐️⭐️⭐️⭐️ 5.0 รีวิว</div>
+        <div class="price">1,389฿ / <span>ซื้อ 1 กระป๋อง ราคา</span></div>
 
-      <div class="price">1,389฿ / ซื้อ 1 กระป๋อง ราคา</div>
+        <div class="options">
+          <button>ซื้อ 3 แถม 1</button>
+          <button>ซื้อ 5 แถม 2</button>
+          <button>ซื้อ 7 แถม 3</button>
+        </div>
 
-      <div class="option-boxes">
-        <button class="selected">ซื้อ 1 กระป๋อง ราคา</button>
-        <button>ซื้อ 2 กระป๋อง ราคา</button>
-        <button>ซื้อ 3 แถม 1</button>
-        <button>ซื้อ 5 แถม 2</button>
-        <button>ซื้อ 7 แถม 3</button>
-      </div>
-
-      <div style="margin-top: 20px;">
-        <strong>แบรนด์:</strong> UP5 Brand<br>
-        <strong>วัตถุดิบ:</strong> นำเข้าจากสหรัฐอเมริกา<br>
-        <strong>ประเทศผู้ผลิต:</strong> ประเทศไทย<br>
-        <strong>รหัส FDA ไทย:</strong> 13-2-03555-5-0178<br>
-        <strong>ขนาดบรรจุ:</strong> 400 กรัม
-      </div>
-
-      <div class="quantity">
-        <label for="qty">เลือกปริมาณ:</label>
-        <button>-</button>
-        <input type="text" id="qty" value="1">
-        <button>+</button>
-      </div>
-
-      <div class="buy-buttons">
-        <button class="add-to-cart"><i class="fa fa-cart-plus"></i> เพิ่มลงในตะกร้า</button>
-        <button class="buy-now">ซื้อเลย</button>
-      </div>
-
-      <div class="features">
-        <ul>
-          <li>เปลี่ยนหรือคืนสินค้าได้ภายใน 30 วัน</li>
-          <li>ฟรี 100% เปลี่ยนนม</li>
-          <li>จัดส่งฟรี ตามนโยบายการจัดส่ง</li>
+        <ul class="product-details">
+          <li><strong>แบรนด์:</strong> Neysure Brand</li>
+          <li><strong>วัตถุดิบ:</strong> นำเข้าจากสหรัฐอเมริกา</li>
+          <li><strong>ประเทศผู้ผลิต:</strong> ประเทศไทย</li>
+          <li><strong>รหัส FDA ไทย:</strong> 13-2-03555-5-0178</li>
+          <li><strong>ขนาดบรรจุ:</strong> 400 กรัม</li>
         </ul>
+
+        <div class="quantity">
+          <button>-</button>
+          <input  value="1" min="1" />
+          <button>+</button>
+        </div>
+
+        <div class="buttons">
+          <button class="add-cart">🛒 เพิ่มลงในตะกร้า</button>
+          <button class="buy-now">ซื้อเลย</button>
+        </div>
       </div>
+
+      <!-- CỘT 3: Thông tin hỗ trợ -->
+      <div class="product-info-right">
+        <div class="info-box">
+          <img src="img/return.png" alt="return" />
+          <div>
+            <strong>เปลี่ยนหรือคืนสินค้าได้ภายใน 30 วัน</strong><br />
+            นับจากวันที่ซื้อสินค้า
+          </div>
+        </div>
+        <div class="info-box">
+          <img src="img/free.png" alt="free" />
+          <div>
+            <strong>ฟรี 100%</strong><br />
+            เปลี่ยนนม
+          </div>
+        </div>
+        <div class="info-box">
+          <img src="img/delivery.png" alt="delivery" />
+          <div>
+            <strong>จัดส่งฟรี</strong><br />
+            ตามนโยบายการจัดส่ง
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </body>
