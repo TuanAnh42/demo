@@ -1,6 +1,7 @@
 /* Layout tổng: padding nhỏ hơn, nội dung căn giữa */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; 
 }
 
 body {
@@ -25,6 +26,7 @@ h4 {
 .breadcrumb {
   font-size: 16px;
   color: #444;
+  margin-left: 60px;
 }
 
 .breadcrumb a {
@@ -112,11 +114,11 @@ h4 {
     color: white;
     font-weight: 500;
     font-size: 16px;
-    padding-right: 80px;
+    padding-right: 70px;
 }
 
 
-.title {
+/* .title {
   font-size: 30px;
   font-weight: bold;
   color: #1e1a5e;
@@ -124,7 +126,7 @@ h4 {
   margin-top: 50px;
   margin-left: 440px;
   margin-bottom: 10px;
-}
+} */
 
 
 .banner_slide {
@@ -566,9 +568,9 @@ i {
 .line-qr-box {
   position: fixed;
   bottom: 100px;
-  right: 50px;
+  right: 40px;
   z-index: 1000;
-  width: 100px;
+  width: 80px;
   text-align: center;
 }
 .line-qr-box:hover{
@@ -578,14 +580,14 @@ i {
 /* QR image */
 .qr-wrapper {
   position: relative;
-  width: 120px;
+  width: 100px;
   margin: 0 auto;
   margin-bottom: 30px;
 
 }
 
 .qr-wrapper img {
-  width: 100%;
+  width: 90%;
   border-radius: 20px;
   border: 2px solid #ccc;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);

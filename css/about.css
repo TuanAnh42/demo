@@ -7,8 +7,8 @@ body {
 
 }
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* hoặc đúng bằng chiều cao menu sticky */
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 100px; 
 }
 
 
@@ -79,11 +79,13 @@ html {
   flex: 1;
   border-radius: 16px;
   line-height: 2.5;
-  margin-bottom: 200px;
   margin-left: 70px;
   
 }
-
+.main-content {
+  
+  margin-bottom: 200px;
+}
 /* Tiêu đề lớn */
 .about-content h2 {
   color: #1e1a5e;

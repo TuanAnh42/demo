@@ -7,6 +7,7 @@
   <title>Neysure Product</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/product.css">
+
 </head>
 
 <body>
@@ -15,11 +16,13 @@
 
       <!-- CỘT 1: Hình ảnh sản phẩm -->
       <div class="product-left">
-        <img id="mainImage" src="img/z6680689810990_56888da8ababe64686741f52c17e1926.jpg" alt="UP5 Product" class="main-img" />
+        <img id="mainImage" src="img/z6680689810990_56888da8ababe64686741f52c17e1926.jpg" alt="UP5 Product"
+          class="main-img" />
         <div class="thumbnail-row">
           <img src="img/câu chuyện thương hiệu/nhà máy.jpg" class="thumb" onclick="changeImage(this.src)" />
           <img src="img/câu chuyện thương hiệu/nhà máy 2.jpg" class="thumb" onclick="changeImage(this.src)" />
-          <img src="img/z6680689810990_56888da8ababe64686741f52c17e1926.jpg" class="thumb" onclick="changeImage(this.src)" />
+          <img src="img/z6680689810990_56888da8ababe64686741f52c17e1926.jpg" class="thumb"
+            onclick="changeImage(this.src)" />
         </div>
       </div>
 
@@ -28,61 +31,176 @@
         <h1>นม UP5 ขนาด 400 กรัม (สำหรับผู้ที่มีภาวะยูเรียในเลือดสูง)</h1>
         <p class="status">สถานะ: <span class="in-stock">มีสินค้า</span></p>
         <div class="rating">⭐️⭐️⭐️⭐️⭐️ 5.0 รีวิว</div>
-        <div class="price">1,389฿ / <span>ซื้อ 1 กระป๋อง ราคา</span></div>
+        <div class="price">1,449฿ / <span>ซื้อ 1 กระป๋อง ราคา</span></div>
 
         <div class="options">
           <button>ซื้อ 3 แถม 1</button>
-          <button>ซื้อ 5 แถม 2</button>
-          <button>ซื้อ 7 แถม 3</button>
+          <button>ซื้อ 4 แถม 2</button>
+          <button>ซื้อ 5 แถม 3</button>
+          <button>ซื้อ 7 แถม 5</button>
         </div>
 
         <ul class="product-details">
-          <li><strong>แบรนด์:</strong> Neysure Brand</li>
+          <li><strong>แบรนด์:</strong> Up5 Brand </li>
           <li><strong>วัตถุดิบ:</strong> นำเข้าจากสหรัฐอเมริกา</li>
           <li><strong>ประเทศผู้ผลิต:</strong> ประเทศไทย</li>
-          <li><strong>รหัส FDA ไทย:</strong> 13-2-03555-5-0178</li>
-          <li><strong>ขนาดบรรจุ:</strong> 400 กรัม</li>
+          <li><strong>รหัส FDA ไทย:</strong> 13-1-12065-5-0160</li>
+          <li><strong>ขนาดบรรจุ:</strong> 400 กรัม </li>
+
         </ul>
 
         <div class="quantity">
-          <button>-</button>
-          <input  value="1" min="1" />
-          <button>+</button>
+          <p><strong>เลือกปริมาณ: </strong></p>
+          <div class="button-quantity">
+            <button>-</button>
+            <input value="1" min="1" />
+            <button>+</button>
+          </div>
         </div>
 
         <div class="buttons">
           <button class="add-cart">🛒 เพิ่มลงในตะกร้า</button>
-          <button class="buy-now">ซื้อเลย</button>
+          <a href="#" onclick="loadPage('frontend/checkout.html','รถเข็นช้อปปิ้ง')"><button class="buy-now">ซื้อเลย</button></a>
         </div>
       </div>
 
       <!-- CỘT 3: Thông tin hỗ trợ -->
       <div class="product-info-right">
         <div class="info-box">
-          <img src="img/return.png" alt="return" />
+          <i class='fas fa-hashtag'></i>
           <div>
             <strong>เปลี่ยนหรือคืนสินค้าได้ภายใน 30 วัน</strong><br />
             นับจากวันที่ซื้อสินค้า
           </div>
         </div>
         <div class="info-box">
-          <img src="img/free.png" alt="free" />
+          <i class='fas fa-money-bill-alt'></i>
           <div>
             <strong>ฟรี 100%</strong><br />
             เปลี่ยนนม
           </div>
         </div>
         <div class="info-box">
-          <img src="img/delivery.png" alt="delivery" />
+          <i class='fas fa-shipping-fast'></i>
           <div>
             <strong>จัดส่งฟรี</strong><br />
             ตามนโยบายการจัดส่ง
           </div>
         </div>
       </div>
-
     </div>
+
   </div>
+  <div class="product-decription">
+
+    <div class="product-detail-tabs">
+      <div class="tabs-left">
+        <p class="active"><strong>ส่วนประกอบหลัก</strong></p>
+        <ul>
+          
+          <li data-target="#section1">ส่วนประกอบหลัก</li>
+          <li data-target="#section2">คุณประโยชน์</li>
+          <li data-target="#section3">ผู้ที่เหมาะกับผลิตภัณฑ์นี้</li>
+          <li data-target="#section4">วิธีรับประทาน</li>
+          
+        </ul>
+      </div>
+
+      <div class="tabs-right">
+        <div class="tab-content active">
+          <h2 >Up5 – อาหารเสริมบำรุงระบบย่อยอาหาร ผสานสมุนไพรธรรมชาติ</h2>
+          
+          <h3 id="section1">🌿 ส่วนประกอบหลัก:</h3>
+          <table class="ingredient-table">
+            <thead>
+              <tr>
+                <th>ส่วนประกอบ (ภาษาไทย)</th>
+                <th>หน่วย</th>
+                <th>ปริมาณ (g)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>นมผง (Milk Powder)</td>
+                <td>g</td>
+                <td style="text-align: right;">25</td>
+              </tr>
+              <tr>
+                <td>อินูลิน (Inulin)</td>
+                <td>g</td>
+                <td style="text-align: right;">2.2</td>
+              </tr>
+              <tr>
+                <td>ผงฟรุกโตโอลิโกแซคคาไรด์ (Fructooligosaccharide Powder)</td>
+                <td>g</td>
+                <td style="text-align: right;">1.5</td>
+              </tr>
+              <tr>
+                <td>ผงเคอร์คูมิน (Curcumin Powder)</td>
+                <td>g</td>
+                <td style="text-align: right;">1.0</td>
+              </tr>
+              <tr>
+                <td>เวย์โปรตีน (Whey Protein)</td>
+                <td>g</td>
+                <td style="text-align: right;">0.8</td>
+              </tr>
+              <tr>
+                <td>โพแทสเซียม (Potassium)</td>
+                <td>g</td>
+                <td style="text-align: right;">0.63</td>
+              </tr>
+              <tr>
+                <td>บาซิลัส โคแอกกูแลนส์ (Bacillus Coagulans)</td>
+                <td>g</td>
+                <td>0.5</td>
+              </tr>
+              <tr>
+                <td>วิตามินซี (Vitamin C)</td>
+                <td>g</td>
+                <td>0.5</td>
+              </tr>
+              <tr>
+                <td>ฟอสฟอรัส (Phosphorus)</td>
+                <td>g</td>
+                <td style="text-align: right;">0.4</td>
+              </tr>
+              <tr>
+                <td>ผงถั่วเขียว (Mungbean Powder)</td>
+                <td>g</td>
+                <td style="text-align: right;">0.25</td>
+              </tr>
+              <!-- Bạn có thể tiếp tục các dòng còn lại tương tự -->
+            </tbody>
+          </table>
+
+          <h3 id="section2">💪 คุณประโยชน์:</h3>
+          <ul>
+            <li>เสริมสารอาหาร วิตามิน และแร่ธาตุ</li>
+            <li>ฟื้นฟูร่างกาย เหมาะสำหรับผู้มีปัญหาระบบย่อยอาหาร</li>
+            <li>ใช้เป็นมื้อว่าง หรืออาหารเบา ๆ ได้อย่างสะดวก</li>
+            <li>เหมาะสำหรับผู้เบื่ออาหาร ท้องอืด เหนื่อยง่าย</li>
+          </ul>
+
+          <h3 id="section3">🎯 ผู้ที่เหมาะกับผลิตภัณฑ์นี้:</h3>
+          <ul>
+            <li>ผู้ที่มีอาการปวดกระเพาะอาหาร แผลในกระเพาะ หรือกรดไหลย้อน</li>
+            <li>ผู้ที่มีปัญหาระบบย่อย ท้องผูก หรือลำไส้อักเสบ</li>
+            <li>ผู้ที่ต้องการฟื้นตัวหลังเจ็บป่วย</li>
+          </ul>
+
+          <h3 id="section4">📌 วิธีรับประทาน:</h3>
+          <p>
+            ใช้ผง 4–5 ช้อนตวง ผสมกับน้ำอุ่น 150 มล. (อุณหภูมิประมาณ 40°C)<br>
+            คนให้ละลาย แล้วดื่มทันทีหลังชง<br>
+            ดื่มวันละ 2 แก้ว: หลังอาหารเช้าและเย็น
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="../slide.js"></script>
 </body>
 
 </html>

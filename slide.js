@@ -59,10 +59,10 @@ reveals.forEach(reveal => {
 });
 //nhúng header//
 fetch("frontend/header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("header-placeholder").innerHTML = html;
-    });
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("header-placeholder").innerHTML = html;
+  });
 //nhúng footer
 fetch("frontend/footer.html")
   .then(res => res.text())
@@ -97,6 +97,25 @@ function loadPage(url, title = "") {
       }
     })
     .catch(err => console.error("Không thể tải nội dung:", err));
+  setTimeout(() => {
+    const menuItems = document.querySelectorAll(".tabs-left li");
+
+    menuItems.forEach(item => {
+      item.addEventListener("click", function () {
+        const targetId = this.getAttribute("data-target");
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          const yOffset = -80;
+          const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      });
+      
+    });
+  }, 100); // Delay 100ms sau khi nội dung đã được gắn vào
+
 }
 
 
@@ -125,8 +144,64 @@ function changeImage(src) {
     mainImage.style.opacity = 1;
   }, 150);
 }
+let discountAmount = 0;
 
+function updateTotal() {
+  const qtyInput = document.querySelector('input[type="number"]');
+  const qty = parseInt(qtyInput.value);
+  const pricePerItem = 1449;
+  const itemTotal = pricePerItem * qty;
 
+  document.querySelector(".item-total").innerText = itemTotal.toLocaleString();
+  document.getElementById("subtotal").innerText = itemTotal.toLocaleString() + "฿";
+  document.getElementById("total-price").innerText = (itemTotal - discountAmount).toLocaleString() + "฿";
+}
+
+function applyDiscount() {
+  const code = document.getElementById("discount-code").value.trim();
+  const qty = parseInt(document.querySelector('input[type="number"]').value);
+  const pricePerItem = 1499;
+  const subtotal = pricePerItem * qty;
+
+  if (code === "ลด200") {
+    discountAmount = 200;
+  }
+  else if (code === "ลด50%") {
+    discountAmount = Math.floor(subtotal * 0.5);
+  } else {
+    alert("โค้ดไม่ถูกต้อง");
+    discountAmount = 0;
+  }
+
+  document.getElementById("discount").innerText = "-" + discountAmount.toLocaleString() + "฿";
+  document.getElementById("total-price").innerText = (subtotal - discountAmount).toLocaleString() + "฿";
+}
+
+function removeItem(el) {
+  const row = el.closest("tr");
+  row.remove();
+  document.getElementById("subtotal").innerText = "0฿";
+  document.getElementById("discount").innerText = "0฿";
+  document.getElementById("total-price").innerText = "0฿";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const menuItems = document.querySelectorAll(".tabs-left li");
+
+  menuItems.forEach(item => {
+    item.addEventListener("click", function () {
+      const targetId = this.getAttribute("data-target");
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        const yOffset = -80; // offset nếu có header cố định
+        const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+});
 // // Hiện nút khi cuộn xuống 200px
 // window.onscroll = function () {
 //     const btn = document.getElementById("backToTop");
