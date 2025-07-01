@@ -1,0 +1,145 @@
+ body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: #f5f7fa;
+ }
+
+ .container {
+     display: flex;
+     max-width: 1100px;
+     margin: auto;
+     padding: 20px;
+     gap: 20px;
+ }
+
+ .main {
+     flex: 3;
+     display: flex;
+     flex-direction: column;
+     gap: 40px;
+ }
+
+ .section {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .section-title {
+     font-size: 1.4rem;
+     margin-bottom: 10px;
+     padding-bottom: 5px;
+     border-bottom: 2px solid #0097a7;
+     color: #006064;
+ }
+
+ .post-grid {
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     gap: 15px;
+ }
+
+ .sidebar {
+     flex: 1;
+     background-color: #fff;
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+     height: fit-content;
+ }
+.sidebar ul li{
+    list-style: none;
+    margin: 10px;
+}
+
+ .post-card {
+     background: #fff;
+     border-radius: 8px;
+     overflow: hidden;
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+     display: flex;
+     flex-direction: column;
+     transition: transform 0.2s ease;
+     cursor: pointer;
+ }
+
+ .post-card:hover {
+     transform: translateY(-4px);
+ }
+
+ .post-card img {
+     width: 100%;
+     height: 190px;
+     object-fit: cover;
+ }
+
+ .post-content {
+     padding: 10px;
+     display: flex;
+     flex-direction: column;
+ }
+
+ .post-content h3 {
+     font-size: 0.95rem;
+     margin: 0 0 6px;
+     line-height: 1.3em;
+     height: 2.6em;
+     overflow: hidden;
+ }
+
+ .post-content p {
+     font-size: 0.85rem;
+     color: #555;
+     line-height: 1.3em;
+     height: 3.9em;
+     overflow: hidden;
+ }
+
+ .search-box input {
+     width: 100%;
+     padding: 8px;
+     margin-bottom: 20px;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+ }
+
+ .sidebar section {
+     margin-bottom: 30px;
+ }
+
+ .sidebar h4 {
+     margin-bottom: 10px;
+ }
+
+ .recent-posts li {
+     list-style: none;
+     margin-bottom: 10px;
+ }
+
+ .tags span {
+     display: inline-block;
+     background: #e0f7fa;
+     color: #00796b;
+     padding: 6px 10px;
+     margin: 4px 4px 0 0;
+     border-radius: 5px;
+     font-size: 0.85rem;
+     cursor: pointer;
+ }
+
+ .recent-posts li {
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+     gap: 10px;
+ }
+ .recent-posts li:hover{
+    color: cornflowerblue;
+ }
+
+ .recent-posts img {
+     width: 50px;
+     height: 50px;
+     object-fit: cover;
+     border-radius: 4px;
+ }

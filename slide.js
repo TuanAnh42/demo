@@ -202,6 +202,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+function increase() {
+  const input = document.getElementById("quantity");
+  let value = parseInt(input.value);
+  input.value = value + 1;
+}
+
+function decrease() {
+  const input = document.getElementById("quantity");
+  let value = parseInt(input.value);
+  if (value > 1) input.value = value - 1;
+}
+   fetch('frontend/form.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('exitFormContainer').innerHTML = data;
+
+      // Bắt đầu lắng nghe sự kiện để hiển thị form khi chuẩn bị rời trang
+      let shownExitForm = false;
+
+      document.addEventListener("mouseout", function (e) {
+        if (e.clientY < 10 && !shownExitForm) {
+          document.getElementById("exitForm").style.display = "flex";
+          shownExitForm = true;
+        }
+      });
+    });
+
+function closeExitForm() {
+  document.getElementById("exitForm").style.display="none";
+}
+
+  function showExitForm() {
+    
+    document.getElementById("exitForm").style.display = "flex";
+  }
+
+
+
 // // Hiện nút khi cuộn xuống 200px
 // window.onscroll = function () {
 //     const btn = document.getElementById("backToTop");

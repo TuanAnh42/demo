@@ -2,7 +2,7 @@ body{
 
     margin: 0;
     padding: 0;
-    background-image: url('../img/banner/banner 1.png');
+    /* background-image: url('../img/banner/banner 1.png'); */
     background-size: cover;           /* Phủ kín toàn bộ màn hình */
     background-repeat: no-repeat;     /* Không lặp lại ảnh */
     background-position: center;      /* Căn giữa ảnh */
@@ -39,6 +39,9 @@ body{
   font-size: 15px;
   box-sizing: border-box;
 }
+.exit-form.show {
+  display: flex !important;
+}
 
 .contact-form button {
   margin-top: 20px;
@@ -55,4 +58,55 @@ body{
 
 .contact-form button:hover {
   background-color: #2e2b8a;
+}
+.exit-form {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Style cho h3 và p */
+.contact-form h3 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  color: #006064;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contact-form p {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #000;
 }
