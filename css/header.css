@@ -9,10 +9,16 @@
     gap: 20px;
 }
 
-.logo {
+/* .logo {
     width: 200px;
     height: 80px;
-}
+} */
+ .logo{
+    width: 10%;
+    height: 10%;
+    margin-left: 20px;
+    }
+
 
 /* Thanh tìm kiếm */
 .search {

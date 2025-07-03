@@ -112,14 +112,11 @@ function loadPage(url, title = "") {
           window.scrollTo({ top: y, behavior: 'smooth' });
         }
       });
-      
+
     });
   }, 100); // Delay 100ms sau khi nội dung đã được gắn vào
 
 }
-
-
-
 function showHome() {
   document.getElementById("main-content").style.display = "none";
   document.getElementById("default-content").style.display = "block";
@@ -213,30 +210,60 @@ function decrease() {
   let value = parseInt(input.value);
   if (value > 1) input.value = value - 1;
 }
-   fetch('frontend/form.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('exitFormContainer').innerHTML = data;
+fetch('frontend/form.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('exitFormContainer').innerHTML = data;
 
-      // Bắt đầu lắng nghe sự kiện để hiển thị form khi chuẩn bị rời trang
-      let shownExitForm = false;
+    // Bắt đầu lắng nghe sự kiện để hiển thị form khi chuẩn bị rời trang
+    let shownExitForm = false;
 
-      document.addEventListener("mouseout", function (e) {
-        if (e.clientY < 10 && !shownExitForm) {
-          document.getElementById("exitForm").style.display = "flex";
-          shownExitForm = true;
-        }
-      });
+    document.addEventListener("mouseout", function (e) {
+      if (e.clientY < 10 && !shownExitForm) {
+        document.getElementById("exitForm").style.display = "flex";
+        shownExitForm = true;
+      }
     });
+  });
 
 function closeExitForm() {
-  document.getElementById("exitForm").style.display="none";
+  document.getElementById("exitForm").style.display = "none";
 }
 
-  function showExitForm() {
-    
-    document.getElementById("exitForm").style.display = "flex";
-  }
+function showExitForm() {
+
+  document.getElementById("exitForm").style.display = "flex";
+}
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    spaceBetween: 30,
+    slidesPerView: 3,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1
+      },
+      768: {
+        slidesPerView: 2
+      },
+      1024: {
+        slidesPerView: 3
+      }
+    }
+  });
+
+  const toggleBtn = document.getElementById("toggle-button");
+  const content = document.getElementById("long-content");
+
+  toggleBtn.addEventListener("click", () => {
+    content.classList.toggle("expanded");
+    toggleBtn.textContent = content.classList.contains("expanded")
+      ? "ย่อเนื้อหา"
+      : "ดูเพิ่มเติม";
+  });
 
 
 

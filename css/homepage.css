@@ -1,7 +1,7 @@
 /* Layout tổng: padding nhỏ hơn, nội dung căn giữa */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; 
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -36,85 +36,87 @@ h4 {
 }
 
 .dropdown {
-    position: relative;
+  position: relative;
 }
 
 .dropdown-trigger {
-    cursor: pointer;
-    padding-bottom: 20px;
-    /* tăng khoảng cách để giữ hover */
-    display: inline;
+  cursor: pointer;
+  padding-bottom: 20px;
+  /* tăng khoảng cách để giữ hover */
+  display: inline;
 
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 250px;
-    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
-    z-index: 999;
-    top: 200%;
-    left: 40%;
-    transform: translateX(-50%);
-    padding: 5px 0;
-      border: 0.7px dashed black;
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 250px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
+  z-index: 999;
+  top: 200%;
+  left: 40%;
+  transform: translateX(-50%);
+  padding: 5px 0;
+  border: 0.7px dashed black;
 }
+
 /* Mũi tên nhọn hướng lên */
 .dropdown-arrow {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 10px solid white;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid white;
 }
 
 .dropdown-content a {
-    display: block;
-    padding: 5px 10px;
-    color: black !important;
-    text-decoration: none;
-    
+  display: block;
+  padding: 5px 10px;
+  color: black !important;
+  text-decoration: none;
+
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
- 
+  display: block;
+
 }
 
 .dropdown-content a:hover {
-    background-color: rgb(197, 187, 187);
-    color: orange !important;
+  background-color: rgb(197, 187, 187);
+  color: orange !important;
 }
+
 /* Sticky menu dưới */
 .sticky_menu {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: #211f5e;
-    padding: 20px 0;
-    width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #211f5e;
+  padding: 20px 0;
+  width: 100%;
 
 }
 
 /* Menu chính */
 .menu {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 100px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 100px;
 }
 
 .menu a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    font-size: 16px;
-    padding-right: 70px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  padding-right: 70px;
 }
 
 
@@ -447,7 +449,8 @@ h4 {
   font-size: 20px;
 
 }
-.user_content p{
+
+.user_content p {
   font-size: 25px;
 }
 
@@ -466,63 +469,75 @@ h4 {
 .combo {
   border: 2px solid #e0e0e0;
   border-radius: 12px;
-  padding: 20px;
-  margin: 40px ;
-  max-width: 1200px;
-  background-color: #f9f9ff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 35px;
+  margin: 40px auto;
+  max-width: 1100px;
+  background-color: #f2f2f7;
+  transition: opacity 0.4s ease;
+  position: relative;
 }
 
 .combo_content {
   text-align: center;
   max-width: 100%;
   font-size: 20px;
+ 
 }
 
-.combo_list {
-  display: flex;
-  overflow-x: auto;
-  /* Cho phép cuộn ngang */
-  gap: 20px;
-  padding: 10px;
-  scroll-snap-type: x mandatory;
-  /* Snap từng ảnh khi cuộn */
-  -webkit-overflow-scrolling: touch;
-
-}
 
 .combo_item {
+  margin-top: 80px;
   background-color: white;
-  flex: 0 0 auto;
-  width: 330px;
-  padding: 15px;
+  width: 300px;
   border-radius: 10px;
-
   padding: 20px;
-}
-.combo_item h3{
-font-size: 20px;
-}
-.combo_item p {
-  color: orange;
+  text-align: center;
+  font-size: 24px;
   font-weight: bold;
-  font-size: 20px;
-}
-
-.combo_item span,
-i {
-  padding-right: 5px;
-  font-size: 20px;
-  color: dodgerblue;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .combo_item:hover {
+  transform: translateY(-8px) scale(1.05);
+
   cursor: pointer;
 }
 
 .combo_item img {
   width: 100%;
+  margin-bottom: 20px;
 }
+
+.combo_item h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.combo_item p {
+  color: orange;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.combo_item span,
+.combo_item i {
+  padding-right: 5px;
+  font-size: 20px;
+  color: dodgerblue;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: rgb(141, 177, 232);
+}
+
 .active_content {
   background-color: #e9f3fc;
   padding: 30px;
@@ -551,6 +566,7 @@ i {
   margin-top: 10px;
   /* Không cần margin-left: text sẽ bắt đầu từ trái */
 }
+
 .btn {
   display: inline-block;
   background-color: #005bbb;
@@ -565,15 +581,17 @@ i {
 .btn:hover {
   background-color: #004a99;
 }
+
 .line-qr-box {
   position: fixed;
   bottom: 100px;
   right: 40px;
-  z-index: 1000;
+  z-index: 100;
   width: 80px;
   text-align: center;
 }
-.line-qr-box:hover{
+
+.line-qr-box:hover {
   cursor: pointer;
 }
 
@@ -582,45 +600,55 @@ i {
   position: relative;
   width: 100px;
   margin: 0 auto;
-  margin-bottom: 30px;
+  left: 20%;
+  
+
 
 }
 
 .qr-wrapper img {
-  width: 90%;
+  background-color: white;
+  padding: 10px;
+  width: 100%;
   border-radius: 20px;
-  border: 2px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: 2px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+
 }
 
 /* Label dưới QR */
 .line-label {
+  border: 2px solid #021635;
   font-size: 10px;
   background-color: white;
   padding: 5px 10px;
   border-radius: 20px;
   font-weight: bold;
   position: absolute;
-  bottom: -10px;
+
   left: 50%;
+  margin-top: -30px;
   transform: translateX(-50%);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-.line-label:hover{
+
+.line-label:hover {
   background-color: #1a5bbd;
   color: white;
 }
 
+/* 
 .line-label::after {
   content: "";
   position: absolute;
-  top: -6px;
+  top: -16px;
   left: 50%;
   transform: translateX(-50%);
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-bottom: 6px solid white;
-}
+} */
 
 /* Floating buttons */
 .floating-btn {
@@ -635,7 +663,8 @@ i {
   margin: 10px auto 0;
   margin-right: -25px;
 }
-.floating-btn:hover{
+
+.floating-btn:hover {
   background-color: #06234e;
 }
 

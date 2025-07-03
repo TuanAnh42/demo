@@ -242,7 +242,30 @@ h1 {
   background: #ffffff;
   padding: 20px;
   border-radius: 10px;
+    position: relative; 
 }
+.long-content {
+    max-height: 200px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+  .long-content.expanded {
+    max-height: 5000px;
+  }
+  .toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  #toggle-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2f8f46;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
 
 .tabs-right h2 {
   font-size: 20px;
