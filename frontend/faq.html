@@ -1,125 +1,103 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-  <meta charset="UTF-8">
-  <title>รีวิวสินค้า</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background-color: #f5f7fb;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .review-box {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    .faq-box {
-      max-width: 800px;
-      margin: 40px auto;
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      border-left: 4px solid #4a90e2;
-    }
-
-    .faq-box h2 {
-      font-size: 26px;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .faq-item {
-      margin-bottom: 10px;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    .faq-question {
-      background-color: #eaf3fc;
-      padding: 14px 18px;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 6px;
-      transition: background-color 0.3s;
-      color: #2c3e50;
-    }
-
-    .faq-question:hover {
-      background-color: #d4e9fa;
-    }
-
-    .faq-answer {
-      display: none;
-      padding: 12px 18px;
-      background-color: #fdfdfd;
-      color: #444;
-      border-left: 3px solid #4a90e2;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>รีวิวสินค้า</title>
+    <link rel="stylesheet" href="../css/faq.css">
 </head>
+
 <body>
 
-<!-- Câu hỏi thường gặp -->
-<div class="faq-box" id="faq">
-  <h2>คำถามที่พบบ่อยเกี่ยวกับ Up5</h2>
+    <!-- Câu hỏi thường gặp -->
+    <div class="faq-box" id="faq">
+        <h2>คำถามที่พบบ่อยเกี่ยวกับ Up5</h2>
 
-  <div class="faq-item">
-    <div class="faq-question">1. Up5 เหมาะสำหรับใคร?</div>
-    <div class="faq-answer">ผลิตภัณฑ์เหมาะสำหรับผู้ที่มีปัญหาเกี่ยวกับกระเพาะอาหาร เช่น กรดไหลย้อน แผลในกระเพาะอาหาร ลำไส้อักเสบ ท้องผูก หรือระบบย่อยอาหารผิดปกติเรื้อรัง รวมถึงผู้ที่ร่างกายอ่อนแอ เบื่ออาหาร หรือผู้สูงอายุที่ต้องการอาหารเสริมเพื่อบำรุงสุขภาพ</div>
-  </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                1. Up5 เหมาะสำหรับใคร?
+                <span class="toggle-icon"><i class="fa fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">ผลิตภัณฑ์เหมาะสำหรับผู้ที่มีปัญหาเกี่ยวกับกระเพาะอาหาร เช่น กรดไหลย้อน
+                แผลในกระเพาะอาหาร ลำไส้<br>
+                อักเสบ ท้องผูก หรือระบบย่อยอาหารผิดปกติเรื้อรัง รวมถึงผู้ที่ร่างกายอ่อนแอ เบื่ออาหาร
+                หรือผู้สูงอายุที่ต้องการ<br>
+                อาหารเสริมเพื่อบำรุงสุขภาพ
+            </div>
+        </div>
 
-  <div class="faq-item">
-    <div class="faq-question">2. ผู้ป่วยเบาหวานสามารถดื่ม Up5 ได้ไหม?</div>
-    <div class="faq-answer">ได้ค่ะ สูตรของ Up5 ออกแบบมาให้ควบคุมระดับน้ำตาลในเลือด ไม่ใส่น้ำตาลแลคโตส และใช้สารให้ความหวานที่ปลอดภัย เช่น Isomalt และ Maltodextrin จึงเหมาะสำหรับผู้ที่ควบคุมน้ำตาล</div>
-  </div>
+        <div class="faq-item">
+            <div class="faq-question">2. ผู้ป่วยเบาหวานสามารถดื่ม Up5 ได้ไหม? <span class="toggle-icon"><i
+                        class="fa fa-plus"></i></span></div>
+            <div class="faq-answer"> ได้ค่ะ สูตรของ Up5 ออกแบบมาให้ควบคุมระดับน้ำตาลในเลือด ไม่ใส่น้ำตาลแลคโตส
+                และใช้สารให้ความหวานที่<br>
+                ปลอดภัย เช่น Isomalt และ Maltodextrin จึงเหมาะสำหรับผู้ที่ควบคุมน้ำตาล</div>
+        </div>
 
-  <div class="faq-item">
-    <div class="faq-question">3. ต้องดื่มนานแค่ไหนถึงจะเห็นผล?</div>
-    <div class="faq-answer">แนะนำให้ดื่มวันละ 2 แก้วอย่างสม่ำเสมอ โดยทั่วไปผู้ใช้จะเริ่มรู้สึกสบายท้อง ลดอาการกรดไหลย้อน ท้องอืดภายใน 7–14 วัน (ขึ้นอยู่กับแต่ละบุคคล)</div>
-  </div>
+        <div class="faq-item">
+            <div class="faq-question">3. ต้องดื่มนานแค่ไหนถึงจะเห็นผล? <span class="toggle-icon"><i
+                        class="fa fa-plus"></i></span></div>
+            <div class="faq-answer">แนะนำให้ดื่มวันละ 2 แก้วอย่างสม่ำเสมอ โดยทั่วไปผู้ใช้จะเริ่มรู้สึกสบายท้อง
+                ลดอาการกรดไหลย้อน ท้องอืด<br>
+                ภายใน 7–14 วัน (ขึ้นอยู่กับแต่ละบุคคล)</div>
+        </div>
 
-  <div class="faq-item">
-    <div class="faq-question">4. 1 กระป๋องดื่มได้นานแค่ไหน?</div>
-    <div class="faq-answer">กระป๋องละ 400 กรัม หากดื่มวันละ 2 แก้ว จะใช้ได้ประมาณ 6–7 วัน</div>
-  </div>
+        <div class="faq-item">
+            <div class="faq-question">4. 1 กระป๋องดื่มได้นานแค่ไหน? <span class="toggle-icon"><i
+                        class="fa fa-plus"></i></span></div>
+            <div class="faq-answer">กระป๋องละ 400 กรัม หากดื่มวันละ 2 แก้ว จะใช้ได้ประมาณ 6–7 วัน</div>
+        </div>
 
-  <div class="faq-item">
-    <div class="faq-question">5. ดื่มร่วมกับยาทั่วไปได้ไหม?</div>
-    <div class="faq-answer">สามารถดื่มได้ แต่ควรเว้นระยะห่างจากการกินยาประมาณ 30–60 นาที เพื่อไม่ให้รบกวนการดูดซึมของยาและสารอาหารในนม</div>
-  </div>
+        <div class="faq-item">
+            <div class="faq-question">5. ดื่มร่วมกับยาทั่วไปได้ไหม? <span class="toggle-icon"><i
+                        class="fa fa-plus"></i></span></div>
+            <div class="faq-answer"> สามารถดื่มได้ แต่ควรเว้นระยะห่างจากการกินยาประมาณ 30–60 นาที
+                เพื่อไม่ให้รบกวนการดูดซึมของยาและสาร<br>
+                อาหารในนม </div>
+        </div>
 
-  <div class="faq-item">
-    <div class="faq-question">6. ผลิตภัณฑ์มาจากประเทศไหน?</div>
-    <div class="faq-answer">Up5 วิจัยและพัฒนาโดยผู้เชี่ยวชาญจากประเทศสหรัฐอเมริกา ผลิตในโรงงานที่ได้มาตรฐาน GMP และจัดจำหน่ายในหลายประเทศทั่วเอเชีย</div>
-  </div>
+        <div class="faq-item">
+            <div class="faq-question">6. ผลิตภัณฑ์มาจากประเทศไหน? <span class="toggle-icon"><i
+                        class="fa fa-plus"></i></span></div>
+            <div class="faq-answer">Up5 วิจัยและพัฒนาโดยผู้เชี่ยวชาญจากประเทศสหรัฐอเมริกา ผลิตในโรงงานที่ได้มาตรฐาน GMP
+                และจัด<br>
+                จำหน่ายในหลายประเทศทั่วเอเชีย</div>
+        </div>
 
-  <div class="faq-item">
-    <div class="faq-question">7. ผู้สูงอายุดื่มได้ไหม?</div>
-    <div class="faq-answer">เหมาะมากค่ะ เพราะดื่มง่าย ย่อยง่าย ไม่ทำให้แน่นท้อง ช่วยให้ผู้สูงอายุรับประทานอาหารได้ดีและนอนหลับสนิทยิ่งขึ้น โดยเฉพาะผู้ที่มีปัญหาทางเดินอาหารหรือใช้ยาหลายชนิด</div>
-  </div>
+        <div class="faq-item">
+            <div class="faq-question">7. ผู้สูงอายุดื่มได้ไหม? <span class="toggle-icon"><i
+                        class="fa fa-plus"></i></span></div>
+            <div class="faq-answer">เหมาะมากค่ะ เพราะดื่มง่าย ย่อยง่าย ไม่ทำให้แน่นท้อง
+                ช่วยให้ผู้สูงอายุรับประทานอาหารได้ดีและนอนหลับสนิท<br>
+                ยิ่งขึ้น โดยเฉพาะผู้ที่มีปัญหาทางเดินอาหารหรือใช้ยาหลายชนิด</div>
+        </div>
 
-  <div class="faq-item">
-    <div class="faq-question">8. เด็กสามารถดื่มได้ไหม?</div>
-    <div class="faq-answer">เด็กอายุตั้งแต่ 6 ปีขึ้นไปสามารถดื่มได้ หากมีปัญหาระบบย่อยอาหาร โดยควรลดปริมาณลง (ครั้งละ 2–3 ช้อนต่อแก้ว วันละ 1 แก้ว)</div>
-  </div>
+        <div class="faq-item">
+            <div class="faq-question">8. เด็กสามารถดื่มได้ไหม? <span class="toggle-icon"><i
+                        class="fa fa-plus"></i></span></div>
+            <div class="faq-answer"> เด็กอายุตั้งแต่ 6 ปีขึ้นไปสามารถดื่มได้ หากมีปัญหาระบบย่อยอาหาร โดยควรลดปริมาณลง
+                (ครั้งละ 2–3 ช้อนต่อ<br>
+                แก้ว วันละ 1 แก้ว) </div>
+        </div>
 
-  <div class="faq-item">
-    <div class="faq-question">9. ต้องดื่มระยะยาวไหม?</div>
-    <div class="faq-answer">Up5 ไม่ใช่ยา แต่เป็นนมสูตรเฉพาะทางสำหรับดูแลระบบย่อยอาหาร จึงสามารถดื่มต่อเนื่องระยะยาวได้อย่างปลอดภัย เป็นส่วนหนึ่งของการดูแลสุขภาพตามธรรมชาติ</div>
-  </div>
+        <div class="faq-item">
+            <div class="faq-question">9. ต้องดื่มระยะยาวไหม? <span class="toggle-icon"><i class="fa fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">Up5 ไม่ใช่ยา แต่เป็นนมสูตรเฉพาะทางสำหรับดูแลระบบย่อยอาหาร
+                จึงสามารถดื่มต่อเนื่องระยะยาวได้อย่าง<br>
+                ปลอดภัย เป็นส่วนหนึ่งของการดูแลสุขภาพตามธรรมชาติ</div>
+        </div>
 
-  <div class="faq-item">
-    <div class="faq-question">10. ซื้อที่ไหนถึงมั่นใจว่าเป็นของแท้?</div>
-    <div class="faq-answer">แนะนำให้สั่งซื้อผ่านเว็บไซต์ทางการ, แฟนเพจ Up5 หรือร้านค้าที่ได้รับการแต่งตั้งอย่างเป็นทางการ เพื่อรับสิทธิพิเศษและบริการที่ดีที่สุด</div>
-  </div>
-</div>
+        <div class="faq-item">
+            <div class="faq-question">10. ซื้อที่ไหนถึงมั่นใจว่าเป็นของแท้? <span class="toggle-icon"><i
+                        class="fa fa-plus"></i></span></div>
+            <div class="faq-answer">แนะนำให้สั่งซื้อผ่านเว็บไซต์ทางการ, แฟนเพจ Up5
+                หรือร้านค้าที่ได้รับการแต่งตั้งอย่างเป็นทางการ เพื่อรับสิทธิ<br>
+                พิเศษและบริการที่ดีที่สุด </div>
+        </div>
+    </div>
 
 
 </body>
+
 </html>

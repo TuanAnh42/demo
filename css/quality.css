@@ -3,9 +3,10 @@ html {
   scroll-padding-top: 100px;
 }
 
-.content-right ul li{
-    list-style-type: disc;
+.content-right ul li {
+  list-style-type: disc;
 }
+
 body {
   background-color: #f8f9fa !important;
 }
@@ -15,15 +16,15 @@ body {
   gap: 30px;
   padding: 10px;
   margin-bottom: 100px;
-  
+
 }
 
 
 .left-sidebar {
- flex: 0 0 300px;
+  flex: 0 0 300px;
   background-color: white;
   border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   padding: 10px;
   height: fit-content;
   position: sticky;
@@ -82,26 +83,71 @@ body {
 
 }
 
-.content-right{
-    padding: 10px;
-    line-height: 2.5;
-    margin-left: 60px;
+.content-right {
+  padding: 10px;
+  line-height: 2.5;
+  margin-left: 60px;
 }
-.content-right img{
+
+.content-right img {
   width: 95%;
 }
-.roman-list{
-    line-height: 2.5;
-}
-.roman-list img{
-    width: 100%;
-    height: auto;
 
-    margin-top: 10px;
+.roman-list {
+  line-height: 2.5;
+
 }
-.roman-list li{
-    margin-left: 40px;
+
+.roman-list img {
+  width: 100%;
+  height: auto;
+
+  margin-top: 10px;
 }
-.roman-list ul,ol{
-    margin-left: -20px;
+
+.roman-list li {
+  margin-left: 40px;
+}
+
+.roman-list ul,
+ol {
+  margin-left: -20px;
+}
+
+.certificates {
+  display: flex;
+
+  justify-content: center;
+
+}
+
+.certificate-box {
+  background: white;
+  border: 1px solid #ddd;
+  width: 250px;
+  padding: 14px;
+
+}
+
+.certificate-box h3 {
+  font-size: 16px;
+  color: #000;
+  border-bottom: 1px solid grey;
+}
+
+
+.certificate-box img {
+  max-width: 100%;
+
+  object-fit: contain;
+  margin-bottom: 12px;
+
+
+}
+
+.certificate-box p {
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+  border-top: 1px solid grey;
 }

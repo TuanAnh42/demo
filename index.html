@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/manufacture.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/faq.css">
 </head>
 
 <body>
@@ -240,7 +241,7 @@
                     <h2>คอมโบและตัวเลือกที่หลากหลาย</h2>
                     <p>ด้วยคอมโบและโปรโมชั่นมากมาย คุณจึงมีโอกาสซื้อนม UP5 ในราคาที่คุ้มค่าที่สุด</p>
                 </div>
-                <div class="swiper">
+                <div class="swiper swiper_combo">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide combo_item">
                             <img src="img/combo sản phẩm/31.png" alt="combo 1">
@@ -269,8 +270,8 @@
                     </div>
 
                 </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev swiper-button-prev-combo"></div>
+                <div class="swiper-button-next swiper-button-next-combo"></div>
             </div>
 
             <div class="active_session">
@@ -279,10 +280,11 @@
                         <img src="img/Recruitment-Icon1.png" alt="icon">
                         <span class="title">กิจกรรมและการสื่อสาร</span>
                     </div>
-                    <p class="desc">อย่าพลาดข้อมูลสื่อที่มีประโยชน์และโปรโมชั่นสุดพิเศษของ UP5</p>
+                    <p class="desc" style="margin-bottom: 10px;">อย่าพลาดข้อมูลสื่อที่มีประโยชน์และโปรโมชั่นสุดพิเศษของ
+                        UP5</p>
                     <a href="#" class="btn">ดูเพิ่มเติม →</a>
                 </div>
-                <div class="swiper">
+                <div class="swiper swiper_active">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide active_item">
                             <img src="img/20200728_viem-dai-trang-1.jpg" alt="bai 1">
@@ -297,7 +299,7 @@
                             <i style="font-size: 13px;color: black;" class="fa fa-calendar"></i><span
                                 style="color: black;font-size: 13px;">13/5/2025</span>
                             <h3>หยุดอาการเรอเปรี้ยว</h3>
-                            
+
                             <span>ดูเพิ่มเติม</span><i class="fa fa-arrow-right"></i>
                         </div>
                         <div class="swiper-slide active_item">
@@ -308,62 +310,55 @@
 
                             <span>ดูเพิ่มเติม</span><i class="fa fa-arrow-right"></i>
                         </div>
-                         <div class="swiper-slide active_item">
+                        <div class="swiper-slide active_item">
                             <img src="img/câu chuyện thương hiệu/chuyên gia.png" alt="bai 2">
                             <i style="font-size: 13px;color: black;" class="fa fa-calendar"></i><span
                                 style="color: black;font-size: 13px;">13/5/2025</span>
                             <h3>หยุดอาการเรอเปรี้ยว</h3>
-                            
+
                             <span>ดูเพิ่มเติม</span><i class="fa fa-arrow-right"></i>
                         </div>
                     </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev swiper-button-prev-active"></div>
+                    <div class="swiper-button-next swiper-button-next-active"></div>
                 </div>
 
             </div>
             <div class="form-session">
-        <form action="#" method="post" class="index-form">
-            <h3>กรุณากรอกข้อมูลของคุณก่อนออกจากหน้านี้</h3>
-            <p>เพื่อให้เจ้าหน้าที่ติดต่อกลับพร้อมข้อเสนอพิเศษสำหรับคุณ</p>
+                <form action="#" method="post" class="index-form">
+                    <h3>ฝากข้อมูลของคุณไว้</h3>
 
-            <label for="name">ชื่อ - นามสกุล:</label>
-            <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" placeholder="ชื่อ - นามสกุล" required>
+                    <input type="tel" id="phone" name="phone" placeholder="เบอร์โทรศัพท์" required>
+                    <input type="text" id="address" name="address" placeholder="ที่อยู่" required>
 
-            <label for="phone">เบอร์โทรศัพท์:</label>
-            <input type="tel" id="phone" name="phone" required>
+                    <textarea id="message" name="message" rows="4" placeholder="ข้อความเพิ่มเติม..."></textarea>
 
-            <label for="address">ที่อยู่:</label>
-            <input type="text" id="address" name="address" required>
-
-            <label for="message">ข้อความเพิ่มเติม:</label>
-            <textarea id="message" name="message" rows="4" placeholder="กรุณากรอกข้อความของคุณ..."></textarea>
-
-            <button type="submit">ส่งแบบฟอร์ม</button>
-            
-        </form>
-    </div>
-        </div>
-        </div>
-
-        <div id="main-content" style="display: none;"></div>
-        <div class="line-qr-box">
-            <div class="qr-wrapper">
-                <img src="img/line_qr_demo.png" alt="LINE QR">
-                <div class="line-label">@lineaccount</div>
+                    <button type="submit">ส่งแบบฟอร์ม</button>
+                </form>
+            </div>
             </div>
 
-            <!-- Optional floating buttons -->
-            <div class="floating-btn call-btn">
-                <i class="fas fa-phone" style="color: white;font-size: 20px;"></i>
+
+
+            <div id="main-content" style="display: none;"></div>
+            <div class="line-qr-box">
+                <div class="qr-wrapper">
+                    <img src="img/line_qr_demo.png" alt="LINE QR">
+                    <div class="line-label">@lineaccount</div>
+                </div>
+
+                <!-- Optional floating buttons -->
+                <div class="floating-btn call-btn">
+                    <i class="fas fa-phone" style="color: white;font-size: 20px;"></i>
+                </div>
+                <div onclick="loadPage('frontend/cart.html','ตะกร้าสินค้าของคุณ')" class="floating-btn cart-btn">
+                    <i class="fas fa-shopping-cart" style="color: white;font-size: 20px;"></i>
+                </div>
             </div>
-            <div onclick="loadPage('frontend/cart.html','ตะกร้าสินค้าของคุณ')" class="floating-btn cart-btn">
-                <i class="fas fa-shopping-cart" style="color: white;font-size: 20px;"></i>
-            </div>
-        </div>
-        
+
     </main>
-    
+
     <div id="footer-placeholder"></div>
     <!-- <button onclick="scrollToTop()" id="backToTop" title="Lên đầu trang">
         ⬆

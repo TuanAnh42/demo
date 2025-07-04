@@ -51,7 +51,7 @@ h4 {
   display: none;
   position: absolute;
   background-color: white;
-  min-width: 250px;
+  min-width: 300px;
   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
   z-index: 999;
   top: 200%;
@@ -88,8 +88,8 @@ h4 {
 }
 
 .dropdown-content a:hover {
-  background-color: rgb(197, 187, 187);
-  color: orange !important;
+  background-color: rgb(227, 225, 225);
+  color: rgb(247, 185, 69) !important;
 }
 
 /* Sticky menu dưới */
@@ -541,11 +541,15 @@ h4 {
 .active_content {
   background-color: #e9f3fc;
   padding: 30px;
-  margin:30px auto;
+  margin:50px auto;
+  
+}
+.swiper_active {
+  padding: 0 50px; /* Lùi lề trái/phải 40px */
 }
 
 .active_item {
-  width: 300px;
+  width: 350px;
   border-radius: 10px;
   padding: 20px;
   text-align: left;
@@ -615,7 +619,7 @@ h4 {
 .desc {
   font-size: 18px;
   color: #003366;
-  margin-top: 10px;
+ 
   /* Không cần margin-left: text sẽ bắt đầu từ trái */
 }
 

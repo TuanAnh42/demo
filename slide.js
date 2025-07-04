@@ -86,6 +86,10 @@ function loadPage(url, title = "") {
     .then(res => res.text())
     .then(html => {
       document.getElementById("main-content").innerHTML = html;
+    if (url.includes("faq.html") && typeof initFaqToggle === "function") {
+  initFaqToggle();
+}
+
 
       const hash = window.location.hash;
       if (hash) {
@@ -98,24 +102,7 @@ function loadPage(url, title = "") {
       }
     })
     .catch(err => console.error("Không thể tải nội dung:", err));
-  setTimeout(() => {
-    const menuItems = document.querySelectorAll(".tabs-left li");
 
-    menuItems.forEach(item => {
-      item.addEventListener("click", function () {
-        const targetId = this.getAttribute("data-target");
-        const targetElement = document.querySelector(targetId);
-
-        if (targetElement) {
-          const yOffset = -80;
-          const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        }
-      });
-
-    });
-  }, 100); // Delay 100ms sau khi nội dung đã được gắn vào
 
 }
 function showHome() {
@@ -235,61 +222,91 @@ function showExitForm() {
 
   document.getElementById("exitForm").style.display = "flex";
 }
-const swiper = new Swiper('.swiper', {
-    loop: true,
-    spaceBetween: 30,
+
+  const swiperCombo = new Swiper('.swiper_combo', {
     slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next-combo',
+      prevEl: '.swiper-button-prev-combo',
     },
+    autoplay:false,
+    
     breakpoints: {
-      0: {
-        slidesPerView: 1
+      320: {
+        slidesPerView: 1.1,
       },
-      768: {
-        slidesPerView: 2
+      640: {
+        slidesPerView: 2,
       },
       1024: {
-        slidesPerView: 3
+        slidesPerView: 3,
       }
     }
   });
 
-  const toggleBtn = document.getElementById("toggle-button");
-  const content = document.getElementById("long-content");
-
-  toggleBtn.addEventListener("click", () => {
-    content.classList.toggle("expanded");
-    toggleBtn.textContent = content.classList.contains("expanded")
-      ? "ย่อเนื้อหา"
-      : "ดูเพิ่มเติม";
-  });
- function toggleForm() {
-    const form = document.getElementById("review-form");
-    form.style.display = form.style.display === "none" ? "block" : "none";
-  }
-
-  document.querySelectorAll('.faq-question').forEach(item => {
-    item.addEventListener('click', () => {
-      const answer = item.nextElementSibling;
-      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-    });
-  });
-    document.querySelectorAll('.faq-question').forEach(item => {
-    item.addEventListener('click', () => {
-      const answer = item.nextElementSibling;
-      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-    });
-  });
-
-  // Mở tự động nếu URL chứa #faq
-  window.addEventListener('load', () => {
-    if (window.location.hash === '#faq') {
-      const firstAnswer = document.querySelector('.faq-answer');
-      if (firstAnswer) firstAnswer.style.display = 'block';
+ 
+  const swiperActive = new Swiper('.swiper_active', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next-active',
+      prevEl: '.swiper-button-prev-active',
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1.1,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      }
     }
   });
+
+
+// main.js
+function initFaqToggle() {
+  const faqBox = document.getElementById('faq');
+  if (!faqBox) return;
+
+  const faqQuestions = faqBox.querySelectorAll('.faq-question');
+
+  faqQuestions.forEach((question) => {
+    question.addEventListener('click', () => {
+      const answer = question.nextElementSibling;
+      const icon = question.querySelector('.toggle-icon');
+      const isOpen = answer.style.display === 'block';
+
+      // Ẩn tất cả câu trả lời và đặt lại icon thành "+"
+      faqBox.querySelectorAll('.faq-answer').forEach((ans) => {
+        ans.style.display = 'none';
+      });
+      faqBox.querySelectorAll('.faq-question .toggle-icon').forEach((i) => {
+        i.textContent = '+';
+      });
+
+      // Nếu đang đóng thì mở ra và đổi icon thành "-"
+      if (!isOpen) {
+        answer.style.display = 'block';
+        if (icon) icon.textContent = '–';
+      }
+    });
+  });
+
+  // Mặc định ẩn hết câu trả lời khi trang tải
+  faqBox.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+}
+
+
 
 
 // // Hiện nút khi cuộn xuống 200px
