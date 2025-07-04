@@ -81,10 +81,14 @@ body {
   /* margin-bottom: 16px; */
 
 }
+
 .content-right{
     padding: 10px;
     line-height: 2.5;
     margin-left: 60px;
+}
+.content-right img{
+  width: 95%;
 }
 .roman-list{
     line-height: 2.5;

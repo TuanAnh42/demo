@@ -69,6 +69,7 @@ fetch("frontend/footer.html")
   .then(html => {
     document.getElementById("footer-placeholder").innerHTML = html
   });
+ 
 function loadPage(url, title = "") {
   document.getElementById("default-content").style.display = "none";
   document.getElementById("main-content").style.display = "block";
@@ -264,7 +265,31 @@ const swiper = new Swiper('.swiper', {
       ? "ย่อเนื้อหา"
       : "ดูเพิ่มเติม";
   });
+ function toggleForm() {
+    const form = document.getElementById("review-form");
+    form.style.display = form.style.display === "none" ? "block" : "none";
+  }
 
+  document.querySelectorAll('.faq-question').forEach(item => {
+    item.addEventListener('click', () => {
+      const answer = item.nextElementSibling;
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+    document.querySelectorAll('.faq-question').forEach(item => {
+    item.addEventListener('click', () => {
+      const answer = item.nextElementSibling;
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+
+  // Mở tự động nếu URL chứa #faq
+  window.addEventListener('load', () => {
+    if (window.location.hash === '#faq') {
+      const firstAnswer = document.querySelector('.faq-answer');
+      if (firstAnswer) firstAnswer.style.display = 'block';
+    }
+  });
 
 
 // // Hiện nút khi cuộn xuống 200px

@@ -16,13 +16,11 @@
 
       <!-- CỘT 1: Hình ảnh sản phẩm -->
       <div class="product-left">
-        <img id="mainImage" src="img/z6680689810990_56888da8ababe64686741f52c17e1926.jpg" alt="UP5 Product"
-          class="main-img" />
+        <img id="mainImage" src="img/sản phẩm/2.jpg" alt="UP5 Product" class="main-img" />
         <div class="thumbnail-row">
-          <img src="img/câu chuyện thương hiệu/nhà máy.jpg" class="thumb" onclick="changeImage(this.src)" />
-          <img src="img/câu chuyện thương hiệu/nhà máy 2.jpg" class="thumb" onclick="changeImage(this.src)" />
-          <img src="img/z6680689810990_56888da8ababe64686741f52c17e1926.jpg" class="thumb"
-            onclick="changeImage(this.src)" />
+          <img src="../img/sản phẩm/3.jpg" class="thumb" onclick="changeImage(this.src)" />
+          <!-- <img src="img/câu chuyện thương hiệu/nhà máy 2.jpg" class="thumb" onclick="changeImage(this.src)" /> -->
+          <img src="img/sản phẩm/2.jpg" class="thumb" onclick="changeImage(this.src)" />
         </div>
       </div>
 
@@ -301,7 +299,7 @@
                   <td>g</td>
                   <td>0.000001</td>
                 </tr>
-                <!-- Bạn có thể tiếp tục các dòng còn lại tương tự -->
+
               </tbody>
             </table>
 
@@ -328,12 +326,92 @@
             </p>
           </div>
         </div>
-        <div class="toggle-container">
-          <button id="toggle-button">ดูเพิ่มเติม</button>
-        </div>
+
       </div>
+      
+    </div>
+    
+  </div>
+  <div class="review-box">
+  <h2>รีวิวสินค้า <span style="color: gray">(8 รีวิว)</span></h2>
+
+  <div>
+    <div style="font-size: 36px; font-weight: bold;">5.0 ⭐</div>
+    <div>ยอดเยี่ยม</div>
+    <div class="stars">★★★★★</div>
+    <button class="button" onclick="toggleForm()">ส่งรีวิว</button>
+  </div>
+
+  <div class="bar-chart">
+    <div class="bar-row">
+      <div class="stars">★★★★★</div>
+      <div class="bar"><div class="bar-fill" style="width: 100%;"></div></div>
+      <div class="bar-count">8</div>
+    </div>
+    <div class="bar-row">
+      <div class="stars">★★★★☆</div>
+      <div class="bar"><div class="bar-fill" style="width: 0%;"></div></div>
+      <div class="bar-count">0</div>
+    </div>
+    <div class="bar-row">
+      <div class="stars">★★★☆☆</div>
+      <div class="bar"><div class="bar-fill" style="width: 0%;"></div></div>
+      <div class="bar-count">0</div>
+    </div>
+    <div class="bar-row">
+      <div class="stars">★★☆☆☆</div>
+      <div class="bar"><div class="bar-fill" style="width: 0%;"></div></div>
+      <div class="bar-count">0</div>
+    </div>
+    <div class="bar-row">
+      <div class="stars">★☆☆☆☆</div>
+      <div class="bar"><div class="bar-fill" style="width: 0%;"></div></div>
+      <div class="bar-count">0</div>
     </div>
   </div>
+
+  <div class="filters">
+    <p>กรองตาม:</p>
+    <button>5 ดาว</button>
+    <button>4 ดาว</button>
+    <button>3 ดาว</button>
+    <button>2 ดาว</button>
+    <button>1 ดาว</button>
+  </div>
+
+  <!-- Form -->
+  <div id="review-form">
+    <div class="stars">★★★★★</div>
+    <p style="text-align: center; font-weight: bold;">ยอดเยี่ยม</p>
+
+    <div class="input-row">
+      <input type="text" placeholder="ชื่อ-นามสกุล">
+      <input type="text" placeholder="เบอร์โทรศัพท์">
+    </div>
+    <input type="email" placeholder="อีเมล (ไม่บังคับ)">
+    <textarea placeholder="เขียนรีวิวของคุณ..."></textarea>
+
+    <div class="upload-box">
+      ลากไฟล์มาวางที่นี่ หรือ <a href="#">เลือกภาพจากอุปกรณ์</a>
+    </div>
+
+    <button class="button" style="margin-top: 20px; width: 100%;">ส่ง</button>
+  </div>
+
+  <!-- Danh sách đánh giá -->
+  <div class="review-item">
+    <strong>ผู้ใช้: Dgdh</strong> – ⭐ 5 <br />
+    good <br />
+    <small>3 เดือนที่ผ่านมา</small>
+  </div>
+
+  <div class="review-item">
+    <strong>ผู้ใช้: Thảo</strong> – ⭐ 5 <br />
+    ดีมากค่ะ <br />
+    <small>2 เดือนที่ผ่านมา</small>
+  </div>
+</div>
+
   <script src="../slide.js"></script>
 </body>
 

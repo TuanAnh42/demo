@@ -84,7 +84,10 @@ body {
   width: 60%;
   flex-wrap: wrap;
 }
-
+.manufacture-session img{
+  width: 95%;
+  
+  }
 .manufacture-session h2 {
   color: #1e1a5e;
   font-size: 28px;
