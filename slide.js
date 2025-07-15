@@ -35,12 +35,13 @@ dots.forEach((dot, i) => {
   dot.onclick = () => goToSlide(i);
 });
 
-if (!window.slideInterval) {
-  window.slideInterval = setInterval(() => changeSlide(1), 5000);
-}
+
 
 document.addEventListener("DOMContentLoaded", () => {
   showSlide(currentIndex);
+  if (!window.slideInterval) {
+  window.slideInterval = setInterval(() => changeSlide(1), 5000);
+}
 });
 function toggleMenu() {
   const menuWrapper = document.getElementById("mainMenuWrapper");
