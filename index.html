@@ -14,22 +14,38 @@
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="css/checkout.css" />
+    <link rel="stylesheet" href="css/benhli.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/patical.css">
 </head>
 
 <body>
     <div id="header-placeholder"></div>
     <div id="exitFormContainer"></div>
+    <!-- Nút toggle mở menu -->
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
 
-    <div class="sticky_menu">
-        <div class="menu" id="mainMenu">
+    <!-- Overlay toàn màn hình -->
+    <div id="menuOverlay" class="menu-overlay" onclick="toggleMenu()"></div>
+
+    <!-- Menu bên trái -->
+    <div id="mainMenuWrapper" class="side-menu">
+        <div class="menu-header">
+             
+            <button class="close-btn" onclick="toggleMenu()">✕</button>
+        </div>
+
+        <nav class="menu">
             <a href="#" onclick="showHome()">หน้าแรก</a>
             <a href="#" onclick="loadPage('frontend/product.html','ผลิตภัณฑ์')">ผลิตภัณฑ์</a>
-            <div class="dropdown">
-                <div class="dropdown-trigger">
-                    <a href="#">แนะนำเกี่ยวกับแบรนด์ UP5</a>
-                </div>
+
+            <div class="menu-dropdown">
+                <button class="dropdown-toggle" onclick="toggleDropdown(this)">แนะนำเกี่ยวกับแบรนด์ UP5
+                    <span>▼</span></button>
                 <div class="dropdown-content">
-                    <div class="dropdown-arrow"></div>
                     <a href="#" onclick="loadPage('frontend/about.html','เรื่องราวของ Up5')">เรื่องราวของ Up5</a>
                     <a href="#"
                         onclick="loadPage('frontend/manufacture.html','การเดินทางการผลิต')">การเดินทางการผลิต</a>
@@ -37,22 +53,23 @@
                         onclick="loadPage('frontend/quality.html','ความมุ่งมั่นด้านคุณภาพ')">ความมุ่งมั่นด้านคุณภาพ</a>
                 </div>
             </div>
-            <div class="dropdown">
-                <div class="dropdown-trigger">
-                    <a href="#">โรคระบบทางเดินอาหาร</a>
-                </div>
+
+            <div class="menu-dropdown">
+                <button class="dropdown-toggle" onclick="toggleDropdown(this)">โรคระบบทางเดินอาหาร
+                    <span>▼</span></button>
                 <div class="dropdown-content">
-                    <div class="dropdown-arrow"></div>
                     <a href="#" onclick="loadPage('frontend/daday.html','โรคกระเพาะอาหาร')">โรคกระเพาะอาหาร</a>
                     <a href="#" onclick="loadPage('frontend/daitrang.html','โรคลำไส้ใหญ่')">โรคลำไส้ใหญ่</a>
+                    <a href="#"
+                        onclick="loadPage('frontend/tieuhoa.html','การดูแลระบบย่อยอาหาร')">การดูแลระบบย่อยอาหาร</a>
                 </div>
             </div>
+
             <a href="#" onclick="showExitForm()">ติดต่อเลย</a>
-
             <a href="#" onclick="loadPage('frontend/faq.html')">FAQs</a>
-
-        </div>
+        </nav>
     </div>
+
 
     <main>
         <div class="dynamic-title-section" style="display: none;">
@@ -66,10 +83,10 @@
         <div id="default-content">
             <div class="banner_slide">
                 <div class="slide active">
-                    <img src="img/banner/Banner.png" alt="Banner1" />
+                    <img src="img/banner/banner.png" alt="Banner1" />
                 </div>
                 <div class="slide">
-                    <img src="img/banner/banner 1.png" alt="Banner2" />
+                    <img src="img/banner/banner-1.png" alt="Banner2" />
                 </div>
                 <button class="prev">&lt;</button>
                 <button class="next">&gt;</button>
@@ -92,7 +109,7 @@
                     </p>
                 </div>
                 <div class="ingredient_img reveal">
-                    <img src="img/ingredient/thành phần.png" alt="">
+                    <img src="img/ingredient/thanh-phan.png" alt="">
                 </div>
             </div>
             <div class="ingredient">
@@ -100,7 +117,7 @@
                 <div class="ingredient-column">
                     <div class="ingredient-item-1 reveal">
                         <div></div>
-                        <img src="img/ingredient/beta glucan.png" alt="beta glucan">
+                        <img src="img/ingredient/beta-glucan.png" alt="beta glucan">
                         <div class="content">
                             <h4>Beta-Glucan</h4>
                             <p>สารสกัดจากเห็ด 9 ชนิดจากภูเขาฟูจิ, ประเทศญี่ปุ่น.
@@ -110,7 +127,7 @@
                         </div>
                     </div>
                     <div class="ingredient-item-2 reveal">
-                        <img src="img/ingredient/cam thảo.png" alt="cam thảo">
+                        <img src="img/ingredient/cam-thao.png" alt="cam thảo">
                         <div class="content">
                             <h4>ชะมดเชียง (Licorice)</h4>
                             <p>สมุนไพรโบราณช่วยบรรเทาอาการระคายเคืองในกระเพาะอาหาร ลดการหลั่งกรด ลดอาการปวดและการอักเสบ
@@ -119,7 +136,7 @@
                         </div>
                     </div>
                     <div class="ingredient-item-3 reveal">
-                        <img src="img/ingredient/đẳng sâm.png" alt="đẳng sâm">
+                        <img src="img/ingredient/dang-sam.png" alt="đẳng sâm">
                         <div class="content">
                             <h4>โสมจีน (Ginseng)</h4>
                             <p>สมุนไพรที่มีคุณค่า ช่วยบำรุงร่างกาย เพิ่มประสิทธิภาพการย่อยอาหาร เพิ่มภูมิต้านทาน
@@ -130,7 +147,7 @@
                 </div>
                 <div class="ingredient-column">
                     <div class="ingredient-item-4 reveal">
-                        <img src="img/ingredient/nano cucumin.png" alt="nano cucumin">
+                        <img src="img/ingredient/nano-cucumin.png" alt="nano cucumin">
                         <div class="content">
                             <h4>ขมิ้น(Nano Curcumin)</h4>
                             <p>สารสกัดจากขมิ้นในรูปแบบนาโนช่วยเพิ่มการดูดซึมเข้าสู่ร่างกายมากกว่าขมิ้นทั่วไปหลายเท่า
@@ -140,7 +157,7 @@
                         </div>
                     </div>
                     <div class="ingredient-item-5 reveal">
-                        <img src="img/ingredient/linh chi.png" alt="Linh chi">
+                        <img src="img/ingredient/linh-chi.png" alt="Linh chi">
                         <div class="content">
                             <h4>เห็ดหลินจือ (Reishi)</h4>
                             <p> เห็ดหลินจือช่วยเสริมสร้างระบบภูมิคุ้มกัน ช่วยดีท็อกซ์ตับ บรรเทาความเครียด
@@ -185,7 +202,7 @@
                     <!-- Cột phải: Các icon và nội dung -->
                     <div class="uses-container">
                         <div class="uses_icon_1 reveal">
-                            <img src="img/uses/icon dạ dày.png" alt="daday">
+                            <img src="img/uses/icon-da-day.png" alt="daday">
                             <div class="uses_content">
                                 <h4>ช่วยผู้ที่เป็นโรคกระเพาะ</h4>
                                 <p>นม UP5 ช่วยบรรเทาอาการของโรคกระเพาะ เช่น โรคกระเพาะอักเสบ, กรดไหลย้อน, ท้องอืด,
@@ -194,7 +211,7 @@
                             </div>
                         </div>
                         <div class="uses_icon_2 reveal">
-                            <img src="img/uses/icon đại tràng.png" alt="daitrang">
+                            <img src="img/uses/icon-dai-trang.png" alt="daitrang">
                             <div class="uses_content">
                                 <h4>ช่วยผู้ที่เป็นโรคลำไส้ใหญ่</h4>
                                 <p>นม UP5 มีประสิทธิภาพในการช่วยรักษาปัญหาของลำไส้ใหญ่ เช่น ท้องเสีย, ท้องผูก,
@@ -203,7 +220,7 @@
                             </div>
                         </div>
                         <div class="uses_icon_3 reveal">
-                            <img src="img/uses/icon miễn dịch.png" alt="miendich">
+                            <img src="img/uses/icon-mien-dich.png" alt="miendich">
                             <div class="uses_content">
                                 <h4>เสริมสร้างระบบภูมิคุ้มกัน</h4>
                                 <p> นม UP5 ช่วยเสริมสร้างภูมิคุ้มกันและสุขภาพโดยรวม
@@ -212,7 +229,7 @@
                             </div>
                         </div>
                         <div class="uses_icon_4 reveal">
-                            <img src="img/uses/icon người dùng.png" alt="nguoidung">
+                            <img src="img/uses/icon-nguoi-dung.png" alt="nguoidung">
                             <div class="uses_content">
                                 <h4>เหมาะสำหรับผู้ไม่ย่อยแลคโตส ผู้สูงอายุ และเด็ก 6 ปีขึ้นไป</h4>
                                 <p>ด้วยสูตรที่ปลอดภัย นม UP5 สามารถใช้ได้กับผู้ที่มีปัญหาการย่อยแลคโตส ผู้สูงอายุ
@@ -231,9 +248,9 @@
                     <p>ประเมินผลิตภัณฑ์นม UP5 อย่างไร</p>
                 </div>
                 <div class="user_img">
-                    <img src="img/người dùng/1.png" alt="">
-                    <img src="img/người dùng/2.png" alt="">
-                    <img src="img/người dùng/3.png" alt="">
+                    <img src="img/nguoi-dung/1.png" alt="">
+                    <img src="img/nguoi-dung/2.png" alt="">
+                    <img src="img/nguoi-dung/3.png" alt="">
                 </div>
             </div>
             <div class="combo">
@@ -244,28 +261,37 @@
                 <div class="swiper swiper_combo">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide combo_item">
-                            <img src="img/combo sản phẩm/31.png" alt="combo 1">
-                            <h3>UP 5 400g - ซื้อ 3 แถม 1</h3>
-                            <p>2,799฿</p>
-                            <span>ซื้อเลย</span><i class="fa fa-arrow-right"></i>
+                            <a href="#" onclick="loadPage('frontend/product.html','ผลิตภัณฑ์')">
+                                <img src="img/combo-san-pham/31.png" alt="combo 1">
+                                <h3>UP 5 400g - ซื้อ 3 แถม 1</h3>
+                                <p>2,799฿</p>
+                                <span>ซื้อเลย</span><i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide combo_item">
+                            <a href="#" onclick="loadPage('frontend/product.html','ผลิตภัณฑ์')">
+                                <img src="img/combo-san-pham/42.png" alt="combo 2">
+                                <h3>UP 5 400g - ซื้อ 4 แถม 2</h3>
+                                <p>2,799฿</p>
+                                <span>ซื้อเลย</span><i class="fa fa-arrow-right"></i>
+                            </a>
                         </div>
                         <div class="swiper-slide combo_item">
-                            <img src="img/combo sản phẩm/42.png" alt="combo 2">
-                            <h3>UP 5 400g - ซื้อ 4 แถม 2</h3>
-                            <p>2,799฿</p>
-                            <span>ซื้อเลย</span><i class="fa fa-arrow-right"></i>
+                            <a href="#" onclick="loadPage('frontend/product.html','ผลิตภัณฑ์')">
+                                <img src="img/combo-san-pham/53.png" alt="combo 3">
+                                <h3>UP 5 400g - ซื้อ 5 แถม 3</h3>
+                                <p>4,999฿</p>
+                                <span>ซื้อเลย</span><i class="fa fa-arrow-right"></i>
+                            </a>
                         </div>
                         <div class="swiper-slide combo_item">
-                            <img src="img/combo sản phẩm/53.png" alt="combo 3">
-                            <h3>UP 5 400g - ซื้อ 5 แถม 3</h3>
-                            <p>4,999฿</p>
-                            <span>ซื้อเลย</span><i class="fa fa-arrow-right"></i>
-                        </div>
-                        <div class="swiper-slide combo_item">
-                            <img src="img/combo sản phẩm/75.png" alt="combo 4">
-                            <h3>UP 5 400g - ซื้อ 7 แถม 5</h3>
-                            <p>6,999฿</p>
-                            <span>ซื้อเลย</span><i class="fa fa-arrow-right"></i>
+                            <a href="#" onclick="loadPage('frontend/product.html','ผลิตภัณฑ์')">
+                                <img src="img/combo-san-pham/75.png" alt="combo 4">
+                                <h3>UP 5 400g - ซื้อ 7 แถม 5</h3>
+                                <p>6,999฿</p>
+                                <span>ซื้อเลย</span><i class="fa fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
 
@@ -277,51 +303,22 @@
             <div class="active_session">
                 <div class="active_content">
                     <div class="top_row">
-                        <img src="img/Recruitment-Icon1.png" alt="icon">
+                        <img src="img/recruitment-icon1.png" alt="icon">
                         <span class="title">กิจกรรมและการสื่อสาร</span>
                     </div>
                     <p class="desc" style="margin-bottom: 10px;">อย่าพลาดข้อมูลสื่อที่มีประโยชน์และโปรโมชั่นสุดพิเศษของ
                         UP5</p>
-                    <a href="#" class="btn">ดูเพิ่มเติม →</a>
+                    <a href="#" onclick="loadPage('frontend/tieuhoa.html','')" class="btn">ดูเพิ่มเติม →</a>
                 </div>
-                <div class="swiper swiper_active">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide active_item">
-                            <img src="img/20200728_viem-dai-trang-1.jpg" alt="bai 1">
-                            <i style="font-size: 13px;color: black;" class="fa fa-calendar"></i><span
-                                style="color: black;font-size: 13px;">13/5/2025</span>
-                            <h3>หยุดอาการเสียดท้องจากกรดไหลย้อน</h3>
+                <div style="position: relative;overflow: visible; z-index: 1;" class="swiper swiper_active">
+                    <div style="position: absolute;left: -20px;top: 50%;z-index: 999;"
+                        class="swiper-button-prev swiper-button-prev-active"></div>
 
-                            <span>ดูเพิ่มเติม</span><i class="fa fa-arrow-right"></i>
-                        </div>
-                        <div class="swiper-slide active_item">
-                            <img src="img/câu chuyện thương hiệu/chuyên gia.png" alt="bai 2">
-                            <i style="font-size: 13px;color: black;" class="fa fa-calendar"></i><span
-                                style="color: black;font-size: 13px;">13/5/2025</span>
-                            <h3>หยุดอาการเรอเปรี้ยว</h3>
-
-                            <span>ดูเพิ่มเติม</span><i class="fa fa-arrow-right"></i>
-                        </div>
-                        <div class="swiper-slide active_item">
-                            <img src="img/20200728_viem-dai-trang-1.jpg" alt="bai 1">
-                            <i style="font-size: 13px;color: black;" class="fa fa-calendar"></i><span
-                                style="color: black;font-size: 13px;">13/5/2025</span>
-                            <h3>หยุดอาการเสียดท้องจากกรดไหลย้อน</h3>
-
-                            <span>ดูเพิ่มเติม</span><i class="fa fa-arrow-right"></i>
-                        </div>
-                        <div class="swiper-slide active_item">
-                            <img src="img/câu chuyện thương hiệu/chuyên gia.png" alt="bai 2">
-                            <i style="font-size: 13px;color: black;" class="fa fa-calendar"></i><span
-                                style="color: black;font-size: 13px;">13/5/2025</span>
-                            <h3>หยุดอาการเรอเปรี้ยว</h3>
-
-                            <span>ดูเพิ่มเติม</span><i class="fa fa-arrow-right"></i>
-                        </div>
+                    <div class="swiper-wrapper wrapper-content" id="post-list">
                     </div>
-                    <div class="swiper-button-prev swiper-button-prev-active"></div>
-                    <div class="swiper-button-next swiper-button-next-active"></div>
+                    <div style="right:-20px;top: 50%" class="swiper-button-next swiper-button-next-active"></div>
                 </div>
+
 
             </div>
             <div class="form-session">
@@ -337,28 +334,24 @@
                     <button type="submit">ส่งแบบฟอร์ม</button>
                 </form>
             </div>
+        </div>
+        <div id="main-content" style="display: none;"></div>
+        <div class="line-qr-box">
+            <div class="qr-wrapper">
+                <img src="img/qr-line.jpg" alt="LINE QR">
+                <div class="line-label">+66931587658</div>
             </div>
-
-
-
-            <div id="main-content" style="display: none;"></div>
-            <div class="line-qr-box">
-                <div class="qr-wrapper">
-                    <img src="img/line_qr_demo.png" alt="LINE QR">
-                    <div class="line-label">@lineaccount</div>
-                </div>
-
-                <!-- Optional floating buttons -->
+            <!-- Optional floating buttons -->
+            <a href="http://m.me/431631586689864" target="_blank">
                 <div class="floating-btn call-btn">
                     <i class="fas fa-phone" style="color: white;font-size: 20px;"></i>
                 </div>
-                <div onclick="loadPage('frontend/cart.html','ตะกร้าสินค้าของคุณ')" class="floating-btn cart-btn">
-                    <i class="fas fa-shopping-cart" style="color: white;font-size: 20px;"></i>
-                </div>
+            </a>
+            <div onclick="loadPage('frontend/cart.html','ตะกร้าสินค้าของคุณ')" class="floating-btn cart-btn">
+                <i class="fas fa-shopping-cart" style="color: white;font-size: 20px;"></i>
             </div>
-
+        </div>
     </main>
-
     <div id="footer-placeholder"></div>
     <!-- <button onclick="scrollToTop()" id="backToTop" title="Lên đầu trang">
         ⬆

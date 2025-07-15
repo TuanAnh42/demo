@@ -91,3 +91,22 @@ body {
     margin-top: 10px;
   }
 }
+@media (max-width: 768px) {
+  .footer-left,
+  .footer-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-left p,
+  .footer-right p {
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .footer-left p {
+    margin-left: 0;
+    white-space: normal;
+  }
+}
+

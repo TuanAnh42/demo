@@ -2,7 +2,6 @@ body {
 
   margin: 0;
   padding: 0;
-  /* background-image: url('../img/banner/banner 1.png'); */
   background-size: cover;
   /* Phủ kín toàn bộ màn hình */
   background-repeat: no-repeat;
@@ -131,11 +130,7 @@ body {
   padding: 20px;
   padding: 14px;
   background-color: #f1fbe8;  /* xanh bơ nhạt */
-
-
-
   border-radius: 16px;
-
   height: fit-content;
   max-width: 360px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -209,4 +204,56 @@ body {
 
 .close-btn:hover {
   color: #000;
+}
+@media (max-width: 1024px) {
+  .index-form {
+    left: 50px;
+    bottom: 80px;
+    max-width: 320px;
+  }
+
+  .form-session {
+    background-size: cover; /* ưu tiên hiển thị tốt hơn trên tablet */
+    padding: 0 12px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .index-form {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .form-session {
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: auto;
+    padding: 40px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .index-form h3 {
+    font-size: 1.1rem;
+  }
+
+  .index-form p {
+    font-size: 0.9rem;
+  }
+
+  .index-form input,
+  .index-form textarea {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .index-form button {
+    font-size: 15px;
+    padding: 10px;
+  }
 }

@@ -1,4 +1,10 @@
 /* Layout tổng: padding nhỏ hơn, nội dung căn giữa */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
@@ -7,9 +13,9 @@ html {
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   background-color: #e9f3fc;
-
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .container {
@@ -39,12 +45,18 @@ h4 {
   position: relative;
 }
 
+.dropdown-toggle span {
+  transition: transform 0.3s ease;
+}
+
+.menu-dropdown.open .dropdown-toggle span {
+  transform: rotate(180deg);
+}
+
 .dropdown-trigger {
   cursor: pointer;
   padding-bottom: 20px;
-  /* tăng khoảng cách để giữ hover */
   display: inline;
-
 }
 
 .dropdown-content {
@@ -52,7 +64,6 @@ h4 {
   position: absolute;
   background-color: white;
   min-width: 300px;
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
   z-index: 999;
   top: 200%;
   left: 40%;
@@ -61,7 +72,6 @@ h4 {
   border: 0.7px dashed black;
 }
 
-/* Mũi tên nhọn hướng lên */
 .dropdown-arrow {
   position: absolute;
   top: -10px;
@@ -79,12 +89,10 @@ h4 {
   padding: 5px 10px;
   color: black !important;
   text-decoration: none;
-
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-
 }
 
 .dropdown-content a:hover {
@@ -92,18 +100,15 @@ h4 {
   color: rgb(247, 185, 69) !important;
 }
 
-/* Sticky menu dưới */
 .sticky_menu {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   background-color: #211f5e;
   padding: 20px 0;
   width: 100%;
-
 }
 
-/* Menu chính */
 .menu {
   display: flex;
   justify-content: center;
@@ -378,6 +383,26 @@ h4 {
   line-height: 1.6;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.combo_item,
+.active_item {
+  width: 100%;
+  max-width: 320px;
+  margin: 20px auto;
+  font-size: 18px;
+}
+
+.ingredient img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
 .uses {
   background-image: url(../img/background.png);
   background-repeat: no-repeat;
@@ -481,19 +506,17 @@ h4 {
   text-align: center;
   max-width: 100%;
   font-size: 20px;
- 
+
 }
 
-
 .combo_item {
-  margin-top: 80px;
   background-color: white;
-  width: 300px;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
   font-size: 24px;
   font-weight: bold;
+  margin: 40px 6px auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -513,6 +536,12 @@ h4 {
   margin-bottom: 10px;
 }
 
+.swiper-slide a {
+  text-decoration: none;
+  color: black;
+
+}
+
 .combo_item p {
   color: orange;
   font-weight: bold;
@@ -522,40 +551,26 @@ h4 {
 
 .combo_item span,
 .combo_item i {
-  padding-right: 5px;
+  padding-right: 10px;
   font-size: 20px;
   color: dodgerblue;
 }
+
 .swiper-button-prev,
 .swiper-button-next {
-  
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 1000;
+
+  z-index: 300;
 }
+
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
   color: rgb(141, 177, 232);
 }
 
-.active_content {
-  background-color: #e9f3fc;
-  padding: 30px;
-  margin:50px auto;
-  
-}
-.swiper_active {
-  padding: 0 50px; /* Lùi lề trái/phải 40px */
-}
 
-.active_item {
-  width: 350px;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: left;
-  font-size: 24px;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.active_session {
+  background-color: #e9f3fc;
+
 }
 
 .active_item:hover {
@@ -570,9 +585,22 @@ h4 {
   margin-bottom: 20px;
 }
 
+.swiper_active {
+  width: 1200px;
+  margin: 30px auto;
+
+}
+
 .active_item h3 {
   font-size: 20px;
   margin-bottom: 10px;
+}
+
+.swiper-slide {
+  width: auto;
+  flex-shrink: 0;
+
+  padding: 10px;
 }
 
 .active_item p {
@@ -588,22 +616,17 @@ h4 {
   font-size: 20px;
   color: dodgerblue;
 }
-.swiper-button-prev,
-.swiper-button-next {
-  
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 1000;
+
+.active_content {
+  margin: 20px;
 }
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  color: rgb(141, 177, 232);
-}
+
 
 .top_row {
   display: flex;
   align-items: center;
   gap: 10px;
+
 }
 
 .top_row img {
@@ -617,10 +640,9 @@ h4 {
 }
 
 .desc {
+  margin: 20px;
   font-size: 18px;
   color: #003366;
- 
-  /* Không cần margin-left: text sẽ bắt đầu từ trái */
 }
 
 .btn {
@@ -628,6 +650,7 @@ h4 {
   background-color: #005bbb;
   color: white;
   padding: 10px 20px;
+  margin: 10px;
   border-radius: 999px;
   text-decoration: none;
   font-weight: bold;
@@ -657,14 +680,10 @@ h4 {
   width: 100px;
   margin: 0 auto;
   left: 20%;
-  
-
-
 }
 
 .qr-wrapper img {
   background-color: white;
-  padding: 10px;
   width: 100%;
   border-radius: 20px;
   border: 2px solid black;
@@ -682,9 +701,8 @@ h4 {
   border-radius: 20px;
   font-weight: bold;
   position: absolute;
-
   left: 50%;
-  margin-top: -30px;
+  margin-top: -25px;
   transform: translateX(-50%);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -694,19 +712,6 @@ h4 {
   color: white;
 }
 
-/* 
-.line-label::after {
-  content: "";
-  position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-bottom: 6px solid white;
-} */
-
-/* Floating buttons */
 .floating-btn {
   width: 50px;
   height: 50px;
@@ -720,15 +725,144 @@ h4 {
   margin-right: -25px;
 }
 
+.line-qr-box a {
+  text-decoration: none;
+}
+
 .floating-btn:hover {
   background-color: #06234e;
 }
 
+.menu-toggle {
+  position: fixed;
 
+  left: 20px;
+  z-index: 1001;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 300px;
+  z-index: 999;
+  top: 200%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 0;
+  border: 0.7px dashed black;
+}
 
+.dropdown:hover .dropdown-content {
+  display: block;
+  /* Chỉ hover mới hiện ở desktop */
+}
 
+/* Overlay mờ bên ngoài menu */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: none;
+}
 
+/* Slide menu từ trái */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background: white;
+  z-index: 1002;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Khi menu mở */
+.side-menu.show {
+  transform: translateX(0);
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-logo {
+  max-height: 40px;
+}
+
+.close-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu a {
+  text-decoration: none;
+  padding: 12px 0;
+  color: #212121;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+
+/* Dropdown */
+.menu-dropdown {
+  margin-top: 10px;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: left;
+  padding: 12px 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.dropdown-toggle span {
+  float: right;
+}
+
+.dropdown-content {
+  display: none;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.dropdown-content a {
+  font-weight: normal;
+  font-size: 15px;
+  padding: 8px 0;
+  color: #444;
+}
+
+.menu-dropdown.open .dropdown-content {
+  display: flex;
+}
 
 @keyframes floatUpDown {
   0% {
@@ -794,6 +928,7 @@ h4 {
   border: none;
   font-size: 24px;
   cursor: pointer;
+  height: fit-content;
   padding: 10px;
 }
 
@@ -821,114 +956,7 @@ h4 {
 }
 
 
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  .headerpage {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-  }
-
-  .logo {
-    width: 100%;
-    height: auto;
-    text-align: center;
-  }
-
-  .search {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .user-account {
-    justify-content: center;
-    font-size: 16px;
-  }
-
-  .language-select {
-    justify-content: center;
-  }
-}
-
-/* Responsive điện thoại */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .menu {
-    display: none;
-    flex-direction: column;
-    background-color: black;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-
-  .menu.show {
-    display: flex;
-  }
-
-  .menu a {
-    padding: 8px 0;
-    border-bottom: 1px solid #ddd;
-  }
-}
-
-@media (max-width: 768px) {
-  .slide img {
-    height: auto;
-  }
-
-  .prev,
-  .next {
-    font-size: 18px;
-    padding: 8px 12px;
-  }
-}
-
-@media (max-width: 768px) {
-  .mission_section {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px 10px;
-  }
-
-  .mission_text p {
-    max-width: 100%;
-  }
-
-  .mission_image img {
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .ingredient {
-    flex-direction: column;
-    padding: 20px 10px;
-  }
-
-  .ingredient-item-1,
-  .ingredient-item-2,
-  .ingredient-item-3,
-  .ingredient-item-4,
-  .ingredient-item-5,
-  .ingredient-item-6 {
-    flex-direction: column !important;
-    align-items: center;
-    text-align: center;
-  }
-
-  .ingredient img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .ingredient .content {
-    padding: 0 10px;
-  }
-}
-
+/* ---------- Responsive cho Tablet & Mobile ---------- */
 @media (max-width: 1024px) {
   .uses-wrapper {
     grid-template-columns: 1fr 1fr;
@@ -940,23 +968,173 @@ h4 {
   }
 }
 
+/* ---------- Responsive cho Mobile ---------- */
 @media (max-width: 768px) {
-  .uses-wrapper {
-    grid-template-columns: 1fr;
+
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
-  .img_uses img {
-    width: 80%;
+  .container {
+    padding: 0 12px;
+  }
+
+  .breadcrumb {
+    margin-left: 20px;
+    font-size: 14px;
+  }
+
+  .banner_slide {
+    max-height: 300px;
+  }
+
+  .prev,
+  .next {
+    font-size: 15px;
+    padding: 6px 10px;
+  }
+
+  .dots {
+    bottom: 10px;
+  }
+
+  .dropdown {
+    position: relative;
+    width: 100%;
+  }
+
+  .dropdown-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    color: white;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: static;
+    background-color: #2d2b5f;
+    border: none;
+    padding-left: 20px;
+  }
+
+  .dropdown-content a {
+    color: white;
+    padding: 10px 0;
+    display: block;
+    text-align: left;
+  }
+
+
+  .menu-dropdown.open .dropdown-content {
+    display: flex;
+  }
+
+  .dropdown-arrow {
+    display: none;
+    /* Không cần mũi tên trên mobile */
+  }
+
+  .mission_section {
+    padding: 30px 10px;
+    flex-direction: column;
+  }
+
+  .mission_image img {
+    max-width: 100%;
+  }
+
+  .mission_text p {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .ingredient {
+    padding: 20px 10px;
+  }
+
+  .ingredient-column {
+    gap: 20px;
+  }
+
+  .ingredient-item-1,
+  .ingredient-item-2,
+  .ingredient-item-3,
+  .ingredient-item-4,
+  .ingredient-item-5,
+  .ingredient-item-6 {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center !important;
     margin: 0 auto;
   }
 
-  .uses_text,
-  .uses-container {
+  .ingredient-item-1 img,
+  .ingredient-item-2 img,
+  .ingredient-item-3 img,
+  .ingredient-item-4 img,
+  .ingredient-item-5 img,
+  .ingredient-item-6 img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .uses-wrapper {
+    grid-template-columns: 1fr;
+    margin: 0 10px;
+  }
+
+  .img_uses img {
+    margin-top: 40px;
+  }
+
+  .combo {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+
+  .combo_item {
+    margin: 20px auto;
+    font-size: 18px;
+    padding: 16px;
+  }
+
+
+
+  .active_item img {
+    height: auto;
+  }
+
+  .swiper_active {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .user_img img {
+    max-width: 90%;
+  }
+
+  .top_row {
+    flex-direction: column;
+  }
+
+  .top_row img {
+    width: 60px;
+  }
+
+  .title {
+    font-size: 24px;
     text-align: center;
   }
-}
 
-@media (max-width: 768px) {
+  .desc {
+    font-size: 16px;
+    text-align: center;
+  }
+
   .uses-container>div {
     flex-direction: column;
     align-items: center;
@@ -964,39 +1142,152 @@ h4 {
   }
 
   .uses-container img {
-    width: 60px;
-    height: 60px;
+    margin-bottom: 10px;
   }
-}
 
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
+  .line-qr-box {
+    right: 20px;
+    bottom: 80px;
+    width: 60px;
+  }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .qr-wrapper {
+    width: 80px;
+  }
 
-#backToTop {
-  position: fixed;
-  bottom: 40px;
-  right: 30px;
-  z-index: 999;
-  background-color: #1e1a5e;
-  color: white;
-  border: none;
-  padding: 12px 16px;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  display: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: opacity 0.3s ease;
-}
+  .line-label {
+    font-size: 8px;
+    padding: 4px 8px;
+  }
 
-#backToTop:hover {
-  background-color: #44408e;
+  .floating-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+
+  /* Mặc định ẩn toàn bộ menu wrapper */
+
+  #mainMenuWrapper {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    left: 0;
+    text-align: left;
+    z-index: 999;
+    height: fit-content;
+
+  }
+
+  #mainMenuWrapper.show {
+    display: flex;
+
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+
+  }
+
+  .menu a {
+    padding: 12px 0;
+
+    font-size: 18px;
+    color: black;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+
+    left: 0;
+    z-index: 1001;
+    background: transparent;
+    color: black;
+    border: none;
+    font-size: 28px;
+  }
+
+  /* Dropdown mobile (menu mở bên trái) */
+  .menu-dropdown {
+    width: 100%;
+  }
+
+  .dropdown-toggle {
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+    padding: 12px 20px;
+    width: 100%;
+    color: #212121;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  /* Mũi tên xoay */
+  .dropdown-toggle span {
+    transition: transform 0.3s ease;
+  }
+
+  .menu-dropdown.open .dropdown-toggle span {
+    transform: rotate(180deg);
+  }
+
+  /* Nội dung dropdown */
+  .dropdown-content {
+    display: none;
+    position: relative;
+    /* Thay vì static */
+    background-color: #d0cff5;
+    border: none;
+    padding: 10px;
+
+    z-index: 9999;
+    /* Đảm bảo nằm trên các phần khác */
+    margin: 0 auto;
+    /* Căn giữa theo chiều ngang */
+    width: 80%;
+    /* Đảm bảo không quá rộng */
+
+  }
+
+
+  .dropdown-content a {
+    color: white;
+    padding: 12px 20px;
+    display: block;
+    text-align: left;
+    /* Căn giữa từng dòng */
+  }
+
+
+  /* Khi mở */
+  .menu-dropdown.open .dropdown-content {
+    display: flex;
+  }
+
+  /* Các mục trong dropdown */
+  .dropdown-content a {
+    color: white;
+    padding: 10px 15px;
+    font-size: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f7b945;
+  }
+
 }

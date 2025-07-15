@@ -7,22 +7,26 @@
 
  .container {
      display: flex;
-     max-width: 1100px;
+     max-width: 1150px;
      margin: auto;
      padding: 20px;
      gap: 20px;
  }
 
- .main {
-     flex: 3;
+ .main-content {
      display: flex;
      flex-direction: column;
-     gap: 40px;
+     gap: 20px;
+     width: 100%;
  }
 
  .section {
      display: flex;
      flex-direction: column;
+     background-color: white;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+     border-radius: 20px;
  }
 
  .section-title {
@@ -31,6 +35,8 @@
      padding-bottom: 5px;
      border-bottom: 2px solid #0097a7;
      color: #006064;
+     padding: 20px;
+
  }
 
  .post-grid {
@@ -39,24 +45,15 @@
      gap: 15px;
  }
 
- .sidebar {
-     flex: 1;
-     background-color: #fff;
-     padding: 20px;
-     border-radius: 8px;
-     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-     height: fit-content;
+ .post-grid a {
+     text-decoration: none;
+     color: black;
  }
-.sidebar ul li{
-    list-style: none;
-    margin: 10px;
-}
 
  .post-card {
      background: #fff;
      border-radius: 8px;
      overflow: hidden;
-     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
      display: flex;
      flex-direction: column;
      transition: transform 0.2s ease;
@@ -68,8 +65,10 @@
  }
 
  .post-card img {
+     padding: 10px;
+     border-radius: 20px;
      width: 100%;
-     height: 190px;
+     height: 250px;
      object-fit: cover;
  }
 
@@ -91,55 +90,31 @@
      font-size: 0.85rem;
      color: #555;
      line-height: 1.3em;
-     height: 3.9em;
+     display: -webkit-box;
+     -webkit-line-clamp: 2;
+     -webkit-box-orient: vertical;
      overflow: hidden;
  }
 
- .search-box input {
-     width: 100%;
-     padding: 8px;
-     margin-bottom: 20px;
-     border-radius: 5px;
-     border: 1px solid #ccc;
- }
+ 
 
- .sidebar section {
-     margin-bottom: 30px;
- }
+ @media (max-width: 768px) {
+     .container {
+         flex-direction: column;
+         padding: 10px;
+     }
 
- .sidebar h4 {
-     margin-bottom: 10px;
- }
+     .post-grid {
+         grid-template-columns: 1fr;
+         /* Chuyển về 1 cột */
+     }
 
- .recent-posts li {
-     list-style: none;
-     margin-bottom: 10px;
- }
+     .post-card img {
+         height: 200px;
+         /* Giảm chiều cao ảnh nếu cần */
+     }
 
- .tags span {
-     display: inline-block;
-     background: #e0f7fa;
-     color: #00796b;
-     padding: 6px 10px;
-     margin: 4px 4px 0 0;
-     border-radius: 5px;
-     font-size: 0.85rem;
-     cursor: pointer;
- }
-
- .recent-posts li {
-     display: flex;
-     align-items: center;
-     cursor: pointer;
-     gap: 10px;
- }
- .recent-posts li:hover{
-    color: cornflowerblue;
- }
-
- .recent-posts img {
-     width: 50px;
-     height: 50px;
-     object-fit: cover;
-     border-radius: 4px;
+     .sidebar {
+         width: 100%;
+     }
  }

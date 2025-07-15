@@ -10,9 +10,10 @@
 
 <body>
     <header>
-        <div class="headerpage">
+        <div class="headerpage sticky_header">
+            
             <a href="index.html">
-                <img src="img/Logo FDA (2).png" class="logo" alt="">
+                <img src="img/logo-fda-2.png" class="logo" alt="">
             </a>
             <div class="search">
                 <i class="fa fa-search icon_search" aria-hidden="true" style="color: #1e1a5e;"></i>
@@ -30,16 +31,21 @@
                         <a href="#">ออกจากระบบ</a>
                     </div>
                 </div>
-
-                <span class="cart">
-                    <i class="fa fa-cart-plus" aria-hidden="true" style="color: #1e1a5e;"></i>
-                </span>
             </div>
-            <button class="menu-toggle" onclick="toggleMenu()">☰ เมนู</button>
+
+            <span class="cart">
+                <a href="#" onclick="loadPage('frontend/cart.html')"><i class="fa fa-cart-plus" aria-hidden="true"
+                        style="color: #1e1a5e;"></i>
+                    <span id="cart-count">0</span></a>
+            </span>
+
+
+
+
         </div>
     </header>
 
-
+    <script src="/slide.js"></script>
 
 </body>
 

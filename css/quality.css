@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  background-color: #f8f9fa !important;
+  background-color: #f6f7f9 !important;
 }
 
 .container {
@@ -80,18 +80,25 @@ body {
   font-size: 28px;
   margin-top: -30px;
   /* margin-bottom: 16px; */
+  margin-left: 15px;
 
 }
 
 .content-right {
+  margin-left: 60px;
   padding: 10px;
   line-height: 2.5;
-  margin-left: 60px;
+
+  
+  
+  
 }
 
 .content-right img {
-  width: 95%;
+  width: 90%;
+border-radius: 10px;
 }
+
 
 .roman-list {
   line-height: 2.5;
@@ -101,38 +108,49 @@ body {
 .roman-list img {
   width: 100%;
   height: auto;
-
+border-radius: 10px;
   margin-top: 10px;
 }
 
 .roman-list li {
-  margin-left: 40px;
+  margin-left: 10px;
 }
 
 .roman-list ul,
 ol {
-  margin-left: -20px;
+  margin-left: -15px;
 }
 
 .certificates {
   display: flex;
-
   justify-content: center;
+
+  
 
 }
 
 .certificate-box {
-  background: white;
-  border: 1px solid #ddd;
+  background: rgb(254, 254, 254);
+  /* border: 1px solid #ddd; */
   width: 250px;
   padding: 14px;
+   box-shadow: #ddd;
+    background-size: cover;
+  /* 🔄 đổi từ cover -> contain để ảnh không bị cắt */
+  background-position: center center;
+  background-repeat: no-repeat;
+  justify-content: flex-start;
+  
+ 
+
 
 }
 
 .certificate-box h3 {
   font-size: 16px;
   color: #000;
-  border-bottom: 1px solid grey;
+  text-align: center;
+ 
 }
 
 
@@ -148,6 +166,80 @@ ol {
 .certificate-box p {
   font-size: 16px;
   color: #333;
-  text-align: left;
-  border-top: 1px solid grey;
+  text-align: center;
+}
+/* ------------ Responsive cho Tablet & Mobile ------------- */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .left-sidebar {
+    position: static;
+    width: 100%;
+    flex: none;
+    order: 2;
+    top: auto;
+  }
+
+  .content-right {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .content-right h2 {
+    margin-left: 0;
+    font-size: 22px;
+  }
+
+  .toc-header {
+    font-size: 16px;
+  }
+
+  .certificate-box {
+    width: 100%;
+  }
+
+  .certificates {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .content-right img,
+  .roman-list img {
+    width: 100%;
+  }
+
+  .content-area {
+    order: 1;
+  }
+}
+
+/* ------------ Responsive cho Mobile nhỏ hơn 480px ------------ */
+@media (max-width: 480px) {
+  .content-right {
+    font-size: 15px;
+    line-height: 2;
+  }
+.left-sidebar{
+  display: none;
+  }
+  .toc-header {
+    font-size: 15px;
+  }
+
+  .certificate-box h3 {
+    font-size: 14px;
+  }
+
+  .certificate-box p {
+    font-size: 14px;
+  }
+
+  .content-right h2 {
+    font-size: 20px;
+  }
 }

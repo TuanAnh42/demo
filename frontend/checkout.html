@@ -1,81 +1,69 @@
-<!DOCTYPE html>
-<html lang="th">
+<div class="checkout-container">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>หน้าเช็คเอาท์</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/checkout.css" />
-</head>
+    <!-- BÊN TRÁI: THÔNG TIN NGƯỜI MUA & SẢN PHẨM -->
+    <div class="left-section">
+        <h2>ผลิตภัณฑ์ที่คุณสั่งซื้อ</h2>
 
-<body>
+        <div id="quick-buy-info"></div>
 
-    <div class="checkout-container">
-
-        <!-- BÊN TRÁI: THÔNG TIN NGƯỜI MUA & SẢN PHẨM -->
-        <div class="left-section">
-            <h2>ผลิตภัณฑ์ที่คุณสั่งซื้อ</h2>
-            <div class="checkout-product">
-                <img src="img/z6680689810990_56888da8ababe64686741f52c17e1926.jpg" alt="product" />
-                <div class="product-details">
-                    <div class="product-title">นม UP5 ขนาด 400 กรัม (สำหรับผู้ที่มีภาวะยูเรียในเลือดสูง)</div>
-                    <div class="product-meta">
-                        <span class="price">1,449฿</span>
-                        <span class="quantity">x17 ซื้อ 1 กระป๋อง ราคา</span>
-                    </div>
-                </div>
+        <h2>ข้อมูลผู้สั่งซื้อ</h2>
+        <div class="row-group">
+            <div class="form-group half">
+                <input type="text" name="fullname" placeholder=" " required />
+                <label>ชื่อ - นามสกุล:</label>
             </div>
-
-            <h2>ข้อมูลผู้สั่งซื้อ</h2>
-            <div class="row-group">
-                <div class="form-group half">
-                    <input type="text" name="fullname" placeholder=" " required />
-                    <label>ชื่อ - นามสกุล:</label>
-                </div>
-                <div class="form-group half">
-                    <input type="tel" name="phone" placeholder=" " required />
-                    <label>เบอร์โทรศัพท์:</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <input required type="email" placeholder=" " />
-                <label>อีเมล (ไม่จำเป็นต้องกรอก):</label>
-            </div>
-            <div class="form-group">
-                <textarea required rows="3" placeholder=" "></textarea>
-                <label>ที่อยู่จัดส่ง:</label>
-            </div>
-            <div class="form-group">
-                <textarea required rows="2" placeholder=" "></textarea>
-                <label>หมายเหตุ (ไม่จำเป็นต้องกรอก):</label>
+            <div class="form-group half">
+                <input type="tel" name="phone" placeholder=" " required />
+                <label>เบอร์โทรศัพท์:</label>
             </div>
         </div>
 
-        <!-- BÊN PHẢI: PHƯƠNG THỨC VÀ TỔNG TIỀN -->
-        <div class="right-section">
-            <h2>ช่องทางการชำระเงิน</h2>
-            <div class="radio">
-                <input type="radio" name="payment" checked> ชำระเงินปลายทาง (COD)
-            </div>
+        <div class="form-group">
+            <input type="email" name="email" placeholder=" " />
+            <label>อีเมล (ไม่จำเป็นต้องกรอก):</label>
+        </div>
 
-            <hr />
-            <div class="summary-row">
-                <span>รวมสินค้า:</span>
-                <span>2,799฿</span>
-            </div>
-            <div class="summary-row">
-                <span>ส่วนลด:</span>
-                <span>0฿</span>
-            </div>
-            <div class="summary-row total">
-                <span>รวมทั้งหมด:</span>
-                <span>2,799฿</span>
-            </div>
+        <div class="form-group">
+            <textarea name="address" rows="3" placeholder=" " required></textarea>
+            <label>ที่อยู่จัดส่ง:</label>
+        </div>
 
-            <button class="btn-confirm">เสร็จสิ้น</button>
+        <div class="form-group">
+            <textarea name="note" rows="2" placeholder=" "></textarea>
+            <label>หมายเหตุ (ไม่จำเป็นต้องกรอก):</label>
         </div>
     </div>
+
+    <!-- BÊN PHẢI: PHƯƠNG THỨC & TỔNG TIỀN -->
+    <div class="right-section">
+        <h2>ช่องทางการชำระเงิน</h2>
+        <div class="radio">
+            <input type="radio" name="payment" checked> ชำระเงินปลายทาง (COD)
+        </div>
+        <hr />
+        <div class="summary-row">
+            <span>รวมสินค้า:</span>
+            <span class="subtotal">-</span>
+        </div>
+        <div class="summary-row">
+            <span>ส่วนลด:</span>
+            <span class="discount">0฿</span>
+        </div>
+        <div class="summary-row total">
+            <span>รวมทั้งหมด:</span>
+            <span class="total-price">-</span>
+        </div>
+
+        <button class="btn-confirm">เสร็จสิ้น</button>
+    </div>
+</div>
+<script src="/slide.js">
+
+</script>
+
+
+
+
 
 </body>
 
