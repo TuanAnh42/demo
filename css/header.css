@@ -9,11 +9,13 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ==== HEADER CHUNG ==== */
+/* ==== HEADER ==== */
 header {
   width: 100%;
   background-color: white;
   border-bottom: 1px solid #eee;
+  z-index: 1000;
+  position: relative;
 }
 
 .headerpage {
@@ -21,28 +23,27 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 24px;
-  gap: 20px;
   position: relative;
 }
 
-/* ==== LOGO ==== */
+/* === LOGO === */
 .logo {
   height: 48px;
   width: auto;
 }
 
-
-
-/* ==== TÌM KIẾM ==== */
+/* === TÌM KIẾM === */
 .search {
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
   border-radius: 99px;
   padding: 4px 8px;
-
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  max-width: 400px;
+  margin: 0 16px;
 }
 
 .search input {
@@ -71,10 +72,9 @@ header {
   margin-left: 8px;
 }
 
-/* ==== TÀI KHOẢN & GIỎ HÀNG ==== */
+/* === TÀI KHOẢN === */
 .user-actions {
   display: flex;
-  
   gap: 16px;
   position: relative;
 }
@@ -118,26 +118,12 @@ header {
   color: #211f5e;
 }
 
+/* === GIỎ HÀNG === */
 .cart {
   font-size: 24px;
   position: relative;
   color: #1e1a5e;
   cursor: pointer;
-}
-#cart-count {
-  position: absolute;
-  top: -8px;
-  right: -10px;
-  background-color: red;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 50%;
-}
-
-.cart-bounce {
-  transform: scale(1.3);
 }
 
 #cart-count {
@@ -153,43 +139,203 @@ header {
   min-width: 18px;
   text-align: center;
 }
-
-.cart-bounce {
-  animation: bounce 0.3s;
+.side-menu.no-transition {
+  transition: none !important;
+}
+/* === NÚT MENU === */
+.menu-toggle {
+  display: none;
+  /* Chỉ hiển thị ở mobile */
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  color: #1e1a5e;
+   z-index: 1005;
 }
 
-@keyframes bounce {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.3); }
-  100% { transform: scale(1); }
+/* === MENU OVERLAY === */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: none;
 }
 
+/* === SIDE MENU === */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background: white;
+  z-index: 1002;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  display: flex;
+  flex-direction: column;
+}
 
-/* ==== RESPONSIVE MOBILE ==== */
+.side-menu.show {
+  transform: translateX(0);
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu a {
+  text-decoration: none;
+  padding: 12px 0;
+  color: #212121;
+  font-weight: bold;
+
+}
+
+/* === DROPDOWN === */
+.menu-dropdown {
+  margin-top: 10px;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: left;
+  padding: 12px 0;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-dropdown.open .dropdown-content-bar {
+  display: flex;
+}
+
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
-  .headerpage {
-    flex-direction: row;
-    justify-content: space-between;
+ .headerpage {
+    display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
     padding: 10px 16px;
   }
 
-  
+  .menu-toggle {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+  }
 
   .logo {
     height: 40px;
-    margin: 0 auto;
   }
 
+  .cart {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+  }
   .search {
     display: none;
   }
 
   .user-account {
-    display: none; /* Ẩn tài khoản để gọn trên mobile */
+    display: none;
   }
 
-  .cart {
-    margin: 0;
+  #mainMenuWrapper {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+
+    width: 100%;
+    left: 0;
+    text-align: left;
+    z-index: 999;
+    height: fit-content;
   }
+
+  #mainMenuWrapper.show {
+    display: flex;
+  }
+
+  .dropdown-toggle span {
+    transition: transform 0.3s ease;
+  }
+
+  .menu-dropdown.open .dropdown-toggle span {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-content-bar {
+    display: none;
+    flex-direction: column;
+    border-radius: 12px;
+    background-color: transparent;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 9999;
+
+  }
+
+  .menu-dropdown.open .dropdown-content-bar {
+    display: flex;
+  }
+
+  .dropdown-content-bar a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e9e9ff;
+    padding: 14px 18px;
+    border-bottom: 1px solid rgb(219, 217, 217);
+    text-decoration: none;
+    color: #1e1a5e;
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: background-color 0.2s;
+  }
+
+  .dropdown-content-bar a:hover {
+    background-color: #d6d4fb;
+  }
+
 }

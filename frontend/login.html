@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <title>เข้าสู่ระบบหรือสมัครสมาชิก</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #loginOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .login-container {
+            font-family: 'Prompt', sans-serif;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 360px;
+            text-align: center;
+            position: relative;
+        }
+
+        .login-container h2 {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .login-container p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 14px;
+            background-color: #0d5cf2;
+            color: white;
+            border: none;
+            border-radius: 999px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .separator {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #ccc;
+        }
+
+        .separator span {
+            margin: 0 10px;
+            color: #666;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: white;
+        }
+
+        .social-icon img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loginOverlay">
+        <div class="login-container" id="loginForm">
+            <span class="close-button" onclick="closeLoginForm()">×</span>
+            <form action="#" id="loginContact">
+                <h2>เข้าสู่ระบบหรือสมัครสมาชิก</h2>
+                <p>กรุณาเข้าสู่ระบบเพื่อรับสิทธิพิเศษสำหรับสมาชิก</p>
+
+                <input class="input-field" type="email" placeholder="อีเมลบัญชีผู้ใช้">
+                <input class="input-field" type="password" placeholder="รหัสผ่าน">
+
+                <button class="login-button">เข้าสู่ระบบ</button>
+
+                <div class="separator">
+                    <span>หรือเข้าสู่ระบบด้วย</span>
+                </div>
+
+                <div class="social-login">
+                    <div class="social-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google">
+                    </div>
+                    <div class="social-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

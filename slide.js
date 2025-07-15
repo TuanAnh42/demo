@@ -35,23 +35,30 @@ dots.forEach((dot, i) => {
   dot.onclick = () => goToSlide(i);
 });
 
-setInterval(() => changeSlide(1), 5000);
+if (!window.slideInterval) {
+  window.slideInterval = setInterval(() => changeSlide(1), 5000);
+}
 
-window.onload = () => showSlide(currentIndex);
-
+document.addEventListener("DOMContentLoaded", () => {
+  showSlide(currentIndex);
+});
 function toggleMenu() {
   const menuWrapper = document.getElementById("mainMenuWrapper");
+  const isOpen = menuWrapper.classList.contains("show");
   const toggleBtn = document.querySelector(".menu-toggle");
+  if (isOpen) {
+    // Đóng menu
+    menuWrapper.classList.remove("show");
 
-  menuWrapper.classList.toggle("show");
-
-  // Ẩn nút toggle khi menu hiển thị
-  if (menuWrapper.classList.contains("show")) {
-    toggleBtn.style.display = "none";
-  } else {
     toggleBtn.style.display = "block";
+
+  } else {
+    // Mở menu
+    menuWrapper.classList.add("show");
+    toggleBtn.style.display = "none";
   }
 }
+
 
 // Thêm đoạn xử lý dropdown ở đây:
 document.addEventListener("DOMContentLoaded", function () {
@@ -73,27 +80,19 @@ function toggleDropdown(button) {
   const parent = button.closest(".menu-dropdown");
   parent.classList.toggle("open");
 }
+
 function closeMenu() {
   const menuWrapper = document.getElementById("mainMenuWrapper");
-  const overlay = document.getElementById("menuOverlay");
   const toggleBtn = document.querySelector(".menu-toggle");
+  const overlay = document.getElementById("menuOverlay");
 
   menuWrapper.classList.remove("show");
-  overlay.style.display = "none";
-  toggleBtn.style.display = "block";
+  if (overlay) {
+    overlay.style.display = "none";
+    toggleBtn.style.display = "block";
+  }
 }
 
-// Bắt tất cả link trong menu khi click thì đóng menu
-document.addEventListener("DOMContentLoaded", function () {
-  const menuLinks = document.querySelectorAll("#mainMenuWrapper .menu a, #mainMenuWrapper .dropdown-content a");
-
-  menuLinks.forEach(link => {
-    link.addEventListener("click", function () {
-      // Đóng menu sau khi click
-      closeMenu();
-    });
-  });
-});
 
 
 
@@ -533,10 +532,44 @@ function closeExitForm() {
   document.getElementById("exitForm").style.display = "none";
 }
 
-function showExitForm() {
+function showLoginForm() {
+  // Kiểm tra nếu overlay đã tồn tại
+  const overlay = document.getElementById("loginOverlay");
 
-  document.getElementById("exitForm").style.display = "flex";
+  if (overlay) {
+    overlay.style.display = "flex";
+    return;
+  }
+
+  // Nếu chưa có → tải form login.html và gắn vào DOM
+  fetch('frontend/login.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('showLoginFormContent').innerHTML = data;
+
+      const overlay = document.getElementById("loginOverlay");
+      if (!overlay) return;
+
+      overlay.style.display = "flex";
+
+      // Đóng khi click ra ngoài form
+      overlay.addEventListener("click", function (e) {
+        const popup = document.getElementById("loginForm");
+        if (!popup.contains(e.target)) {
+          overlay.style.display = "none";
+        }
+      });
+    })
+    .catch(error => {
+      console.error("Lỗi khi tải form đăng nhập:", error);
+    });
 }
+
+function closeLoginForm() {
+  const overlay = document.getElementById("loginOverlay");
+  if (overlay) overlay.style.display = "none";
+}
+
 // Hiển thị dữ liệu từ localStorage trên trang checkout
 
 
@@ -741,9 +774,9 @@ const swiperActive = new Swiper('.swiper_active', {
     1024: {
       slidesPerView: 4,
     }
-    
+
   }
-  
+
 });
 console.log('Swiper initialized:', swiperActive);
 

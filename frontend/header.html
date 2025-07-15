@@ -10,8 +10,10 @@
 
 <body>
     <header>
-        <div class="headerpage sticky_header">
-            
+        <div class="headerpage">
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
             <a href="index.html">
                 <img src="img/logo-fda-2.png" class="logo" alt="">
             </a>
@@ -25,8 +27,7 @@
                     <i class="fas fa-user" style="color: #1e1a5e;"></i>
                     <span style="color: #1e1a5e;">บัญชี</span>
                     <div class="account-dropdown">
-                        <a href="#">เข้าสู่ระบบ</a>
-                        <a href="#">สมัครสมาชิก</a>
+                        <a href="#" onclick="showLoginForm()">เข้าสู่ระบบ</a>
                         <a href="#">ข้อมูลส่วนตัว</a>
                         <a href="#">ออกจากระบบ</a>
                     </div>
@@ -39,13 +40,54 @@
                     <span id="cart-count">0</span></a>
             </span>
 
+            <!-- Overlay toàn màn hình -->
+            <div id="menuOverlay" class="menu-overlay" onclick="toggleMenu()"></div>
+            <!-- Menu bên trái -->
+            <div id="mainMenuWrapper" class="side-menu">
+                <div class="menu-header">
+                    <a href="index.html">
+                        <img src="img/logo-fda-2.png" class="logo" alt="">
+                    </a>
+                    <button class="close-btn" onclick="toggleMenu()">✕</button>
+                </div>
 
+                <nav class="menu">
+                    <a href="#" onclick="showHome()">หน้าแรก</a>
+                    <a href="#" onclick="loadPage('frontend/product.html','ผลิตภัณฑ์');closeMenu()">ผลิตภัณฑ์</a>
 
+                    <div class="menu-dropdown">
+                        <button class="dropdown-toggle" onclick="toggleDropdown(this)">แนะนำเกี่ยวกับแบรนด์ UP5
+                            <span>▼</span></button>
+                        <div class="dropdown-content-bar">
+                            <a href="#" onclick="loadPage('frontend/about.html','เรื่องราวของ Up5');closeMenu()">เรื่องราวของ
+                                Up5</a>
+                            <a href="#"
+                                onclick="loadPage('frontend/manufacture.html','การเดินทางการผลิต');closeMenu()">การเดินทางการผลิต</a>
+                            <a href="#"
+                                onclick="loadPage('frontend/quality.html','ความมุ่งมั่นด้านคุณภาพ');closeMenu()">ความมุ่งมั่นด้านคุณภาพ</a>
+                        </div>
+                    </div>
 
+                    <div class="menu-dropdown">
+                        <button class="dropdown-toggle" onclick="toggleDropdown(this)">โรคระบบทางเดินอาหาร
+                            <span>▼</span></button>
+                        <div class="dropdown-content-bar">
+                            <a href="#" onclick="loadPage('frontend/daday.html','โรคกระเพาะอาหาร');closeMenu()">โรคกระเพาะอาหาร</a>
+                            <a href="#" onclick="loadPage('frontend/daitrang.html','โรคลำไส้ใหญ่');closeMenu()">โรคลำไส้ใหญ่</a>
+                            <a href="#"
+                                onclick="loadPage('frontend/tieuhoa.html','การดูแลระบบย่อยอาหาร');closeMenu()">การดูแลระบบย่อยอาหาร</a>
+                        </div>
+                    </div>
+
+                    <a href="#" onclick="showExitForm();closeMenu()">ติดต่อเลย</a>
+                    <a href="#" onclick="loadPage('frontend/faq.html');closeMenu()">FAQs</a>
+                </nav>
+            </div>
         </div>
+
     </header>
 
-    <script src="/slide.js"></script>
+
 
 </body>
 

@@ -41,22 +41,42 @@ h4 {
   font-weight: 500;
 }
 
+.desktop_sticky_menu {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #211f5e;
+  padding: 12px 0;
+  width: 100%;
+}
+
+.desktop_menu {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.desktop_menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 6px 12px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .dropdown {
   position: relative;
-}
-
-.dropdown-toggle span {
-  transition: transform 0.3s ease;
-}
-
-.menu-dropdown.open .dropdown-toggle span {
-  transform: rotate(180deg);
 }
 
 .dropdown-trigger {
   cursor: pointer;
   padding-bottom: 20px;
+  /* tăng khoảng cách để giữ hover */
   display: inline;
+
 }
 
 .dropdown-content {
@@ -64,14 +84,16 @@ h4 {
   position: absolute;
   background-color: white;
   min-width: 300px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
   z-index: 999;
-  top: 200%;
+  top: 135%;
   left: 40%;
   transform: translateX(-50%);
   padding: 5px 0;
-  border: 0.7px dashed black;
+  border: 0.7px dashed rgb(194, 205, 248);
 }
 
+/* Mũi tên nhọn hướng lên */
 .dropdown-arrow {
   position: absolute;
   top: -10px;
@@ -89,52 +111,18 @@ h4 {
   padding: 5px 10px;
   color: black !important;
   text-decoration: none;
+
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+
 }
 
 .dropdown-content a:hover {
   background-color: rgb(227, 225, 225);
   color: rgb(247, 185, 69) !important;
 }
-
-.sticky_menu {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: #211f5e;
-  padding: 20px 0;
-  width: 100%;
-}
-
-.menu {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 100px;
-}
-
-.menu a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  font-size: 16px;
-  padding-right: 70px;
-}
-
-
-/* .title {
-  font-size: 30px;
-  font-weight: bold;
-  color: #1e1a5e;
-  
-  margin-top: 50px;
-  margin-left: 440px;
-  margin-bottom: 10px;
-} */
-
 
 .banner_slide {
   position: relative;
@@ -680,6 +668,7 @@ img {
   width: 100px;
   margin: 0 auto;
   left: 20%;
+  /* pointer-events: none; */
 }
 
 .qr-wrapper img {
@@ -733,136 +722,6 @@ img {
   background-color: #06234e;
 }
 
-.menu-toggle {
-  position: fixed;
-
-  left: 20px;
-  z-index: 1001;
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 300px;
-  z-index: 999;
-  top: 200%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 5px 0;
-  border: 0.7px dashed black;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-  /* Chỉ hover mới hiện ở desktop */
-}
-
-/* Overlay mờ bên ngoài menu */
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1000;
-  display: none;
-}
-
-/* Slide menu từ trái */
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 300px;
-  height: 100vh;
-  background: white;
-  z-index: 1002;
-  padding: 20px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Khi menu mở */
-.side-menu.show {
-  transform: translateX(0);
-}
-
-.menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.menu-logo {
-  max-height: 40px;
-}
-
-.close-btn {
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.menu {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.menu a {
-  text-decoration: none;
-  padding: 12px 0;
-  color: #212121;
-  font-weight: bold;
-  border-bottom: 1px solid #eee;
-}
-
-/* Dropdown */
-.menu-dropdown {
-  margin-top: 10px;
-}
-
-.dropdown-toggle {
-  background: none;
-  border: none;
-  font-weight: bold;
-  font-size: 16px;
-  text-align: left;
-  padding: 12px 0;
-  width: 100%;
-  cursor: pointer;
-}
-
-.dropdown-toggle span {
-  float: right;
-}
-
-.dropdown-content {
-  display: none;
-  flex-direction: column;
-  padding-left: 10px;
-}
-
-.dropdown-content a {
-  font-weight: normal;
-  font-size: 15px;
-  padding: 8px 0;
-  color: #444;
-}
-
-.menu-dropdown.open .dropdown-content {
-  display: flex;
-}
 
 @keyframes floatUpDown {
   0% {
@@ -922,21 +781,6 @@ img {
   transition: box-shadow 0.3s ease;
 }
 
-.menu-toggle {
-  display: none;
-  background-color: white;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  height: fit-content;
-  padding: 10px;
-}
-
-/* Desktop giữ nguyên */
-.menu {
-  display: flex;
-  gap: 20px;
-}
 
 
 
@@ -970,6 +814,27 @@ img {
 
 /* ---------- Responsive cho Mobile ---------- */
 @media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .prev,
+  .next {
+    font-size: 16px;
+  }
+
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
 
   html,
   body {
@@ -984,8 +849,11 @@ img {
   .breadcrumb {
     margin-left: 20px;
     font-size: 14px;
+    display: none;
   }
-
+.desktop_sticky_menu{
+  display: none;
+  }
   .banner_slide {
     max-height: 300px;
   }
@@ -1000,43 +868,6 @@ img {
     bottom: 10px;
   }
 
-  .dropdown {
-    position: relative;
-    width: 100%;
-  }
-
-  .dropdown-trigger {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 20px;
-    color: white;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: static;
-    background-color: #2d2b5f;
-    border: none;
-    padding-left: 20px;
-  }
-
-  .dropdown-content a {
-    color: white;
-    padding: 10px 0;
-    display: block;
-    text-align: left;
-  }
-
-
-  .menu-dropdown.open .dropdown-content {
-    display: flex;
-  }
-
-  .dropdown-arrow {
-    display: none;
-    /* Không cần mũi tên trên mobile */
-  }
 
   .mission_section {
     padding: 30px 10px;
@@ -1102,8 +933,6 @@ img {
     padding: 16px;
   }
 
-
-
   .active_item img {
     height: auto;
   }
@@ -1146,13 +975,18 @@ img {
   }
 
   .line-qr-box {
-    right: 20px;
+    right: 50px;
     bottom: 80px;
     width: 60px;
   }
 
   .qr-wrapper {
-    width: 80px;
+    content: url('../img/qr-line-icon.png');
+     /* thay hình QR thành hình icon Line */
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+    margin-right: -10px;
   }
 
   .line-label {
@@ -1165,129 +999,7 @@ img {
     height: 40px;
     font-size: 18px;
   }
-
-
-  /* Mặc định ẩn toàn bộ menu wrapper */
-
-  #mainMenuWrapper {
+  .breadcrumb{
     display: none;
-    flex-direction: column;
-    background-color: white;
-    position: absolute;
-    top: 60px;
-    width: 100%;
-    left: 0;
-    text-align: left;
-    z-index: 999;
-    height: fit-content;
-
   }
-
-  #mainMenuWrapper.show {
-    display: flex;
-
-  }
-
-  .menu {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-
-  }
-
-  .menu a {
-    padding: 12px 0;
-
-    font-size: 18px;
-    color: black;
-  }
-
-  .menu-toggle {
-    display: block;
-    position: absolute;
-
-    left: 0;
-    z-index: 1001;
-    background: transparent;
-    color: black;
-    border: none;
-    font-size: 28px;
-  }
-
-  /* Dropdown mobile (menu mở bên trái) */
-  .menu-dropdown {
-    width: 100%;
-  }
-
-  .dropdown-toggle {
-    background: none;
-    border: none;
-    font-weight: bold;
-    font-size: 16px;
-    text-align: left;
-    padding: 12px 20px;
-    width: 100%;
-    color: #212121;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  /* Mũi tên xoay */
-  .dropdown-toggle span {
-    transition: transform 0.3s ease;
-  }
-
-  .menu-dropdown.open .dropdown-toggle span {
-    transform: rotate(180deg);
-  }
-
-  /* Nội dung dropdown */
-  .dropdown-content {
-    display: none;
-    position: relative;
-    /* Thay vì static */
-    background-color: #d0cff5;
-    border: none;
-    padding: 10px;
-
-    z-index: 9999;
-    /* Đảm bảo nằm trên các phần khác */
-    margin: 0 auto;
-    /* Căn giữa theo chiều ngang */
-    width: 80%;
-    /* Đảm bảo không quá rộng */
-
-  }
-
-
-  .dropdown-content a {
-    color: white;
-    padding: 12px 20px;
-    display: block;
-    text-align: left;
-    /* Căn giữa từng dòng */
-  }
-
-
-  /* Khi mở */
-  .menu-dropdown.open .dropdown-content {
-    display: flex;
-  }
-
-  /* Các mục trong dropdown */
-  .dropdown-content a {
-    color: white;
-    padding: 10px 15px;
-    font-size: 15px;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .dropdown-content a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #f7b945;
-  }
-
 }
