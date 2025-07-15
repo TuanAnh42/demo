@@ -981,7 +981,7 @@ img {
   }
 
   .qr-wrapper {
-    content: url('../img/qr-line-icon.png');
+    content: url('img/qr-line-icon.png');
      /* thay hình QR thành hình icon Line */
     width: 45px;
     height: 45px;
