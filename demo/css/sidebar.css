@@ -1,0 +1,74 @@
+.sidebar {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    width: 90%;
+
+}
+
+.sidebar ul li {
+    list-style: none;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.sidebar ul li:hover {
+    color: #0097a7;
+    
+    
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.sidebar section {
+    margin-bottom: 30px;
+}
+
+.sidebar h4 {
+    margin-bottom: 10px;
+}
+
+.tags span {
+    display: inline-block;
+    background: #e0f7fa;
+    color: #00796b;
+    padding: 6px 10px;
+    margin: 4px 4px 0 0;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    cursor: pointer;
+
+}
+
+.recent-posts li {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    gap: 6px;
+    margin-bottom: 16px;
+
+}
+
+.recent-posts li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+
+
+.recent-posts img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0; /* ✅ giữ kích thước ảnh */
+}

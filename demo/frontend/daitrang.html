@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bệnh lý tiêu hoá</title>
+  <link rel="stylesheet" href="css/benhli.css">
+</head>
+
+<body>
+  <div class="container">
+    <main class="main-content">
+      <div class="section">
+        <div class="section-title">โรคลำไส้ใหญ่</div>
+        <div class="post-grid">
+           
+            <div class="post-card">
+              <a href="#" onclick="return loadPage('frontend/partical/daitrang_patical1.html', 'โรคลำไส้ใหญ่')">
+              <img src="img/anh-bai-viet/dai-trang-bai-1-1.jpg" alt="đại tràng bài 1">
+              <div class="post-content">
+                <h3>โรคลำไส้ใหญ่บวม – โรคที่พบได้บ่อยแต่มักถูกมองข้าม</h3>
+                <p>โรคลำไส้ใหญ่บวม (Colitis) เป็นหนึ่งในโรคที่เกี่ยวข้องกับการอักเสบของเยื่อบุในลำไส้ใหญ่
+                  ซึ่งมีผลกระ<br>
+                  ทบต่อการย่อยอาหารและการดูดซึมสารอาหารที่จำเป็นสำหรับร่างกาย ถึงแม้ว่าจะเป็นโรคที่พบได้บ่อย<br>
+                  ในสังคมปัจจุบัน แต่หลายคนกลับมองข้ามและไม่ให้ความสำคัญกับอาการที่เกิดขึ้น เพราะอาการของ<br>
+                  โรคบางครั้งอาจไม่รุนแรงและค่อย ๆ พัฒนาไปในระยะยาว หากไม่ได้รับการรักษาอย่างทันท่วงที โรคนี้<br>
+                  อาจนำไปสู่ภาวะแทรกซ้อนที่ร้ายแรง เช่น การติดเชื้อในลำไส้ หรือการทำลายลำไส้ที่อาจต้องการการ<br>
+                  รักษาด้วยวิธีที่ซับซ้อนขึ้น
+                </p>
+              </div>
+              </a>
+            </div>
+          
+          
+            <div class="post-card">
+              <a href="#" onclick="return loadPage('frontend/partical/daitrang_patical2.html', 'โรคลำไส้ใหญ่')">
+              <img src="img/anh-bai-viet/dai-trang-bai-2-1.jpg" alt="đại tràng bài 2">
+              <div class="post-content">
+                <h3>กลุ่มอาการลำไส้แปรปรวน (IBS) – โรคเรื้อรังที่ไม่เกิดจากเชื้อแบคทีเรีย</h3>
+                <p>กลุ่มอาการลำไส้แปรปรวน (IBS) เป็นโรคที่มีอาการเกี่ยวข้องกับลำไส้ใหญ่
+                  ซึ่งมักแสดงออกมาในรูปแบบของการเปลี่ยนแปลงในการขับถ่าย เช่น ท้องเสีย ท้องผูก หรือท้องอืด
+                  แม้ว่าจะไม่เกิดจากการติดเชื้อแบคทีเรีย แต่โรคนี้สามารถส่งผลกระทบต่อคุณภาพชีวิตได้
+                  เนื่องจากอาการที่เกิดขึ้นมักทำให้ผู้ป่วยรู้สึกไม่สบายตัว การรักษา IBS
+                  มักเกี่ยวข้องกับการปรับเปลี่ยนพฤติกรรมการรับประทานอาหาร การจัดการกับความเครียด
+                  และบางกรณีอาจต้องใช้ยาร่วมด้วยเพื่อควบคุมอาการ</p>
+              </div>
+              </a>
+            </div>
+          
+          
+            <div class="post-card">
+              <a href="#" onclick="return loadPage('frontend/partical/daitrang_patical3.html', 'โรคลำไส้ใหญ่')">
+              <img src="img/anh-bai-viet/dai-trang-bai-3-1.jpg" alt="đại tràng bài 3">
+              <div class="post-content">
+                <h3>อาการท้องผูก – เมื่อการไปห้องน้ำกลายเป็นฝันร้าย </h3>
+                <p>อาการท้องผูกเป็นปัญหาสุขภาพที่พบได้บ่อย
+                  แต่บางครั้งก็กลายเป็นเรื่องที่ทำให้ผู้ป่วยรู้สึกวิตกกังวลและทรมาน
+                  โดยเฉพาะเมื่อการขับถ่ายไม่เป็นปกติหรือต้องใช้ความพยายามมาก การรู้จักและเข้าใจสาเหตุของอาการท้องผูก
+                  รวมถึงวิธีการจัดการและรักษาที่ถูกต้อง
+                  จะช่วยให้คุณสามารถควบคุมอาการและปรับปรุงคุณภาพชีวิตได้อย่างมีประสิทธิภาพ</p>
+              </div>
+              </a>
+            </div>
+       
+
+        </div>
+      </div>
+    </main>
+
+    <div id="sidebar-placeholder"></div>
+  </div>
+  <script>
+    fetch("frontend/sidebar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("sidebar-placeholder").innerHTML = html
+         loadRandomVerticalPosts();
+      });
+  </script>
+  </div>
+</body>
+
+</html>

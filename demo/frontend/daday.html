@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bệnh lý tiêu hoá</title>
+  <link rel="stylesheet" href="css/benhli.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <main class="main-content" id="main-content">
+      <div class="section">
+        <div class="section-title">โรคกระเพาะอาหาร</div>
+        <div id="default-content">
+          <div class="post-grid">
+            <div class="post-card">
+              <a href="#" onclick="return loadPage('frontend/partical/daday_patical1.html', 'โรคกระเพาะอาหาร')">
+                <img src="img/anh-bai-viet/da-day-bai-1-1.jpg" alt="dạ dày 1">
+                <div class="post-content">
+                  <h3>โรคกรดไหลย้อน - หลอดอาหาร: อาการและวิธีการรักษา</h3>
+                  <p>โรคกรดไหลย้อน (GERD) คือภาวะที่กรดจากกระเพาะอาหารไหลย้อนขึ้นมาที่หลอดอาหาร โดยส่วนใหญ่แล้วการ
+                    ไหลย้อนจะเกิดขึ้นในระยะสั้นและไม่ทำให้เกิดอาการที่ไม่สบายหรือภาวะแทรกซ้อนใดๆ อย่างไรก็ตาม หากโรค
+                    กรดไหลย้อนไม่ได้รับการรักษาอย่างทันท่วงที อาจทำให้เกิดภาวะแทรกซ้อนที่อันตรายถึงชีวิต เช่น มะเร็ง
+                    หลอดอาหาร บทความนี้จะให้ข้อมูลรายละเอียดเกี่ยวกับภาวะนี้</p>
+                </div>
+              </a>
+            </div>
+            <div class="post-card">
+              <a href="#" onclick="return loadPage('frontend/partical/daday_patical2.html', 'โรคกระเพาะอาหาร')">
+                <img src="img/anh-bai-viet/da-day-bai-2-1.jpg" alt="dạ dày 2">
+                <div class="post-content">
+                  <h3> ปวดท้อง: อาการ สาเหตุและวิธีการจัดการ</h3>
+                  <p>อาการปวดท้องเป็นปัญหาที่พบได้บ่อยในระบบทางเดินอาหาร ซึ่งเกี่ยวข้องกับพฤติกรรมการรับประทาน<br>
+                    อาหารในชีวิตประจำวัน โรคนี้สามารถป้องกันได้ด้วยการรับประทานอาหารอย่างมีวิทยาศาสตร์และการมี<br>
+                    วิถีชีวิตที่ดี ตามโครงสร้างของร่างกายมนุษย์ กระเพาะอาหารเป็นส่วนสำคัญในระบบการย่อยอาหาร ทำ<br>
+                    หน้าที่ในการดูดซึมกรดในอาหารและทำการบดอาหารทางกลศาสตร์พร้อมทั้งย่อยสลายมัน หลังจาก<br>
+                    กระบวนการนี้ อาหารจะถูกย่อยและเปลี่ยนแปลงในลำไส้เล็กอย่างง่ายดาย
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <aside id="sidebar-placeholder"></aside>
+  </div>
+  <script>
+    fetch("frontend/sidebar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("sidebar-placeholder").innerHTML = html
+         loadRandomVerticalPosts();
+      });
+
+  </script>
+</body>
+
+</html>

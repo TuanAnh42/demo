@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UP5 Product</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/product.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="product-main">
+
+      <!-- CỘT 1: Hình ảnh sản phẩm -->
+      <div class="product-left">
+        <img id="mainImage" src="img/san-pham/2.jpg" alt="UP5 Product" class="main-img" />
+        <div class="thumbnail-row">
+          <img src="img/san-pham/3.jpg" class="thumb" onclick="changeImage(this.src)" alt="">
+          <img src="img/san-pham/ladi-3.jpg" class="thumb" onclick="changeImage(this.src)" />
+          <img src="img/san-pham/2.jpg" class="thumb" onclick="changeImage(this.src)" />
+          <img src="img/san-pham/up5_fda.png" class="thumb" onclick="changeImage(this.src)" />
+        </div>
+      </div>
+
+      <!-- CỘT 2: Nội dung sản phẩm -->
+      <div class="product-center">
+        <h1>นม UP5 ขนาด 400 กรัม (นมที่ช่วยดูแลผู้ที่มีปัญหาเกี่ยวกับระบบย่อยอาหาร)</h1>
+        <p class="status">สถานะ: <span class="in-stock">มีสินค้า</span></p>
+        <div class="rating">⭐️⭐️⭐️⭐️⭐️ 5.0 รีวิว</div>
+        <div class="price">
+          <span id="price-value">1,449฿ /</span>
+          <span id="price-note">ซื้อ 1 กระป๋อง ราคา</span>
+        </div>
+
+        <div class="options">
+          <button class="combo-button" id="combo1"  onclick="setActive(this)">ซื้อ 1</button>
+          <button class="combo-button" id="combo31" onclick="setActive(this)">ซื้อ 3 แถม 1</button>
+          <button class="combo-button" id="combo42" onclick="setActive(this)">ซื้อ 4 แถม 2</button>
+          <button class="combo-button" id="combo53" onclick="setActive(this)">ซื้อ 5 แถม 3</button>
+          <button class="combo-button" id="combo75" onclick="setActive(this)">ซื้อ 7 แถม 5</button>
+        </div>
+
+        <ul class="product-detailss">
+          <li><strong>แบรนด์:</strong> Up5 Brand </li>
+          <li><strong>วัตถุดิบ:</strong> นำเข้าจากสหรัฐอเมริกา</li>
+          <li><strong>ประเทศผู้ผลิต:</strong> ประเทศไทย</li>
+          <li><strong>รหัส FDA ไทย:</strong> 13-1-12065-5-0160</li>
+          <li><strong>ขนาดบรรจุ:</strong> 400 กรัม </li>
+
+        </ul>
+
+        <div class="quantity">
+          <p><strong>เลือกปริมาณ: </strong></p>
+          <div class="button-quantity">
+            <button onclick="decrease()">-</button>
+            <input value="1" id="quantity" min="1" />
+            <button onclick="increase()">+</button>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button class="add-cart" onclick="addtocart()">🛒 เพิ่มลงในตะกร้า</button>
+          <button class="buy-now" onclick="buyNow();">ซื้อเลย</button>
+        </div>
+      </div>
+
+      <!-- CỘT 3: Thông tin hỗ trợ -->
+      <div class="product-info-right">
+        <div class="info-box">
+          <i class='fas fa-hashtag'></i>
+          <div>
+            <strong>เปลี่ยนหรือคืนสินค้าได้ภายใน 30 วัน</strong><br />
+            นับจากวันที่ซื้อสินค้า
+          </div>
+        </div>
+        <div class="info-box">
+          <i class='fas fa-money-bill-alt'></i>
+          <div>
+            <strong>ฟรี 100%</strong><br />
+            เปลี่ยนนม
+          </div>
+        </div>
+        <div class="info-box">
+          <i class='fas fa-shipping-fast'></i>
+          <div>
+            <strong>จัดส่งฟรี</strong><br />
+            ตามนโยบายการจัดส่ง
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="product-decription">
+
+    <div class="product-detail-tabs">
+      <div class="tabs-left">
+        <p class="active"><strong>ส่วนประกอบหลัก</strong></p>
+        <ul>
+
+          <li data-target="#section1">ส่วนประกอบหลัก</li>
+          <li data-target="#section2">คุณประโยชน์</li>
+          <li data-target="#section3">ผู้ที่เหมาะกับผลิตภัณฑ์นี้</li>
+          <li data-target="#section4">วิธีรับประทาน</li>
+
+        </ul>
+      </div>
+
+      <div class="tabs-right">
+        <div class="tab-content active">
+          <h2>Up5 – อาหารเสริมบำรุงระบบย่อยอาหาร ผสานสมุนไพรธรรมชาติ</h2>
+          <div class="long-content" id="long-content">
+            <h3 id="section1">🌿 ส่วนประกอบหลัก:</h3>
+            <table class="ingredient-table">
+              <thead>
+                <tr>
+                  <th>ส่วนประกอบ (ภาษาไทย)</th>
+                  <th>หน่วย</th>
+                  <th>ปริมาณ (g)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>นมผง (Milk Powder)</td>
+                  <td>g</td>
+                  <td>25</td>
+                </tr>
+                <tr>
+                  <td>อินูลิน (Inulin)</td>
+                  <td>g</td>
+                  <td>2.2</td>
+                </tr>
+                <tr>
+                  <td>ผงฟรุกโตโอลิโกแซคคาไรด์ (Fructooligosaccharide Powder)</td>
+                  <td>g</td>
+                  <td>1.5</td>
+                </tr>
+                <tr>
+                  <td>ผงเคอร์คูมิน (Curcumin Powder)</td>
+                  <td>g</td>
+                  <td>1.0</td>
+                </tr>
+                <tr>
+                  <td>เวย์โปรตีน (Whey Protein)</td>
+                  <td>g</td>
+                  <td>0.8</td>
+                </tr>
+                <tr>
+                  <td>โพแทสเซียม (Potassium)</td>
+                  <td>g</td>
+                  <td>0.63</td>
+                </tr>
+                <tr>
+                  <td>บาซิลัส โคแอกกูแลนส์ (Bacillus Coagulans)</td>
+                  <td>g</td>
+                  <td>0.5</td>
+                </tr>
+                <tr>
+                  <td>วิตามินซี (Vitamin C)</td>
+                  <td>g</td>
+                  <td>0.5</td>
+                </tr>
+                <tr>
+                  <td>ฟอสฟอรัส (Phosphorus)</td>
+                  <td>g</td>
+                  <td>0.4</td>
+                </tr>
+                <tr>
+                  <td>ผงถั่วเขียว (Mungbean Powder)</td>
+                  <td>g</td>
+                  <td>0.25</td>
+                </tr>
+                <tr>
+                  <td>ผงควินัว (Quinoa Powder)</td>
+                  <td>g</td>
+                  <td>0.25</td>
+                </tr>
+                <tr>
+                  <td>ผงบัควีท (Buckwheat Powder)</td>
+                  <td>g</td>
+                  <td>0.25</td>
+                </tr>
+                <tr>
+                  <td>แอล-ไลซีน (L-Lysine) </td>
+                  <td>g</td>
+                  <td>0.2</td>
+                </tr>
+                <tr>
+                  <td>ทอรีน (Taurine)</td>
+                  <td>g</td>
+                  <td>0.2</td>
+                </tr>
+                <tr>
+                  <td>ยีสต์เบต้า-กลูแคน (Yeast Beta-Glucan)</td>
+                  <td>g</td>
+                  <td>0.15</td>
+                </tr>
+                <tr>
+                  <td>ผงตังกุย (Dang Shen Powder)</td>
+                  <td>g</td>
+                  <td>0.15</td>
+                </tr>
+                <tr>
+                  <td>สารสกัดจากชะเอมเทศ (Licorice Extract)</td>
+                  <td>g</td>
+                  <td>0.1</td>
+                </tr>
+                <tr>
+                  <td>เมล็ดบัวผง (Lotus Seed Powder) </td>
+                  <td>g</td>
+                  <td>0.1</td>
+                </tr>
+                <tr>
+                  <td>ผงลูกเดือย (Millet Powder) </td>
+                  <td>g</td>
+                  <td>0.1</td>
+                </tr>
+                <tr>
+                  <td>สารสกัดจากเห็ดหลินจือ (Reishi Mushroom Extract)</td>
+                  <td>g</td>
+                  <td>0.08</td>
+                </tr>
+                <tr>
+                  <td>ฟอร์ริก ไพโรฟอสเฟต (Ferric Pyrophosphate)</td>
+                  <td>g</td>
+                  <td>0.05</td>
+                </tr>
+                <tr>
+                  <td>ซิงก์กลูโคเนต (Zinc Gluconate) </td>
+                  <td>g</td>
+                  <td>0.03</td>
+                </tr>
+                <tr>
+                  <td>ไนอะซิน (Niacin)</td>
+                  <td>g</td>
+                  <td>0.01</td>
+                </tr>
+                <tr>
+                  <td>กรดแพนโทเทนิก (Pantothenic Acid)</td>
+                  <td>g</td>
+                  <td>0.0093</td>
+                </tr>
+                <tr>
+                  <td>วิตามิน บี6 (Vitamin B6)</td>
+                  <td>g</td>
+                  <td>0.009</td>
+                </tr>
+                <tr>
+                  <td>ตามิน บี1 (Vitamin B1)</td>
+                  <td>g</td>
+                  <td>0.007</td>
+                </tr>
+                <tr>
+                  <td>วิตามิน บี2 (Vitamin B2) </td>
+                  <td>g</td>
+                  <td>0.005</td>
+                </tr>
+                <tr>
+                  <td>แมงกานีส (Manganese)</td>
+                  <td>g</td>
+                  <td>0.003</td>
+                </tr>
+                <tr>
+                  <td>แคลเซียม (Calcium)</td>
+                  <td>g</td>
+                  <td>0.003</td>
+                </tr>
+                <tr>
+                  <td>วิตามินเอ (Vitamin A)</td>
+                  <td>g</td>
+                  <td>0.0025</td>
+                </tr>
+                <tr>
+                  <td>ทองแดง (Copper)</td>
+                  <td>g</td>
+                  <td>0.002</td>
+                </tr>
+                <tr>
+                  <td>สังกะสี (Zinc)</td>
+                  <td>g</td>
+                  <td>0.0015</td>
+                </tr>
+                <tr>
+                  <td>แมกนีเซียม (Magnesium)</td>
+                  <td>g</td>
+                  <td>0.001</td>
+                </tr>
+                <tr>
+                  <td>โฟเลต (Folic Acid)</td>
+                  <td>g</td>
+                  <td>0.0009</td>
+                </tr>
+                <tr>
+                  <td>ไบโอติน (Biotin)</td>
+                  <td>g</td>
+                  <td>0.0004</td>
+                </tr>
+                <tr>
+                  <td>วิตามิน บี12 (Vitamin B12)</td>
+                  <td>g</td>
+                  <td>0.000001</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+            <h3 id="section2">💪 คุณประโยชน์:</h3>
+            <ul>
+              <li>เสริมสารอาหาร วิตามิน และแร่ธาตุ</li>
+              <li>ฟื้นฟูร่างกาย เหมาะสำหรับผู้มีปัญหาระบบย่อยอาหาร</li>
+              <li>ใช้เป็นมื้อว่าง หรืออาหารเบา ๆ ได้อย่างสะดวก</li>
+              <li>เหมาะสำหรับผู้เบื่ออาหาร ท้องอืด เหนื่อยง่าย</li>
+            </ul>
+
+            <h3 id="section3">🎯 ผู้ที่เหมาะกับผลิตภัณฑ์นี้:</h3>
+            <ul>
+              <li>ผู้ที่มีอาการปวดกระเพาะอาหาร แผลในกระเพาะ หรือกรดไหลย้อน</li>
+              <li>ผู้ที่มีปัญหาระบบย่อย ท้องผูก หรือลำไส้อักเสบ</li>
+              <li>ผู้ที่ต้องการฟื้นตัวหลังเจ็บป่วย</li>
+            </ul>
+
+            <h3 id="section4">📌 วิธีรับประทาน:</h3>
+            <p>
+              ใช้ผง 4–5 ช้อนตวง ผสมกับน้ำอุ่น 150 มล. (อุณหภูมิประมาณ 40°C)<br>
+              คนให้ละลาย แล้วดื่มทันทีหลังชง<br>
+              ดื่มวันละ 2 แก้ว: หลังอาหารเช้าและเย็น
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="review-box">
+    <h2>รีวิวสินค้า <span style="color: gray">(8 รีวิว)</span></h2>
+
+    <div>
+      <div style="font-size: 36px; font-weight: bold;">5.0 ⭐</div>
+      <div>ยอดเยี่ยม</div>
+      <div class="stars">★★★★★</div>
+      <button class="button" onclick="toggleForm()">ส่งรีวิว</button>
+    </div>
+
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="stars">★★★★★</div>
+        <div class="bar">
+          <div class="bar-fill" style="width: 100%;"></div>
+        </div>
+        <div class="bar-count">8</div>
+      </div>
+      <div class="bar-row">
+        <div class="stars">★★★★☆</div>
+        <div class="bar">
+          <div class="bar-fill" style="width: 0%;"></div>
+        </div>
+        <div class="bar-count">0</div>
+      </div>
+      <div class="bar-row">
+        <div class="stars">★★★☆☆</div>
+        <div class="bar">
+          <div class="bar-fill" style="width: 0%;"></div>
+        </div>
+        <div class="bar-count">0</div>
+      </div>
+      <div class="bar-row">
+        <div class="stars">★★☆☆☆</div>
+        <div class="bar">
+          <div class="bar-fill" style="width: 0%;"></div>
+        </div>
+        <div class="bar-count">0</div>
+      </div>
+      <div class="bar-row">
+        <div class="stars">★☆☆☆☆</div>
+        <div class="bar">
+          <div class="bar-fill" style="width: 0%;"></div>
+        </div>
+        <div class="bar-count">0</div>
+      </div>
+    </div>
+
+    <div class="filters">
+      <p>กรองตาม:</p>
+      <button>5 ดาว</button>
+      <button>4 ดาว</button>
+      <button>3 ดาว</button>
+      <button>2 ดาว</button>
+      <button>1 ดาว</button>
+    </div>
+
+    <!-- Form -->
+    <div id="review-form">
+      <div class="stars" id="rating-stars">
+        <span data-star="1">★</span>
+        <span data-star="2">★</span>
+        <span data-star="3">★</span>
+        <span data-star="4">★</span>
+        <span data-star="5">★</span>
+      </div>
+      <p id="rating-label" style="text-align: center; font-weight: bold;">ยอดเยี่ยม</p>
+
+      <div class="input-row">
+        <input type="text" placeholder="ชื่อ-นามสกุล">
+        <input type="text" placeholder="เบอร์โทรศัพท์">
+      </div>
+      <input type="email" placeholder="อีเมล (ไม่บังคับ)">
+      <textarea placeholder="เขียนรีวิวของคุณ..."></textarea>
+
+      <div class="upload-box">
+        ลากไฟล์มาวางที่นี่ หรือ <a href="#">เลือกภาพจากอุปกรณ์</a>
+      </div>
+
+      <button class="button-star" style="margin-top: 20px; width: 100%;">ส่ง</button>
+    </div>
+
+    <!-- Danh sách đánh giá -->
+    <div class="review-item">
+      <strong>ผู้ใช้: Dgdh</strong> – ⭐ 5 <br />
+      good <br />
+      <small>3 เดือนที่ผ่านมา</small>
+    </div>
+
+    <div class="review-item">
+      <strong>ผู้ใช้: Thảo</strong> – ⭐ 5 <br />
+      ดีมากค่ะ <br />
+      <small>2 เดือนที่ผ่านมา</small>
+    </div>
+  </div>
+
+  <script src="slide.js"></script>
+
+</body>
+
+</html>

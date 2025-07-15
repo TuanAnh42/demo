@@ -1,0 +1,195 @@
+/* Font tổng thể */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa !important;
+  margin: 0;
+  padding: 0;
+
+}
+html {
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 100px; 
+}
+
+
+/* Bố cục 2 cột */
+.container-about {
+  
+  padding: 20px;
+  display: flex;
+  gap: 30px;
+}
+.left-side {
+  flex: 0 0 300px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  height: fit-content;
+  position: sticky;
+  margin-left: 70px;
+  top: 100px;
+}
+
+.content-area {
+  flex-grow: 1;
+}
+
+.toc-box {
+  background: #f5f6f8;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  
+}
+
+.toc-header {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.toc-header i {
+  margin-right: 8px;
+  color: black;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin-bottom: 10px;
+}
+
+.toc-list a {
+  color: #1e1a5e;
+  text-decoration: none;
+}
+
+.toc-list a:hover {
+  text-decoration: underline;
+}
+
+.about-main {
+  width: 90%;
+  border-radius: 16px;
+  line-height: 2;
+  margin-left: 60px;
+  margin-bottom: 200px;
+}
+/* Tiêu đề lớn */
+.about-content h2 {
+  color: #1e1a5e;
+  font-size: 28px;
+  margin-top: -20px;
+  /* margin-bottom: 16px; */
+}
+
+/* Tiêu đề phần nhỏ */
+.about-content h3 {
+  font-size: 20px;
+  color: #1e1a5e;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+/* Đoạn văn */
+.about-content p {
+  font-size: 16px;
+  line-height: 2;
+  color: #333;
+  align-items: flex-start;
+  width: 90%;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+
+  
+}
+
+/* Ảnh */
+.about-content img {
+  width: 90%;
+  border-radius: 12px;
+  margin: 16px 0;
+}
+.about-content  li{
+  margin-left: 50px;
+}
+.expert{
+    display: flex;
+    width:90%;
+
+}
+.expert img {
+  margin-top: -5px;
+  width: 45%;
+  text-align: right;
+  height: fit-content;
+ 
+}
+@media (max-width: 768px) {
+  .container-about {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .left-side {
+    flex: none;
+    width: 100%;
+    margin-left: 0;
+    position: static;
+    display: none;
+  }
+
+  .about-main {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .about-content img {
+    width: 100%;
+  }
+
+  .about-content p {
+    width: 100%;
+  }
+
+  .expert {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .expert img {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .toc-box {
+    padding: 8px;
+  }
+
+  .toc-header {
+    font-size: 16px;
+  }
+
+  .toc-list a {
+    font-size: 14px;
+  }
+
+  .about-content h2 {
+    font-size: 22px;
+  }
+
+  .about-content h3 {
+    font-size: 18px;
+  }
+
+  .about-content p {
+    font-size: 15px;
+  }
+}
