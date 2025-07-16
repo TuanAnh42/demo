@@ -258,9 +258,11 @@ input[type="number"] {
     }
 
     .product-total {
-        min-width: 70px;
-        font-size: 13px;
+        /* display: inline-block; */
+        font-size: 16px;
+
         white-space: nowrap;
+        overflow: visible;
     }
 
     .product-price {
@@ -271,22 +273,12 @@ input[type="number"] {
         display: none;
     }
 
-    .item-total {
-        display: inline-block;
-        font-size: 16px;
-        min-width: 120px;
 
-        white-space: nowrap;
-        overflow: visible;
-        
-    }
-
-
-    .cart-table th,
+    /* .cart-table th,
     .cart-table td {
         font-size: 12px;
-        padding: 6px;
-    }
+        padding: 4px;
+    } */
 
     .product-image {
         width: 60px;
@@ -340,9 +332,11 @@ input[type="number"] {
         font-size: 13px;
     }
 
-    .total span {
+    /* .total span {
         font-size: 16px;
-    }
+    } */
+
+    
 
     .discount-section button {
         width: 100%;
