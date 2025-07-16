@@ -477,11 +477,11 @@ function renderCart() {
           <div class="product-sub">${item.comboText}</div>
         </div>
       </td>
-      <td>${item.price}฿</td>
+      <td class="product-price">${item.price.toLocaleString('th-TH')}฿</td>
       <td>
         <input type="number" min="1" value="${itemQty}" data-index="${index}" class="qty-input" />
       </td>
-      <td><span class="item-total">${itemTotal.toLocaleString('th-TH')}</span>฿</td>
+      <td class="product-total"><span class="item-total">${itemTotal.toLocaleString('th-TH')}</span>฿</td>
       <td><i class="fas fa-trash-alt delete-btn" data-index="${index}"></i></td>
     `;
     cartBody.appendChild(row);

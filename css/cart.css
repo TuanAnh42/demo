@@ -197,6 +197,13 @@ input[type="number"] {
 .checkout-btn:hover {
     background-color: #15114d;
 }
+.product-price,
+.product-total {
+  min-width: 80px;
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: right;
+}
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -248,6 +255,16 @@ input[type="number"] {
     .cart-container {
         margin: 0 10px;
     }
+.product-price,
+.product-total {
+  min-width: 70px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.item-total {
+  font-size: 13px;
+}
 
     .cart-table th,
     .cart-table td {
