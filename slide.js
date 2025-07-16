@@ -432,7 +432,7 @@ function renderCart() {
 
   const subtotalEl = document.getElementById("subtotal");
   const discountEl = document.getElementById("discount");
-  const totalEl = document.getElementById("total-price").toLocaleString('th-TH');
+  const totalEl = document.getElementById("total-price");
 
   cartBody.innerHTML = "";
 
