@@ -267,7 +267,7 @@ input[type="number"] {
         display: none;
     }
 
-    ..product-total {
+    .product-total {
         display: inline-block;
         font-size: 16px;
         min-width: 120px;
