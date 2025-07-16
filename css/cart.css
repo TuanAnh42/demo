@@ -261,6 +261,12 @@ input[type="number"] {
   font-size: 13px;
   white-space: nowrap;
 }
+.product-price{
+    display: none;
+}
+.product-item-display{
+    display: none;
+    }
 
 .item-total {
   font-size: 13px;
