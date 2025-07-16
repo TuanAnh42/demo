@@ -354,33 +354,38 @@ function addtocart() {
 
   const image = document.getElementById("mainImage")?.src || "";
   const name = document.querySelector(".product-center h1")?.textContent.trim();
+
+  // 👇 Lấy số từ chuỗi có dấu , và ฿
   const priceText = document.getElementById("price-value")?.textContent.trim().replace(/[฿,]/g, '');
-  const price = parseInt(priceText);
+  const pricex = parseInt(priceText); // dạng số, dùng để tính toán
+
+  const price = pricex.toLocaleString('th-TH'); // "1,449"
 
   const quantity = parseInt(document.getElementById("quantity").value);
+
   const selectedComboText = selectedCombo.buy > 1
     ? `ซื้อ ${selectedCombo.buy} แถม ${selectedCombo.free}`
     : "ซื้อ 1";
 
-  const total = price * quantity;
+  const total = pricex * quantity;
 
   const product = {
     image,
     name,
-    price,
+    price,            // dùng để hiển thị (chuỗi "1,449")
+    pricex,           // dùng để tính toán (số 1449)
     quantity,
     total,
-    comboText: selectedComboText,   // để hiển thị
-    combo: selectedCombo // để tính toán
+    comboText: selectedComboText,
+    combo: selectedCombo
   };
 
-
-  // ✅ Kiểm tra trùng sản phẩm (dựa trên tên + giá)
-  const existingIndex = cart.findIndex(item => item.name === product.name && item.price === product.price);
+  // ✅ Kiểm tra trùng sản phẩm (dựa trên tên + giá trị tính toán)
+  const existingIndex = cart.findIndex(item => item.name === product.name && item.pricex === product.pricex);
 
   if (existingIndex !== -1) {
     cart[existingIndex].quantity += quantity;
-    cart[existingIndex].total = cart[existingIndex].quantity * cart[existingIndex].price;
+    cart[existingIndex].total = cart[existingIndex].quantity * cart[existingIndex].pricex;
   } else {
     cart.push(product);
   }
@@ -389,7 +394,6 @@ function addtocart() {
   const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
   updateCartIcon(totalCount);
 }
-
 
 function updateCartIcon(count) {
   const icon = document.getElementById("cart-count");
@@ -425,6 +429,7 @@ function renderCart() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const cartBody = document.getElementById("cart-body");
   if (!cartBody) return;
+
   const subtotalEl = document.getElementById("subtotal");
   const discountEl = document.getElementById("discount");
   const totalEl = document.getElementById("total-price");
@@ -444,11 +449,10 @@ function renderCart() {
 
   cart.forEach((item, index) => {
     const itemQty = item.quantity;
-    let itemPrice = item.price;
-
-    // Áp dụng combo (nếu có)
+    const itemPrice = item.pricex; // dùng số để tính
     let itemTotal = itemPrice * itemQty;
 
+    // Áp dụng combo nếu có
     if (item.combo) {
       const { buy, free } = item.combo;
       const unitCount = buy + free;
@@ -468,26 +472,28 @@ function renderCart() {
         <div class="product-image">
           <img src="${item.image}" alt="product" />
         </div>
-         <div class="product-text">
-      <div class="product-name">${item.name}</div>
-      <div class="product-sub">${item.comboText}</div>
-    </div>
+        <div class="product-text">
+          <div class="product-name">${item.name}</div>
+          <div class="product-sub">${item.comboText}</div>
+        </div>
       </td>
-      <td>${item.price.toLocaleString()}฿</td>
+      <td>${item.price}฿</td>
       <td>
         <input type="number" min="1" value="${itemQty}" data-index="${index}" class="qty-input" />
       </td>
-      <td><span class="item-total">${itemTotal.toLocaleString()}</span>฿</td>
+      <td><span class="item-total">${itemTotal.toLocaleString('th-TH')}</span>฿</td>
       <td><i class="fas fa-trash-alt delete-btn" data-index="${index}"></i></td>
     `;
     cartBody.appendChild(row);
   });
 
-  subtotalEl.textContent = subtotal.toLocaleString() + "฿";
-  discountEl.textContent = discount > 0 ? "- " + discount.toLocaleString() + "฿" : "0฿";
-  totalEl.textContent = (subtotal).toLocaleString() + "฿";
+  subtotalEl.textContent = subtotal.toLocaleString('th-TH') + "฿";
+  discountEl.textContent = discount > 0
+    ? "- " + discount.toLocaleString('th-TH') + "฿"
+    : "0฿";
+  totalEl.textContent = subtotal.toLocaleString('th-TH') + "฿";
 
-  // Sự kiện xóa
+  // Xử lý sự kiện xoá
   document.querySelectorAll(".delete-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const index = parseInt(btn.dataset.index);
@@ -497,7 +503,7 @@ function renderCart() {
     });
   });
 
-  // Sự kiện thay đổi số lượng
+  // Xử lý sự kiện thay đổi số lượng
   document.querySelectorAll(".qty-input").forEach(input => {
     input.addEventListener("change", () => {
       const index = parseInt(input.dataset.index);
@@ -509,6 +515,7 @@ function renderCart() {
     });
   });
 }
+
 
 fetch('frontend/form.html')
   .then(response => response.text())
@@ -915,7 +922,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div>
           <div><strong>${item.name}</strong></div>
           <div>${item.comboText || ""}</div>
-          <div>${item.price.toLocaleString()}฿ x ${item.quantity} = <strong>${itemTotal.toLocaleString()}฿</strong></div>
+          <div>${item.price}฿ x ${item.quantity} = <strong>${itemTotal.toLocaleString()}฿</strong></div>
         </div>
       </div>
     `;
