@@ -197,12 +197,13 @@ input[type="number"] {
 .checkout-btn:hover {
     background-color: #15114d;
 }
+
 .product-price,
 .product-total {
-  min-width: 80px;
-  white-space: nowrap;
-  font-size: 14px;
-  text-align: right;
+    min-width: 80px;
+    white-space: nowrap;
+    font-size: 14px;
+    text-align: right;
 }
 
 /* Responsive */
@@ -255,22 +256,31 @@ input[type="number"] {
     .cart-container {
         margin: 0 10px;
     }
-.product-price,
-.product-total {
-  min-width: 70px;
-  font-size: 13px;
-  white-space: nowrap;
-}
-.product-price{
-    display: none;
-}
-.product-item-display{
-    display: none;
+
+    .product-price,
+    .product-total {
+        min-width: 70px;
+        font-size: 13px;
+        white-space: nowrap;
     }
 
-.item-total {
-  font-size: 13px;
-}
+    .product-price {
+        display: none;
+    }
+
+    .product-item-display {
+        display: none;
+    }
+
+    .item-total {
+        display: inline-block;
+        font-size: 13px;
+        min-width: 70px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
 
     .cart-table th,
     .cart-table td {
@@ -290,7 +300,7 @@ input[type="number"] {
 
     .product-name {
         font-size: 13px;
-      
+
         font-weight: bold;
         color: #333;
         text-align: left;

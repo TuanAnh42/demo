@@ -159,7 +159,7 @@ function loadPage(url, title = "") {
       if (url.includes("checkout.html") && typeof renderQuickBuyInfo === "function") {
 
         renderQuickBuyInfo();
-       confirm_cart();
+        confirm_cart();
       }
       const container = document.getElementById("main-content");
       const scripts = container.querySelectorAll("script");
@@ -481,7 +481,10 @@ function renderCart() {
       <td>
         <input type="number" min="1" value="${itemQty}" data-index="${index}" class="qty-input" />
       </td>
-      <td class="product-total"><span class="item-total">${itemTotal.toLocaleString('th-TH')}</span>฿</td>
+      <td class="product-total item-total-cell">
+  <span class="item-total">${itemTotal.toLocaleString('th-TH')}฿</span>
+</td>
+
       <td><i class="fas fa-trash-alt delete-btn" data-index="${index}"></i></td>
     `;
     cartBody.appendChild(row);
