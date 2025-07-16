@@ -40,8 +40,8 @@ dots.forEach((dot, i) => {
 document.addEventListener("DOMContentLoaded", () => {
   showSlide(currentIndex);
   if (!window.slideInterval) {
-  window.slideInterval = setInterval(() => changeSlide(1), 5000);
-}
+    window.slideInterval = setInterval(() => changeSlide(1), 5000);
+  }
 });
 function toggleMenu() {
   const menuWrapper = document.getElementById("mainMenuWrapper");
@@ -157,7 +157,9 @@ function loadPage(url, title = "") {
         renderCart();
       }
       if (url.includes("checkout.html") && typeof renderQuickBuyInfo === "function") {
+
         renderQuickBuyInfo();
+       confirm_cart();
       }
       const container = document.getElementById("main-content");
       const scripts = container.querySelectorAll("script");
@@ -352,12 +354,14 @@ function addtocart() {
 
   const image = document.getElementById("mainImage")?.src || "";
   const name = document.querySelector(".product-center h1")?.textContent.trim();
-  const priceText = document.getElementById("price-value")?.textContent.trim().replace("฿", "").replace(",", "");
+  const priceText = document.getElementById("price-value")?.textContent.trim().replace(/[฿,]/g, '');
+  const price = parseInt(priceText);
+
   const quantity = parseInt(document.getElementById("quantity").value);
   const selectedComboText = selectedCombo.buy > 1
     ? `ซื้อ ${selectedCombo.buy} แถม ${selectedCombo.free}`
     : "ซื้อ 1";
-  const price = parseInt(priceText);
+
   const total = price * quantity;
 
   const product = {
@@ -869,6 +873,71 @@ async function loadRandomVerticalPosts() {
 }
 document.addEventListener("DOMContentLoaded", () => {
   loadRandomVerticalPosts();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const infoContainer = document.getElementById("quick-buy-info");
+  const subtotalEl = document.querySelector(".subtotal");
+  const totalEl = document.querySelector(".total-price");
+  const discountEl = document.querySelector(".discount");
+
+  if (!cart.length) {
+    infoContainer.innerHTML = "<p>ไม่มีสินค้าในตะกร้า</p>";
+    subtotalEl.textContent = "0฿";
+    totalEl.textContent = "0฿";
+    return;
+  }
+
+  let subtotal = 0;
+  let discount = 0;
+  let html = "";
+
+  cart.forEach(item => {
+    let itemTotal = item.price * item.quantity;
+
+    if (item.combo) {
+      const { buy, free } = item.combo;
+      const unitCount = buy + free;
+      const setCount = Math.floor(item.quantity / unitCount);
+      const remainder = item.quantity % unitCount;
+      const payableQty = (setCount * buy) + Math.min(remainder, buy);
+      const originalPrice = item.quantity * item.price;
+      itemTotal = payableQty * item.price;
+      discount += originalPrice - itemTotal;
+    }
+
+    subtotal += itemTotal;
+
+    html += `
+      <div class="checkout-item" style="display: flex; gap: 10px; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+        <img src="${item.image}" style="width: 80px; height: 80px; object-fit: cover;" />
+        <div>
+          <div><strong>${item.name}</strong></div>
+          <div>${item.comboText || ""}</div>
+          <div>${item.price.toLocaleString()}฿ x ${item.quantity} = <strong>${itemTotal.toLocaleString()}฿</strong></div>
+        </div>
+      </div>
+    `;
+  });
+
+  infoContainer.innerHTML = html;
+  subtotalEl.textContent = subtotal.toLocaleString() + "฿";
+  discountEl.textContent = discount > 0 ? "- " + discount.toLocaleString() + "฿" : "0฿";
+  totalEl.textContent = (subtotal).toLocaleString() + "฿";
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderCart();
+
+  const checkoutBtn = document.querySelector(".checkout-btn");
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", () => {
+      loadPage("frontend/checkout.html", "ซื้อสินค้า");
+    });
+  }
 });
 
 
