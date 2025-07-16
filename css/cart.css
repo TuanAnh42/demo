@@ -258,7 +258,7 @@ input[type="number"] {
     }
 
     .product-total {
-        /* display: inline-block; */
+        
         font-size: 16px;
 
         white-space: nowrap;
