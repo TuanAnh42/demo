@@ -481,7 +481,7 @@ function renderCart() {
       <td>
         <input type="number" min="1" value="${itemQty}" data-index="${index}" class="qty-input" />
       </td>
-      <td class="product-total item-total-cell">
+      <td class="product-total">
   <span class="item-total">${itemTotal.toLocaleString('th-TH')}฿</span>
 </td>
 
