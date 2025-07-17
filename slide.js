@@ -235,35 +235,50 @@ function updateTotal() {
   document.getElementById("subtotal").innerText = itemTotal.toLocaleString() + "฿";
   document.getElementById("total-price").innerText = (itemTotal - discountAmount).toLocaleString() + "฿";
 }
-let selectedCombo = { buy: 1, free: 0 };
+let selectedCombo = { buy: 1, free: 0 }; // ✅ mặc định
+
 function updateCombo() {
-  const unitPrice = 1449;
   const priceEl = document.getElementById('price-value');
   const noteEl = document.getElementById('price-note');
+
   document.querySelectorAll('.combo-button').forEach(button => {
     button.addEventListener('click', () => {
       let buy = 1, free = 0;
-      const id = button.id;
-      if (id === 'combo1') {
-        priceEl.textContent = '1,449฿ /';
-        noteEl.textContent = 'ซื้อ 1 กระป๋อง ราคา';
-        return;
-      }
-      if (id === 'combo31') {
-        buy = 3, free = 1;
-      } else if (id === 'combo42') {
-        buy = 4, free = 2;
-      } else if (id === 'combo53') {
-        buy = 5, free = 3;
-      } else if (id === 'combo75') {
-        buy = 7, free = 5;
-      }
-      selectedCombo = { buy, free };
-      const totalPrice = buy * unitPrice;
 
-      priceEl.textContent = totalPrice.toLocaleString() + '฿';
-      noteEl.textContent = ` / ซื้อ ${buy} แถม ${free}`;
+      switch (button.id) {
+        case 'combo1':
+          priceEl.textContent = '1,449฿ /';
+          noteEl.textContent = 'ซื้อ 1 กระป๋อง ราคา';
+          break;
+        case 'combo2':
+          priceEl.textContent = '1,699฿ /';
+          noteEl.textContent = 'ซื้อ 2 กระป๋อง ราคา';
+          buy = 2;
+          break;
+        case 'combo31':
+          priceEl.textContent = '2,799฿ /';
+          noteEl.textContent = 'ซื้อ 3 แถม 1';
+          buy = 3; free = 1;
+          break;
+        case 'combo42':
+          priceEl.textContent = '3,899฿ /';
+          noteEl.textContent = 'ซื้อ 4 แถม 2';
+          buy = 4; free = 2;
+          break;
+        case 'combo53':
+          priceEl.textContent = '4,999฿ /';
+          noteEl.textContent = 'ซื้อ 5 แถม 3';
+          buy = 5; free = 3;
+          break;
+        case 'combo75':
+          priceEl.textContent = '6,999฿ /';
+          noteEl.textContent = 'ซื้อ 7 แถม 5';
+          buy = 7; free = 5;
+          break;
+      }
 
+      selectedCombo = { buy, free }; // ✅ cập nhật giá trị
+      
     });
   });
 }
@@ -363,9 +378,9 @@ function addtocart() {
 
   const quantity = parseInt(document.getElementById("quantity").value);
 
-  const selectedComboText = selectedCombo.buy > 1
-    ? `ซื้อ ${selectedCombo.buy} แถม ${selectedCombo.free}`
-    : "ซื้อ 1";
+const selectedComboText = selectedCombo.free > 0
+  ? `ซื้อ ${selectedCombo.buy} แถม ${selectedCombo.free}`
+  : `ซื้อ ${selectedCombo.buy}`;
 
   const total = pricex * quantity;
 

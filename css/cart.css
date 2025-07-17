@@ -258,15 +258,17 @@ input[type="number"] {
     }
 
     .product-total {
-        
-        font-size: 16px;
+
+        font-size: 10px;
 
         white-space: nowrap;
         overflow: visible;
     }
-.item-total{
-    min-width: 70px;
+
+    .item-total {
+        min-width: 70px;
     }
+
     .product-price {
         display: none;
     }
@@ -334,9 +336,9 @@ input[type="number"] {
         font-size: 13px;
     }
 
-    
 
-    
+
+
 
     .discount-section button {
         width: 100%;
