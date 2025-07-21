@@ -199,6 +199,14 @@ function loadPage(url, title = "") {
     .catch(err => console.error("Không thể tải nội dung:", err));
 
 }
+// window.addEventListener("popstate", function (event) {
+//   if (event.state && event.state.url) {
+//     loadPage(event.state.url, event.state.title || "");
+//   } else {
+//     showHome(); // nếu không có state (trang đầu), thì quay về mặc định
+//   }
+// });
+
 function showHome() {
   document.getElementById("main-content").style.display = "none";
   document.getElementById("default-content").style.display = "block";
