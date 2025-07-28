@@ -1,0 +1,111 @@
+
+.desktop_sticky_menu {
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+  background-color: #211f5e;
+  padding: 12px 0;
+  width: 100%;
+}
+
+.desktop_menu {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.desktop_menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 6px 12px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+  padding-bottom: 20px;
+  /* tăng khoảng cách để giữ hover */
+  display: inline;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 300px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
+  z-index: 999;
+  top: 135%;
+  left: 40%;
+  transform: translateX(-50%);
+  padding: 5px 0;
+  border: 0.7px dashed rgb(194, 205, 248);
+}
+
+/* Mũi tên nhọn hướng lên */
+.dropdown-arrow {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid white;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 5px 10px;
+  color: black !important;
+  text-decoration: none;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(227, 225, 225);
+  color: rgb(247, 185, 69) !important;
+}
+
+/* === DROPDOWN === */
+.menu-dropdown {
+  margin-top: 10px;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: left;
+  padding: 12px 0;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-dropdown.open .dropdown-content-bar {
+  display: flex;
+}
+@media screen and (max-width: 768px) {
+  .desktop_sticky_menu {
+    display: none;
+  }
+    
+}

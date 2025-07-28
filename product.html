@@ -4,6 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="img/z6680689810990_56888da8ababe64686741f52c17e1926.jpg" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <title>UP5 Product</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/product.css">
@@ -11,10 +16,18 @@
 </head>
 
 <body>
-  <div class="container">
+  <div id="header-placeholder"></div>
+  <div id="menu-placeholder"></div>
+  <div id="exitFormContainer"></div>
+  <div id="showLoginFormContent"></div>
+
+
+
+
+  <div class="container_product">
     <div class="product-main">
 
-      <!-- CỘT 1: Hình ảnh sản phẩm -->
+
       <div class="product-left">
         <img id="mainImage" src="img/san-pham/2.jpg" alt="UP5 Product" class="main-img" />
         <div class="thumbnail-row">
@@ -25,7 +38,7 @@
         </div>
       </div>
 
-      <!-- CỘT 2: Nội dung sản phẩm -->
+
       <div class="product-center">
         <h1>นม UP5 ขนาด 400 กรัม (นมที่ช่วยดูแลผู้ที่มีปัญหาเกี่ยวกับระบบย่อยอาหาร)</h1>
         <p class="status">สถานะ: <span class="in-stock">มีสินค้า</span></p>
@@ -36,8 +49,8 @@
         </div>
 
         <div class="options">
-          <button class="combo-button" id="combo1"  onclick="setActive(this)">ซื้อ 1</button>
-          <button class="combo-button" id="combo2"  onclick="setActive(this)">ซื้อ 2</button>
+          <button class="combo-button" id="combo1" onclick="setActive(this)">ซื้อ 1</button>
+          <button class="combo-button" id="combo2" onclick="setActive(this)">ซื้อ 2</button>
           <button class="combo-button" id="combo31" onclick="setActive(this)">ซื้อ 3 แถม 1</button>
           <button class="combo-button" id="combo42" onclick="setActive(this)">ซื้อ 4 แถม 2</button>
           <button class="combo-button" id="combo53" onclick="setActive(this)">ซื้อ 5 แถม 3</button>
@@ -431,9 +444,19 @@
       ดีมากค่ะ <br />
       <small>2 เดือนที่ผ่านมา</small>
     </div>
+
   </div>
 
-  <script src="slide.js"></script>
+  <div id="footer-placeholder"></div>
+  <div id="contact-placeholder"></div>
+
+  <script src="js/product.js"></script>
+  <script src="js/cart.js"></script>
+
+
+  <script src="js/loadcontact.js"></script>
+  <script src="js/loadlayout.js"></script>
+  
 
 </body>
 

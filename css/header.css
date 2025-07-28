@@ -31,7 +31,13 @@ header {
   height: 48px;
   width: auto;
 }
-
+#menu-placeholder {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
 /* === TÌM KIẾM === */
 .search {
   display: flex;
@@ -214,27 +220,7 @@ header {
 
 }
 
-/* === DROPDOWN === */
-.menu-dropdown {
-  margin-top: 10px;
-}
 
-.dropdown-toggle {
-  background: none;
-  border: none;
-  font-weight: bold;
-  font-size: 16px;
-  text-align: left;
-  padding: 12px 0;
-  width: 100%;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-}
-
-.menu-dropdown.open .dropdown-content-bar {
-  display: flex;
-}
 
 /* === RESPONSIVE === */
 @media (max-width: 768px) {

@@ -4,12 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/z6680689810990_56888da8ababe64686741f52c17e1926.jpg" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <title>Bệnh lý tiêu hoá</title>
   <link rel="stylesheet" href="css/benhli.css">
+  <link rel="stylesheet" href="css/patical.css">
 
 </head>
 
 <body>
+  <div id="header-placeholder"></div>
+  <div id="menu-placeholder"></div>
+  <div id="exitFormContainer"></div>
+  <div id="showLoginFormContent"></div>
+
   <div class="container">
     <main class="main-content" id="main-content">
       <div class="section">
@@ -17,7 +27,7 @@
         <div id="default-content">
           <div class="post-grid">
             <div class="post-card">
-              <a href="#" onclick="return loadPage('frontend/partical/daday_patical1.html', 'โรคกระเพาะอาหาร')">
+              <a href="daday_patical1.html">
                 <img src="img/anh-bai-viet/da-day-bai-1-1.jpg" alt="dạ dày 1">
                 <div class="post-content">
                   <h3>โรคกรดไหลย้อน - หลอดอาหาร: อาการและวิธีการรักษา</h3>
@@ -29,7 +39,7 @@
               </a>
             </div>
             <div class="post-card">
-              <a href="#" onclick="return loadPage('frontend/partical/daday_patical2.html', 'โรคกระเพาะอาหาร')">
+              <a href="daday_patical2.html">
                 <img src="img/anh-bai-viet/da-day-bai-2-1.jpg" alt="dạ dày 2">
                 <div class="post-content">
                   <h3> ปวดท้อง: อาการ สาเหตุและวิธีการจัดการ</h3>
@@ -45,18 +55,17 @@
           </div>
         </div>
       </div>
+
     </main>
     <aside id="sidebar-placeholder"></aside>
   </div>
-  <script>
-    fetch("frontend/sidebar.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("sidebar-placeholder").innerHTML = html
-         loadRandomVerticalPosts();
-      });
-
-  </script>
+  <div id="footer-placeholder"></div>
+  <div id="contact-placeholder"></div>
+<script src="js/cart.js"></script>
+  <script src="slide.js"></script>
+  <script src="js/loadcontact.js"></script>
+  <script src="js/loadlayout.js"></script>
+  
 </body>
 
 </html>

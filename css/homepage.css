@@ -41,88 +41,6 @@ h4 {
   font-weight: 500;
 }
 
-.desktop_sticky_menu {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background-color: #211f5e;
-  padding: 12px 0;
-  width: 100%;
-}
-
-.desktop_menu {
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-  flex-wrap: wrap;
-}
-
-.desktop_menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  padding: 6px 12px;
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-trigger {
-  cursor: pointer;
-  padding-bottom: 20px;
-  /* tăng khoảng cách để giữ hover */
-  display: inline;
-
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 300px;
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
-  z-index: 999;
-  top: 135%;
-  left: 40%;
-  transform: translateX(-50%);
-  padding: 5px 0;
-  border: 0.7px dashed rgb(194, 205, 248);
-}
-
-/* Mũi tên nhọn hướng lên */
-.dropdown-arrow {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-bottom: 10px solid white;
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 5px 10px;
-  color: black !important;
-  text-decoration: none;
-
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-
-}
-
-.dropdown-content a:hover {
-  background-color: rgb(227, 225, 225);
-  color: rgb(247, 185, 69) !important;
-}
 
 .banner_slide {
   position: relative;
@@ -221,6 +139,21 @@ h4 {
   background-image: url(../img/background-mission.png);
 }
 
+.mission_text {
+  text-align: center;
+}
+
+.mission_text button {
+  background-color: rgba(2, 2, 70, 0.874);
+  border-radius: 10px;
+  font-size: 20px;
+  width: 150px;
+  height: 40px;
+  border: none;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
 
 .mission_image img {
   max-width: 700px;
@@ -231,6 +164,7 @@ h4 {
 }
 
 .mission_text p {
+
   font-size: 18px;
   line-height: 1.8;
   color: #333;
@@ -667,7 +601,7 @@ img {
   position: relative;
   width: 100px;
   margin: 0 auto;
-  left: 20%;
+  left: 10%;
   /* pointer-events: none; */
 }
 
@@ -677,7 +611,7 @@ img {
   border-radius: 20px;
   border: 2px solid black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 
 }
 
@@ -691,7 +625,7 @@ img {
   font-weight: bold;
   position: absolute;
   left: 50%;
-  margin-top: -25px;
+  margin-top: -30px;
   transform: translateX(-50%);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -700,6 +634,8 @@ img {
   background-color: #1a5bbd;
   color: white;
 }
+
+
 
 .floating-btn {
   width: 50px;
@@ -710,8 +646,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px auto 0;
-  margin-right: -25px;
+  margin: 10px auto;
+  margin-right: -20px;
 }
 
 .line-qr-box a {
@@ -851,9 +787,7 @@ img {
     font-size: 14px;
     display: none;
   }
-.desktop_sticky_menu{
-  display: none;
-  }
+
   .banner_slide {
     max-height: 300px;
   }
@@ -912,7 +846,7 @@ img {
     width: 100px;
     height: 100px;
   }
-
+  
   .uses-wrapper {
     grid-template-columns: 1fr;
     margin: 0 10px;
@@ -941,9 +875,13 @@ img {
     width: 90%;
     margin: 20px auto;
   }
+  
+  .user_img  {
+    /* width: 100px; */
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
 
-  .user_img img {
-    max-width: 90%;
   }
 
   .top_row {
@@ -975,14 +913,17 @@ img {
   }
 
   .line-qr-box {
+      
     right: 50px;
-    bottom: 80px;
+    bottom: 40px;
     width: 60px;
   }
-
+  .cart-btn{
+    display: none;
+    }
   .qr-wrapper {
     content: url('../img/qr-line-icon.png');
-     /* thay hình QR thành hình icon Line */
+    /* thay hình QR thành hình icon Line */
     width: 45px;
     height: 45px;
     border-radius: 5px;
@@ -994,12 +935,20 @@ img {
     padding: 4px 8px;
   }
 
-  .floating-btn {
+  .mess_icon {
     width: 40px;
     height: 40px;
     font-size: 18px;
   }
-  .breadcrumb{
+
+
+  .floating-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+
+  .breadcrumb {
     display: none;
   }
 }

@@ -29,6 +29,7 @@ body {
   height: fit-content;
   position: sticky;
   top: 100px;
+  margin-left: 70px;
 }
 
 .content-area {
@@ -88,16 +89,13 @@ body {
   margin-left: 60px;
   padding: 10px;
   line-height: 2.5;
+}
+.content-list img{ 
+   width: 100%;
+  border-radius: 10px;
 
-  
-  
-  
 }
 
-.content-right img {
-  width: 90%;
-border-radius: 10px;
-}
 
 
 .roman-list {
@@ -105,10 +103,11 @@ border-radius: 10px;
 
 }
 
+
 .roman-list img {
   width: 100%;
   height: auto;
-border-radius: 10px;
+  border-radius: 10px;
   margin-top: 10px;
 }
 
@@ -116,17 +115,13 @@ border-radius: 10px;
   margin-left: 10px;
 }
 
-.roman-list ul,
-ol {
-  margin-left: -15px;
+.roman-list ul{
+  margin-left: -10px;
 }
 
 .certificates {
   display: flex;
   justify-content: center;
-
-  
-
 }
 
 .certificate-box {
@@ -134,14 +129,14 @@ ol {
   /* border: 1px solid #ddd; */
   width: 250px;
   padding: 14px;
-   box-shadow: #ddd;
-    background-size: cover;
+  box-shadow: #ddd;
+  background-size: cover;
   /* 🔄 đổi từ cover -> contain để ảnh không bị cắt */
   background-position: center center;
   background-repeat: no-repeat;
   justify-content: flex-start;
-  
- 
+
+
 
 
 }
@@ -150,7 +145,7 @@ ol {
   font-size: 16px;
   color: #000;
   text-align: center;
- 
+
 }
 
 
@@ -168,6 +163,7 @@ ol {
   color: #333;
   text-align: center;
 }
+
 /* ------------ Responsive cho Tablet & Mobile ------------- */
 @media (max-width: 1024px) {
   .container {
@@ -224,9 +220,11 @@ ol {
     font-size: 15px;
     line-height: 2;
   }
-.left-sidebar{
-  display: none;
+
+  .left-sidebar {
+    display: none;
   }
+
   .toc-header {
     font-size: 15px;
   }

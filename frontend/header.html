@@ -35,8 +35,7 @@
             </div>
 
             <span class="cart">
-                <a href="#" onclick="loadPage('frontend/cart.html')"><i class="fa fa-cart-plus" aria-hidden="true"
-                        style="color: #1e1a5e;"></i>
+                <a href="cart.html"><i class="fa fa-cart-plus" aria-hidden="true" style="color: #1e1a5e;"></i>
                     <span id="cart-count">0</span></a>
             </span>
 
@@ -52,19 +51,17 @@
                 </div>
 
                 <nav class="menu">
-                    <a href="#" onclick="showHome()">หน้าแรก</a>
-                    <a href="#" onclick="loadPage('frontend/product.html','ผลิตภัณฑ์');closeMenu()">ผลิตภัณฑ์</a>
+                    <a href="index.html">หน้าแรก</a>
+                    <a href="product.html" onclick="closeMenu()">ผลิตภัณฑ์</a>
 
                     <div class="menu-dropdown">
                         <button class="dropdown-toggle" onclick="toggleDropdown(this)">แนะนำเกี่ยวกับแบรนด์ UP5
                             <span>▼</span></button>
                         <div class="dropdown-content-bar">
-                            <a href="#" onclick="loadPage('frontend/about.html','เรื่องราวของ Up5');closeMenu()">เรื่องราวของ
+                            <a href="about.html" onclick="closeMenu()">เรื่องราวของ
                                 Up5</a>
-                            <a href="#"
-                                onclick="loadPage('frontend/manufacture.html','การเดินทางการผลิต');closeMenu()">การเดินทางการผลิต</a>
-                            <a href="#"
-                                onclick="loadPage('frontend/quality.html','ความมุ่งมั่นด้านคุณภาพ');closeMenu()">ความมุ่งมั่นด้านคุณภาพ</a>
+                            <a href="manufacture.html" onclick="closeMenu()">การเดินทางการผลิต</a>
+                            <a href="quality.html" onclick="closeMenu()">ความมุ่งมั่นด้านคุณภาพ</a>
                         </div>
                     </div>
 
@@ -72,20 +69,20 @@
                         <button class="dropdown-toggle" onclick="toggleDropdown(this)">โรคระบบทางเดินอาหาร
                             <span>▼</span></button>
                         <div class="dropdown-content-bar">
-                            <a href="#" onclick="loadPage('frontend/daday.html','โรคกระเพาะอาหาร');closeMenu()">โรคกระเพาะอาหาร</a>
-                            <a href="#" onclick="loadPage('frontend/daitrang.html','โรคลำไส้ใหญ่');closeMenu()">โรคลำไส้ใหญ่</a>
-                            <a href="#"
-                                onclick="loadPage('frontend/tieuhoa.html','การดูแลระบบย่อยอาหาร');closeMenu()">การดูแลระบบย่อยอาหาร</a>
+                            <a href="daday.html" onclick="closeMenu()">โรคกระเพาะอาหาร</a>
+                            <a href="daitrang.html" onclick="closeMenu()">โรคลำไส้ใหญ่</a>
+                            <a href="tieuhoa.html" onclick="closeMenu()">การดูแลระบบย่อยอาหาร</a>
                         </div>
                     </div>
 
-                    <a href="#" onclick="showExitForm();closeMenu()">ติดต่อเลย</a>
-                    <a href="#" onclick="loadPage('frontend/faq.html');closeMenu()">FAQs</a>
+                    <a href="index.html#content-form">ติดต่อเลย</a>
+                    <a href="faq.html" onclick="closeMenu()">FAQs</a>
                 </nav>
             </div>
         </div>
-
     </header>
+   
+<!-- Trong file header.html -->
 
 
 

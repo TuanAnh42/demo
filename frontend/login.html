@@ -129,8 +129,8 @@
                 <h2>เข้าสู่ระบบหรือสมัครสมาชิก</h2>
                 <p>กรุณาเข้าสู่ระบบเพื่อรับสิทธิพิเศษสำหรับสมาชิก</p>
 
-                <input class="input-field" type="email" placeholder="อีเมลบัญชีผู้ใช้">
-                <input class="input-field" type="password" placeholder="รหัสผ่าน">
+                <input id="email" class="input-field" type="email" placeholder="อีเมลบัญชีผู้ใช้">
+                <input id="password" class="input-field" type="password" placeholder="รหัสผ่าน">
 
                 <button class="login-button">เข้าสู่ระบบ</button>
 
@@ -149,6 +149,38 @@
             </form>
         </div>
     </div>
+    <script>
+        document.getElementById("loginContact").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            const response = await fetch("http://127.0.0.1:8000/api/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert("✅ Đăng nhập thành công!");
+                console.log(data);
+
+                // Lưu token để dùng cho các API tiếp theo
+                localStorage.setItem("token", data.token);
+
+                // Ẩn form đăng nhập
+                document.getElementById("loginOverlay").style.display = "none";
+            } else {
+                alert("❌ " + (data.message || "Đăng nhập thất bại"));
+            }
+        });
+    </script>
+
 </body>
 
 </html>

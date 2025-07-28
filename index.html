@@ -10,58 +10,15 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>เข้าสู่ระบบ</title>
     <link rel="stylesheet" href="css/homepage.css">
-    <link rel="stylesheet" href="css/manufacture.css">
-    <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/form.css">
-    <link rel="stylesheet" href="css/faq.css">
-    <link rel="stylesheet" href="css/checkout.css" />
     <link rel="stylesheet" href="css/benhli.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/patical.css">
+    
 </head>
 
 <body>
     <div id="header-placeholder"></div>
-    <div id="exitFormContainer"></div>
+    <div id="menu-placeholder"></div>
     <div id="showLoginFormContent"></div>
-
-    <div class="desktop_sticky_menu">
-        <div class="desktop_menu" id="mainMenu">
-            <a href="#" onclick="showHome()">หน้าแรก</a>
-            <a href="#" onclick="loadPage('frontend/product.html','ผลิตภัณฑ์')">ผลิตภัณฑ์</a>
-
-            <div class="dropdown">
-                <div class="dropdown-trigger">
-                    <a href="#">แนะนำเกี่ยวกับแบรนด์ UP5</a>
-                </div>
-                <div class="dropdown-content">
-                    <div class="dropdown-arrow"></div>
-                    <a href="#" onclick="loadPage('frontend/about.html','เรื่องราวของ Up5')">เรื่องราวของ Up5</a>
-                    <a href="#"
-                        onclick="loadPage('frontend/manufacture.html','การเดินทางการผลิต')">การเดินทางการผลิต</a>
-                    <a href="#"
-                        onclick="loadPage('frontend/quality.html','ความมุ่งมั่นด้านคุณภาพ')">ความมุ่งมั่นด้านคุณภาพ</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <div class="dropdown-trigger">
-                    <a href="#">โรคระบบทางเดินอาหาร</a>
-                </div>
-                <div class="dropdown-content">
-                    <div class="dropdown-arrow"></div>
-                    <a href="#" onclick="loadPage('frontend/daday.html','โรคกระเพาะอาหาร')">โรคกระเพาะอาหาร</a>
-                    <a href="#" onclick="loadPage('frontend/daitrang.html','โรคลำไส้ใหญ่')">โรคลำไส้ใหญ่</a>
-                    <a href="#"
-                        onclick="loadPage('frontend/tieuhoa.html','การดูแลระบบย่อยอาหาร')">การดูแลระบบย่อยอาหาร</a>
-                </div>
-            </div>
-
-            <a href="#" onclick="showExitForm()">ติดต่อเลย</a>
-            <a href="#" onclick="loadPage('frontend/faq.html')">FAQs</a>
-        </div>
-    </div>
-
 
     <main>
         <div class="dynamic-title-section" style="display: none;">
@@ -99,6 +56,7 @@
                         สุขภาพระบบย่อยอาหารจะไม่ใช่การต่อสู้ที่เหนื่อยล้าอีกต่อไป
                         แต่เป็นการเดินทางสู่ชีวิตที่แข็งแรงอย่างเป็นธรรมชาติ เริ่มต้นง่าย ๆ เพียงวันละ 2 แก้ว
                     </p>
+                    <a href="about.html"><button>ดูเพิ่มเติม</button></a>
                 </div>
                 <div class="ingredient_img reveal">
                     <img src="img/ingredient/thanh-phan.png" alt="">
@@ -183,7 +141,8 @@
                             นม UP5 ได้รับการวิจัยอย่างละเอียดด้วยสูตรโภชนาการที่ "ได้สัดส่วนทองคำ"
                             เพื่อให้ความปลอดภัยและประสิทธิภาพสูงสุดแก่ผู้ใช้
                         </p>
-                        <button>เรียนรู้เพิ่มเติม</button>
+                        <a href="manufacture.html">
+                            <button>เรียนรู้เพิ่มเติม</button></a>
                     </div>
 
                     <!-- Cột giữa: ảnh chính -->
@@ -253,7 +212,7 @@
                 <div class="swiper swiper_combo">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide combo_item">
-                            <a href="#" onclick="loadPage('frontend/product.html','ผลิตภัณฑ์')">
+                            <a href="product.html">
                                 <img src="img/combo-san-pham/31.png" alt="combo 1">
                                 <h3>UP 5 400g - ซื้อ 3 แถม 1</h3>
                                 <p>2,799฿</p>
@@ -262,7 +221,7 @@
                         </div>
 
                         <div class="swiper-slide combo_item">
-                            <a href="#" onclick="loadPage('frontend/product.html','ผลิตภัณฑ์')">
+                            <a href="product.html">
                                 <img src="img/combo-san-pham/42.png" alt="combo 2">
                                 <h3>UP 5 400g - ซื้อ 4 แถม 2</h3>
                                 <p>2,799฿</p>
@@ -270,7 +229,7 @@
                             </a>
                         </div>
                         <div class="swiper-slide combo_item">
-                            <a href="#" onclick="loadPage('frontend/product.html','ผลิตภัณฑ์')">
+                            <a href="product.html">
                                 <img src="img/combo-san-pham/53.png" alt="combo 3">
                                 <h3>UP 5 400g - ซื้อ 5 แถม 3</h3>
                                 <p>4,999฿</p>
@@ -278,7 +237,7 @@
                             </a>
                         </div>
                         <div class="swiper-slide combo_item">
-                            <a href="#" onclick="loadPage('frontend/product.html','ผลิตภัณฑ์')">
+                            <a href="product.html">
                                 <img src="img/combo-san-pham/75.png" alt="combo 4">
                                 <h3>UP 5 400g - ซื้อ 7 แถม 5</h3>
                                 <p>6,999฿</p>
@@ -300,7 +259,7 @@
                     </div>
                     <p class="desc" style="margin-bottom: 10px;">อย่าพลาดข้อมูลสื่อที่มีประโยชน์และโปรโมชั่นสุดพิเศษของ
                         UP5</p>
-                    <a href="#" onclick="loadPage('frontend/tieuhoa.html','')" class="btn">ดูเพิ่มเติม →</a>
+                    <a href="tieuhoa.html" class="btn">ดูเพิ่มเติม →</a>
                 </div>
                 <div style="position: relative;overflow: visible; z-index: 1;" class="swiper swiper_active">
                     <div style="position: absolute;left: -20px;top: 50%;z-index: 999;"
@@ -313,7 +272,7 @@
 
 
             </div>
-            <div class="form-session">
+            <div class="form-session" id="content-form">
                 <form action="#" method="post" class="index-form">
                     <h3>ฝากข้อมูลของคุณไว้</h3>
 
@@ -328,28 +287,17 @@
             </div>
         </div>
         <div id="main-content" style="display: none;"></div>
-        <div class="line-qr-box">
-            <div class="qr-wrapper">
-                <a href="https://line.me/th/" target="_blank">
-                    <img src="img/qr-line.jpg" alt="LINE QR">
-                </a>
-                <div class="line-label">+66931587658</div>
-            </div>
-            <!-- Optional floating buttons -->
-            <a href="http://m.me/431631586689864" target="_blank">
-                <div class="floating-btn call-btn">
-                    <i class="fas fa-phone" style="color: white;font-size: 20px;"></i>
-                </div>
-            </a>
-            <div onclick="loadPage('frontend/cart.html','ตะกร้าสินค้าของคุณ')" class="floating-btn cart-btn">
-                <i class="fas fa-shopping-cart" style="color: white;font-size: 20px;"></i>
-            </div>
-        </div>
+        
     </main>
+    <div id="contact-placeholder"></div>
+
     <div id="footer-placeholder"></div>
     <!-- <button onclick="scrollToTop()" id="backToTop" title="Lên đầu trang">
         ⬆
     </button> -->
+    <script src="js/cart.js"></script>
+    <script src="js/loadcontact.js"></script>
+    <script src="js/loadlayout.js"></script>
     <script src="slide.js"></script>
 </body>
 
