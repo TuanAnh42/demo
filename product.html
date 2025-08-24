@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <title>UP5 Product</title>
+  <title>up5sure</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/product.css">
 
@@ -20,12 +20,11 @@
   <div id="menu-placeholder"></div>
   <div id="exitFormContainer"></div>
   <div id="showLoginFormContent"></div>
-
-
-
+  <div id="breadcrumb-placeholder"></div>
 
   <div class="container_product">
     <div class="product-main">
+
 
 
       <div class="product-left">
@@ -344,7 +343,7 @@
             </p>
           </div>
         </div>
-
+        <button id="toggle-button">อ่านเพิ่มเติม</button>
       </div>
 
     </div>
@@ -419,11 +418,13 @@
       <p id="rating-label" style="text-align: center; font-weight: bold;">ยอดเยี่ยม</p>
 
       <div class="input-row">
-        <input type="text" placeholder="ชื่อ-นามสกุล">
-        <input type="text" placeholder="เบอร์โทรศัพท์">
+
+        <input type="text" id="review-phone" placeholder="เบอร์โทรศัพท์">
+
+
       </div>
-      <input type="email" placeholder="อีเมล (ไม่บังคับ)">
-      <textarea placeholder="เขียนรีวิวของคุณ..."></textarea>
+
+      <textarea id="review-content" placeholder="เขียนรีวิวของคุณ..."></textarea>
 
       <div class="upload-box">
         ลากไฟล์มาวางที่นี่ หรือ <a href="#">เลือกภาพจากอุปกรณ์</a>
@@ -449,14 +450,37 @@
 
   <div id="footer-placeholder"></div>
   <div id="contact-placeholder"></div>
+  <script type="module" src="js/product.js"></script>
+  <script type="module" src="js/cart.js"></script>
+  <script type="module" src="js/loadcontact.js"></script>
+  <script type="module" src="js/loadlayout.js"></script>
+  <script type="module" src="slide.js"></script>
+  <script type="module" src="js/user.js"></script>
+  <script type="module" src="js/loadStar.js"></script>
+  <script type="module" src="js/renderPost.js"></script>
 
-  <script src="js/product.js"></script>
-  <script src="js/cart.js"></script>
+  <script>
+    function toggleContent() {
+      const content = document.getElementById('long-content');
+      const button = document.getElementById('toggle-button');
 
+      button.addEventListener('click', () => {
+        content.classList.toggle('collapsed');
+        button.textContent = content.classList.contains('collapsed') ? 'อ่านเพิ่มเติม' : 'ซ่อน';
+      });
 
-  <script src="js/loadcontact.js"></script>
-  <script src="js/loadlayout.js"></script>
-  
+      window.addEventListener('load', () => {
+        if (content.scrollHeight <= 300) {
+          button.style.display = 'none';
+        }
+      });
+
+      console.log("toggleContent loaded");
+    }
+
+    document.addEventListener("DOMContentLoaded", toggleContent);
+  </script>
+
 
 </body>
 

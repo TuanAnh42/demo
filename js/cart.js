@@ -42,17 +42,18 @@ function addtocart() {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("buyMode", "cart");      // hoặc "quickBuy"
+    // hoặc "quickBuy"
 
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
     updateCartIcon(totalCount);
 
 }
 
-function updateCartIcon(count) {
+export function updateCartIcon(count) {
     const icon = document.getElementById("cart-count");
     if (icon) {
         icon.textContent = count;
+        icon.classList.add("cart-bounce");
 
         icon.classList.add("cart-bounce");
         setTimeout(() => icon.classList.remove("cart-bounce"), 300);
@@ -60,6 +61,7 @@ function updateCartIcon(count) {
 
     // Nếu muốn lưu vào localStorage:
     localStorage.setItem('cartCount', count);
+    localStorage.setItem('cart', JSON.stringify(JSON.parse(localStorage.getItem('cart')) || []));
 }
 
 // Khi load trang, khôi phục số lượng
@@ -186,7 +188,7 @@ function buyNow() {
     };
 
     localStorage.setItem("quickBuy", JSON.stringify(quickBuy));
- localStorage.setItem("buyMode", "quickBuy");
+    localStorage.setItem("buyMode", "quickBuy");
     window.location.href = "checkout.html"
 
 
@@ -334,51 +336,52 @@ function renderCartForCheckout() {
     discountCk.textContent = discountAmount > 0
         ? "- " + discountAmount.toLocaleString('th-TH') + "฿"
         : "0฿";
-
     totalCk.textContent = (subtotal - discountAmount).toLocaleString('th-TH') + "฿";
 
 }
 function renderCheckout() {
-  const mode = localStorage.getItem("buyMode");
+    const mode = localStorage.getItem("buyMode");
 
-  if (mode === "cart") {
-    renderCartForCheckout();
-  } else if (mode === "quickBuy") {
-    renderQuickBuyInfo();
-  } else {
-    console.warn("Không xác định chế độ mua hàng");
-  }
+    if (mode === "cart") {
+        renderCartForCheckout();
+    } else if (mode === "quickBuy") {
+        renderQuickBuyInfo();
+    } else {
+        console.warn("Không xác định chế độ mua hàng");
+    }
 }
 
 
 
 function gotoCheckout() {
-  const input = document.getElementById("discount-code");
-  const code = input?.value.trim();
-  const mode = localStorage.getItem("buyMode");
+    const input = document.getElementById("discount-code");
+    const code = input?.value.trim();
+    const mode = localStorage.getItem("buyMode");
+     localStorage.setItem("buyMode","cart");
 
-  let valid = false;
+    let valid = false;
 
-  if (mode === "cart") {
-    const checkProduct = JSON.parse(localStorage.getItem("cart"));
-    valid = Array.isArray(checkProduct) && checkProduct.length > 0;
-  } else if (mode === "quickBuy") {
-    const quickItem = JSON.parse(localStorage.getItem("quickBuy"));
-    valid = quickItem && quickItem.name;
-  }
+    if (mode === "cart") {
+        const checkProduct = JSON.parse(localStorage.getItem("cart"));
+        valid = Array.isArray(checkProduct) && checkProduct.length > 0;
+       
+    } else if (mode === "quickBuy") {
+        const quickItem = JSON.parse(localStorage.getItem("quickBuy"));
+        valid = quickItem && quickItem.name;
+    }
 
-  if (!valid) {
-    alert("ไม่พบข้อมูลสินค้า กรุณาเลือกสินค้าอีกครั้ง");
-    window.location.href = "product.html";
-    return;
-  }
+    if (!valid) {
+        alert("ไม่พบข้อมูลสินค้า กรุณาเลือกสินค้าอีกครั้ง");
+        window.location.href = "product.html";
+        return;
+    }
 
-  if (!code) {
-    localStorage.removeItem("discountAmount");
-    localStorage.removeItem("discountCode");
-  }
+    if (!code) {
+        localStorage.removeItem("discountAmount");
+        localStorage.removeItem("discountCode");
+    }
 
-  window.location.href = "checkout.html";
+    window.location.href = "checkout.html";
 }
 
 
@@ -387,8 +390,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const cart = getCart();
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
     updateCartIcon(totalCount);
+
+    updateCartIcon(totalCount);
     renderCart();
     renderCheckout();
+
+
+
+
+
+
 
 });
 

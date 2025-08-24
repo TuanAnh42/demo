@@ -1,3 +1,5 @@
+// window.allPosts = window.allPosts || [];
+let allPosts = [];
 
 if (typeof currentIndex === 'undefined') {
   var currentIndex = 0;
@@ -12,10 +14,11 @@ function showSlide(index) {
     slide.classList.remove("active");
     dots[i].classList.remove("active");
   });
-  slides[index].classList.add("active");
-  dots[index].classList.add("active");
+  if (slides[index]) slides[index].classList.add("active");
+  if (dots[index]) dots[index].classList.add("active");
   currentIndex = index;
 }
+
 
 function changeSlide(direction) {
   let newIndex = currentIndex + direction;
@@ -28,12 +31,14 @@ function goToSlide(index) {
   showSlide(index);
 }
 
-prevBtn.onclick = () => changeSlide(-1);
-nextBtn.onclick = () => changeSlide(1);
+if (prevBtn) prevBtn.onclick = () => changeSlide(-1);
+if (nextBtn) nextBtn.onclick = () => changeSlide(1);
+
 
 dots.forEach((dot, i) => {
   dot.onclick = () => goToSlide(i);
 });
+
 
 
 
@@ -151,43 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-function showLoginForm() {
-  // Kiểm tra nếu overlay đã tồn tại
-  const overlay = document.getElementById("loginOverlay");
 
-  if (overlay) {
-    overlay.style.display = "flex";
-    return;
-  }
-
-  // Nếu chưa có → tải form login.html và gắn vào DOM
-  fetch('frontend/login.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('showLoginFormContent').innerHTML = data;
-
-      const overlay = document.getElementById("loginOverlay");
-      if (!overlay) return;
-
-      overlay.style.display = "flex";
-
-      // Đóng khi click ra ngoài form
-      overlay.addEventListener("click", function (e) {
-        const popup = document.getElementById("loginForm");
-        if (!popup.contains(e.target)) {
-          overlay.style.display = "none";
-        }
-      });
-    })
-    .catch(error => {
-      console.error("Lỗi khi tải form đăng nhập:", error);
-    });
-}
-
-function closeLoginForm() {
-  const overlay = document.getElementById("loginOverlay");
-  if (overlay) overlay.style.display = "none";
-}
 
 // Hiển thị dữ liệu từ localStorage trên trang checkout
 
@@ -221,86 +190,11 @@ const swiperCombo = new Swiper('.swiper_combo', {
 
 
 // main.js
-function initFaqToggle() {
-  const faqBox = document.getElementById('faq');
-  if (!faqBox) return;
-
-  const faqQuestions = faqBox.querySelectorAll('.faq-question');
-
-  faqQuestions.forEach((question) => {
-    question.addEventListener('click', () => {
-      const answer = question.nextElementSibling;
-      const icon = question.querySelector('.toggle-icon');
-      const isOpen = answer.style.display === 'block';
-
-      // Ẩn tất cả câu trả lời và đặt lại icon thành "+"
-      faqBox.querySelectorAll('.faq-answer').forEach((ans) => {
-        ans.style.display = 'none';
-      });
-      faqBox.querySelectorAll('.faq-question .toggle-icon').forEach((i) => {
-        i.textContent = '+';
-      });
-
-      // Nếu đang đóng thì mở ra và đổi icon thành "-"
-      if (!isOpen) {
-        answer.style.display = 'block';
-        if (icon) icon.textContent = '–';
-      }
-    });
-  });
-
-  // Mặc định ẩn hết câu trả lời khi trang tải
-  faqBox.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
-}
 
 
-function toggleForm() {
-  const form = document.getElementById('review-form');
-  // Kiểm tra nếu form đang hiển thị thì ẩn, ngược lại thì hiển thị
-  if (form.style.display === 'none' || form.style.display === '') {
-    form.style.display = 'block';
-  } else {
-    form.style.display = 'none';
-  }
-}
-let selectedRating = 0;
-function loadstar() {
-  document.addEventListener('DOMContentLoaded', function () {
-    const stars = document.querySelectorAll('#rating-stars span');
-    const label = document.getElementById('rating-label');
-    const descriptions = ['แย่', 'พอใช้', 'ปานกลาง', 'ดี', 'ยอดเยี่ยม'];
-
-    stars.forEach((star) => {
-      const value = parseInt(star.getAttribute('data-star'));
-
-      star.addEventListener('click', () => {
-        selectedRating = value;
-        updateStars(selectedRating);
-      });
-
-      star.addEventListener('mouseover', () => {
-        updateStars(value);
-      });
-
-      star.addEventListener('mouseout', () => {
-        updateStars(selectedRating);
-      });
-    });
-
-    function updateStars(rating) {
-      stars.forEach((star, index) => {
-        star.style.color = index < rating ? 'gold' : '#ccc';
-      });
-
-      if (label) {
-        label.textContent = rating > 0 ? descriptions[rating - 1] : 'กรุณาให้คะแนน';
-      }
-    }
-  });
-}
 
 const swiperActive = new Swiper('.swiper_active', {
-  slidesPerView: 1,
+  slidesPerView: 2,
   spaceBetween: 20,
   loop: true,
   // centeredSlides: true,
@@ -327,95 +221,168 @@ const swiperActive = new Swiper('.swiper_active', {
 
 });
 
-async function loadPostToSwiper(path) {
-  const res = await fetch(path);
-  const html = await res.text();
+// async function fetchPostsByCategorySlug(slug, count = 5) {
+//   try {
+//     const catRes = await fetch(`http://localhost/up5_wp/wp-json/wp/v2/categories?slug=${slug}`);
+//     const catData = await catRes.json();
+//     if (!catData.length) return [];
 
-  const tempDOM = document.createElement('div');
-  tempDOM.innerHTML = html;
+//     const catId = catData[0].id;
+//     const postRes = await fetch(`http://localhost/up5_wp/wp-json/wp/v2/posts?categories=${catId}&_embed&per_page=${count}`);
+//     const posts = await postRes.json();
 
-  const posts = tempDOM.querySelectorAll('.post-card');
-  if (posts.length > 0) {
-    posts.forEach(post => {
-      const slide = document.createElement('div');
-      slide.className = 'swiper-slide active_item';
-
-      // Clone từng post-card
-      slide.appendChild(post.cloneNode(true));
-      document.querySelector('#post-list').appendChild(slide);
-    });
-    swiperActive.update();
-
-  }
-}
-
-loadPostToSwiper('daday.html');
-loadPostToSwiper('daitrang.html');
-loadPostToSwiper('tieuhoa.html');
-
-async function getPostsFromPages(pages) {
-  let allPosts = [];
-
-  for (const page of pages) {
-    try {
-      const res = await fetch(page);
-      const htmlText = await res.text();
-
-      const tempDom = document.createElement("div");
-      tempDom.innerHTML = htmlText;
-
-      const posts = tempDom.querySelectorAll(".post-card");
-      allPosts = allPosts.concat(Array.from(posts));
-    } catch (e) {
-      console.error("โหลดโพสต์จาก", page, "ไม่สำเร็จ:", e);
-    }
-  }
-
-  return allPosts;
-}
-
-function shuffleAndPick(arr, count = 4) {
-  return arr.sort(() => 0.5 - Math.random()).slice(0, count);
-}
-
-function renderVerticalPosts(posts) {
-  const container = document.getElementById("random-posts");
-  if (!container) return;
-
-  posts.forEach(post => {
-    const img = post.querySelector("img")?.src;
-    const title = post.querySelector("h3")?.innerText;
-    const link = post.querySelector("a")?.getAttribute("onclick");
-
-    const li = document.createElement("li");
-
-    const imageEl = document.createElement("img");
-    imageEl.src = img || "";
-    imageEl.alt = "thumb";
-
-    const textEl = document.createElement("div");
-    textEl.textContent = title;
-
-    li.appendChild(imageEl);
-    li.appendChild(textEl);
-
-    // Gắn link onclick như trong post gốc
-    if (link) li.setAttribute("onclick", link);
-
-    container.appendChild(li);
-  });
-}
+//     return posts.map(post => ({
+//       id: post.id,
+//       title: post.title.rendered,
+//       link: post.link,
+//       img: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'img/placeholder.png',
+//       excerpt: post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, ""),
+//       categorySlug: slug
+//     }));
+//   } catch (error) {
+//     console.error("Lỗi khi fetch posts:", error);
+//     return [];
+//   }
+// }
 
 
-async function loadRandomVerticalPosts() {
-  const pages = ["daday.html", "daitrang.html", "tieuhoa.html"];
-  const allPosts = await getPostsFromPages(pages);
-  const pickedPosts = shuffleAndPick(allPosts, 4);
-  renderVerticalPosts(pickedPosts);
-}
-document.addEventListener("DOMContentLoaded", () => {
-  loadRandomVerticalPosts();
-});
+// async function fetchAllCategories() {
+//   try {
+//     // Lấy tối đa 100 category (thay số này nếu cần)
+//     const res = await fetch('http://localhost/up5_wp/wp-json/wp/v2/categories?per_page=100');
+//     const categories = await res.json();
+//     // Lọc category có post count > 0 (bạn có thể thay đổi điều kiện lọc)
+//     const slugs = categories.filter(cat => cat.count > 0).map(cat => cat.slug);
+//     return slugs;
+//   } catch (error) {
+//     console.error('Lỗi khi lấy danh sách categories:', error);
+//     return [];
+//   }
+// }
+
+// function createPostCard(post, categorySlug) {
+//   const card = document.createElement('div');
+//   card.classList.add('post-card');
+//   card.innerHTML = `
+//     <a href="daday_patical1.html?id=${post.id}&slug=${categorySlug}">
+//       <img src="${post.img}" alt="${post.title}">
+//       <div class="post-content">
+//         <h3>${post.title}</h3>
+//         <p>${post.excerpt}</p>
+//       </div>
+//     </a>
+//   `;
+//   return card;
+// }
+
+
+// // ... giữ nguyên phần fetchPostsByCategorySlug, fetchAllCategories, createPostCard ...
+
+// async function loadPostToSwiper(slugs) {
+//   const postList = document.getElementById('post-list');
+  
+
+//   // Tạo mảng chứa tất cả bài post để trả về
+//   let allPostsLocal = [];
+
+//   for (const slug of slugs) {
+//     const posts = await fetchPostsByCategorySlug(slug);
+//     allPostsLocal = allPostsLocal.concat(posts);
+
+//     posts.forEach(post => {
+//       const slide = document.createElement('div');
+//       slide.className = 'swiper-slide active_item';
+//       slide.appendChild(createPostCard(post, slug));
+//       postList.appendChild(slide);
+//     });
+//   }
+
+//   if (typeof swiperActive !== 'undefined') {
+//     swiperActive.update();
+//   }
+// console.log(allPostsLocal)
+//   return allPostsLocal; // Trả về tất cả posts đã load
+// }
+// async function getPostsFromCategories(slugs) {
+//   for (const slug of slugs) {
+//     console.log("Fetching category:", slug);
+//     const posts = await fetchPostsByCategorySlug(slug, 10);
+//     console.log(`Posts for ${slug}:, posts`);
+//     allPosts = allPosts.concat(posts);
+//   }
+//   return allPosts;
+// }
+
+
+// function renderVerticalPosts(posts) {
+//   const container = document.getElementById("random-posts");
+//   if (!container) return;
+
+//   container.innerHTML = "";
+//   posts.forEach(post => {
+//     const li = document.createElement("li");
+
+//     const linkEl = document.createElement("a");
+//     linkEl.href = `daday_patical1.html?id=${post.id}&slug=${post.categorySlug}`;
+
+//     linkEl.style.display = "flex";
+//     linkEl.style.alignItems = "center";
+//     linkEl.style.gap = "8px";
+
+//     const img = document.createElement("img");
+//     img.src = post.img || "img/placeholder.png";
+//     img.alt = "thumb";
+//     img.style.width = "50px";
+
+//     const textEl = document.createElement("div");
+//     textEl.textContent = post.title || "";
+
+//     linkEl.appendChild(img);
+//     linkEl.appendChild(textEl);
+//     li.appendChild(linkEl);
+//     container.appendChild(li);
+//   });
+// }
+
+// function shuffleAndPick(array, count) {
+//   return array.sort(() => 0.5 - Math.random()).slice(0, count);
+// }
+// async function loadAllCategoriesPosts() {
+//   const slugs = await fetchAllCategories();
+//   if (!slugs.length) {
+//     console.warn("Không có category để load bài viết");
+//     return [];
+//   }
+//   console.log("Danh sách slugs:", slugs);
+//   const posts = await loadPostToSwiper(slugs);
+//   console.log("Tổng bài viết load được:", posts.length);
+
+//   allPosts = posts; // ✅ Gán vào biến toàn cục
+//   return posts;
+// }
+
+
+// async function loadRandomVerticalPosts() {
+//   console.log("Bắt đầu loadRandomVerticalPosts");
+//   if (allPosts.length === 0) {
+//     console.log("allPosts trống, load lại");
+//     allPosts = await loadAllCategoriesPosts();
+//   }
+//   console.log("Tổng bài viết trong allPosts:", allPosts.length);
+
+//   const pickedPosts = shuffleAndPick(allPosts, 4);
+//   console.log("Bài viết được chọn random:", pickedPosts);
+
+//   renderVerticalPosts(pickedPosts);
+// }
+
+// document.addEventListener("DOMContentLoaded", async () => {
+//   allPosts = await loadAllCategoriesPosts();
+//   await loadRandomVerticalPosts();
+// });
+
+
+
 
 
 

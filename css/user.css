@@ -1,0 +1,39 @@
+.dropdown-account-menu {
+    padding: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle-account {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.dropdown-menu-account {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    min-width: 180px;
+    top: 100%;
+    right: 0;
+    z-index: 10000;
+}
+
+.dropdown-menu-account a {
+    display: block;
+    padding: 8px 12px;
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown-menu-account a:hover {
+    background: #f0f0f0;
+}
+
+.dropdown-menu-account.show {
+    display: block;
+}

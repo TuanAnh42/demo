@@ -19,7 +19,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 16px;
 }
@@ -29,17 +29,7 @@ h4 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.breadcrumb {
-  font-size: 16px;
-  color: #444;
-  margin-left: 60px;
-}
 
-.breadcrumb a {
-  color: #1e1a5e;
-  text-decoration: none;
-  font-weight: 500;
-}
 
 
 .banner_slide {
@@ -57,7 +47,23 @@ h4 {
   left: 0;
   width: 100%;
 }
+.breadcrumb {
+  font-size: 16px;
+  color: #444;
+  margin-left: 60px;
+}
 
+.breadcrumb a {
+  color: #1e1a5e;
+  text-decoration: none;
+  font-weight: 500;
+}
+@media screen and (max-width: 768px) {
+  .breadcrumb {
+    display: none;
+  }
+    
+}
 .slide img {
   width: 100%;
   height: auto;
@@ -596,6 +602,30 @@ img {
   cursor: pointer;
 }
 
+.big-img {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* THIẾU DÒNG NÀY */
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.big-img img {
+  width: 50vw;
+  /* co giãn theo màn hình */
+  max-width: 400px;
+  /* không vượt quá 400px */
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
 /* QR image */
 .qr-wrapper {
   position: relative;
@@ -782,12 +812,6 @@ img {
     padding: 0 12px;
   }
 
-  .breadcrumb {
-    margin-left: 20px;
-    font-size: 14px;
-    display: none;
-  }
-
   .banner_slide {
     max-height: 300px;
   }
@@ -846,7 +870,7 @@ img {
     width: 100px;
     height: 100px;
   }
-  
+
   .uses-wrapper {
     grid-template-columns: 1fr;
     margin: 0 10px;
@@ -875,8 +899,8 @@ img {
     width: 90%;
     margin: 20px auto;
   }
-  
-  .user_img  {
+
+  .user_img {
     /* width: 100px; */
     text-align: center;
     flex-direction: column;
@@ -913,16 +937,41 @@ img {
   }
 
   .line-qr-box {
-      
+
     right: 50px;
     bottom: 40px;
     width: 60px;
   }
-  .cart-btn{
+.big-img {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* THIẾU DÒNG NÀY */
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+  .big-img img {
+    width: 60vw;
+    /* co giãn theo màn hình */
+    max-width: 200px;
+    /* không vượt quá 400px */
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .cart-btn {
     display: none;
-    }
+  }
+
   .qr-wrapper {
-    content: url('../img/qr-line-icon.png');
+
+    /* content: url('../img/qr-line-icon.png'); */
     /* thay hình QR thành hình icon Line */
     width: 45px;
     height: 45px;
@@ -931,8 +980,8 @@ img {
   }
 
   .line-label {
-    font-size: 8px;
-    padding: 4px 8px;
+
+    display: none;
   }
 
   .mess_icon {
@@ -948,7 +997,5 @@ img {
     font-size: 18px;
   }
 
-  .breadcrumb {
-    display: none;
-  }
+  
 }

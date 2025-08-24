@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ลงทะเบียน</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #loginOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .register-container {
+            font-family: 'Prompt', sans-serif;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .register-container h2 {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .register-container p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .register-button {
+            width: 100%;
+            padding: 14px;
+            background-color: #0d5cf2;
+            color: white;
+            border: none;
+            border-radius: 999px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .register-button:hover {
+            background-color: #218838;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loginOverlay">
+        <div class="register-container" id="registerForm">
+            <span class="close-button" onclick="closeRegisterForm()">×</span>
+            <form action="#" id="registerContact">
+                <h2>ลงทะเบียน</h2>
+                <p>สมัครสมาชิกเพื่อรับสิทธิพิเศษ</p>
+
+                <input id="username" class="input-field" type="text" placeholder="ชื่อ - นามสกุล" required>
+                <input id="email" class="input-field" type="email" placeholder="อีเมลบัญชีผู้ใช้" required>
+                <input id="password" class="input-field" type="password" placeholder="รหัสผ่าน" required>
+                <input id="confirm_password" class="input-field" type="password" placeholder="ยืนยันรหัสผ่าน" required>
+
+                <button class="register-button" type="submit">สมัครสมาชิก</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/user.js"></script>
+</body>
+
+</html>

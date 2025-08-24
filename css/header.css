@@ -36,8 +36,9 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 990;
 }
+
 /* === TÌM KIẾM === */
 .search {
   display: flex;
@@ -51,6 +52,48 @@ header {
   max-width: 400px;
   margin: 0 16px;
 }
+.search-results {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.search-results .result-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.search-results .result-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.search-results .result-item:hover {
+  background: #f0f0f0;
+}
+
+.search-results .title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.search-results .type {
+  font-size: 12px;
+  color: #888;
+}
+
 
 .search input {
   border: none;
@@ -104,7 +147,7 @@ header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   padding: 10px 0;
   min-width: 140px;
-  z-index: 1005;
+  z-index: 999;
 }
 
 .user-account:hover .account-dropdown {
@@ -288,6 +331,45 @@ header {
   .menu-dropdown.open .dropdown-toggle span {
     transform: rotate(180deg);
   }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    min-width: 180px;
+    top: 100%;
+    right: 0;
+    z-index: 10000;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 12px;
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background: #f0f0f0;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
 
   .dropdown-content-bar {
     display: none;

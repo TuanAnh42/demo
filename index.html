@@ -8,27 +8,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <title>เข้าสู่ระบบ</title>
+    <title>up5sure</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17065536140"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-17065536140');
+    </script>
+
+    <!-- Mã chuyển đổi
+    17065536140
+    Nhãn chuyển đổi
+    TLKoCMCkp_8aEIzVvck_ -->
+
+    <!-- Event snippet for up5 conversion page -->
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17065536140/TLKoCMCkp_8aEIzVvck_',
+            'transaction_id': ''
+        });
+    </script>
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/benhli.css">
-    
+
 </head>
 
 <body>
     <div id="header-placeholder"></div>
     <div id="menu-placeholder"></div>
     <div id="showLoginFormContent"></div>
+    <div id="breadcrumb-placeholder"></div>
+    <div id="showRegisterFormContent"></div>
 
     <main>
-        <div class="dynamic-title-section" style="display: none;">
-            <div class="breadcrumb" style="padding: 16px 24px; color: #333; font-size: 16px;">
-                <a href="#" onclick="showHome()" style="color: #1e1a5e; text-decoration: none;">หน้าแรก</a>
-                <span> / </span>
-                <span id="breadcrumb-title"></span>
-            </div>
-            <h2 class="title" id="dynamic-title"></h2>
-        </div>
+
         <div id="default-content">
             <div class="banner_slide">
                 <div class="slide active">
@@ -259,13 +275,13 @@
                     </div>
                     <p class="desc" style="margin-bottom: 10px;">อย่าพลาดข้อมูลสื่อที่มีประโยชน์และโปรโมชั่นสุดพิเศษของ
                         UP5</p>
-                    <a href="tieuhoa.html" class="btn">ดูเพิ่มเติม →</a>
+                    <a href="daday.html" class="btn">ดูเพิ่มเติม →</a>
                 </div>
-                <div style="position: relative;overflow: visible; z-index: 1;" class="swiper swiper_active">
-                    <div style="position: absolute;left: -20px;top: 50%;z-index: 999;"
+                <div  style="position: relative;overflow: visible; z-index: 1;" class="swiper swiper_active">
+                    <div  style="position: absolute;left: -20px;top: 50%;z-index: 999;"
                         class="swiper-button-prev swiper-button-prev-active"></div>
 
-                    <div class="swiper-wrapper wrapper-content" id="post-list">
+                    <div id="post-list" class="swiper-wrapper wrapper-content" >
                     </div>
                     <div style="right:-20px;top: 50%" class="swiper-button-next swiper-button-next-active"></div>
                 </div>
@@ -273,7 +289,7 @@
 
             </div>
             <div class="form-session" id="content-form">
-                <form action="#" method="post" class="index-form">
+                <form id="contactForm" action="#" method="post" class="index-form">
                     <h3>ฝากข้อมูลของคุณไว้</h3>
 
                     <input type="text" id="name" name="name" placeholder="ชื่อ - นามสกุล" required>
@@ -282,12 +298,12 @@
 
                     <textarea id="message" name="message" rows="4" placeholder="ข้อความเพิ่มเติม..."></textarea>
 
-                    <button type="submit">ส่งแบบฟอร์ม</button>
+                    <button type="submit" class="confirm-form">ส่งแบบฟอร์ม</button>
                 </form>
             </div>
         </div>
         <div id="main-content" style="display: none;"></div>
-        
+
     </main>
     <div id="contact-placeholder"></div>
 
@@ -295,10 +311,16 @@
     <!-- <button onclick="scrollToTop()" id="backToTop" title="Lên đầu trang">
         ⬆
     </button> -->
-    <script src="js/cart.js"></script>
-    <script src="js/loadcontact.js"></script>
-    <script src="js/loadlayout.js"></script>
-    <script src="slide.js"></script>
+    <script type="module" src="js/cart.js"></script>
+    <script type="module" src="js/loadcontact.js"></script>
+    <script type="module" src="js/loadlayout.js"></script>
+    <script type="module" src="js/loadPost.js"></script>
+    <script type="module" src="slide.js"></script>
+    <script type="module" src="js/user.js"></script>
+    <script type="module" src="js/contact-form.js"></script>
+    <script type="module" src="js/search.js"></script>
+    <script type="module" src="js/renderPost.js"></script>
+    
 </body>
 
 </html>

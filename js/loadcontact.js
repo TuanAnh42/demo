@@ -21,5 +21,18 @@ window.addEventListener("DOMContentLoaded", () => {
                     });
                 }
             }
+
+            const btn = document.getElementById("show-qr");
+            const popup = document.getElementById("qr-popup");
+
+            btn.addEventListener("click", () => {
+                popup.style.display = "flex";
+            });
+
+            popup.addEventListener("click", () => {
+                popup.style.display = "none";
+            });
+
+
         });
 });

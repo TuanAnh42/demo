@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <title>Document</title>
+    <title>up5sure</title>
 
     <link rel="stylesheet" href="css/checkout.css">
    
@@ -19,6 +19,7 @@
     <div id="exitFormContainer"></div>
     <div id="menu-placeholder"></div>
     <div id="showLoginFormContent"></div>
+    <div id="breadcrumb-placeholder"></div>
     <div class="checkout-container">
 
         <!-- BÊN TRÁI: THÔNG TIN NGƯỜI MUA & SẢN PHẨM -->
@@ -26,7 +27,7 @@
             <h2>ผลิตภัณฑ์ที่คุณสั่งซื้อ</h2>
             <div id="cart-buy"></div>
             <div id="quick-buy-info"></div>
-
+ 
             <h2>ข้อมูลผู้สั่งซื้อ</h2>
             <div class="row-group">
                 <div class="form-group half">
@@ -75,17 +76,21 @@
                 <span id="total-price" class="total-price">-</span>
             </div>
 
-            <button class="btn-confirm">เสร็จสิ้น</button>
+            <button class="btn-confirm" >เสร็จสิ้น</button>
         </div>
         
     </div>
     <div id="contact-placeholder"></div>
     <div id="footer-placeholder"></div>
     <script src="js/cart.js"></script>
-    <script src="js/checkout.js"></script>
-    <script src="slide.js"></script>
-    <script src="js/loadlayout.js"></script>
-    <script src="js/loadcontact.js"></script>
+    <!-- <script src="js/checkout.js"></script> -->
+    <script type="module" src="slide.js"></script>
+    <script type="module" src="js/loadlayout.js"></script>
+    <script type="module" src="js/loadcontact.js"></script>
+    <script type="module" src="js/user.js"></script>
+    <script type="module" src="js/renderPost.js"></script>
+    <script type="module" src="js/order.js"></script>
+    
 </body>
 
 </html>

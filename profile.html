@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/z6680689810990_56888da8ababe64686741f52c17e1926.jpg" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>up5sure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+
+
+
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .info-section,
+        .cart-section {
+            background: white;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            max-width: 1100px;
+            border-radius: 6px;
+            margin: 20px auto;
+        }
+
+        .info-item {
+            margin-bottom: 12px;
+        }
+
+        .info-label {
+            font-weight: bold;
+            display: inline-block;
+            width: 120px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        tfoot td {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        #editBtn {
+            background-color: #1e1a5e;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+
+        /* Form edit */
+        .edit-form {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .edit-form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .edit-form input,
+        .edit-form textarea {
+            width: 100%;
+            padding: 6px;
+            margin-top: 4px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .edit-buttons {
+            margin-top: 15px;
+        }
+
+        .edit-buttons button {
+            margin-right: 10px;
+        }
+
+        #saveBtn {
+            background-color: #1e1a5e;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #cancelBtn {
+            background-color: #ccc;
+            color: black;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+    <div id="menu-placeholder"> </div>
+
+    <div id="exitFormContainer"></div>
+    <div id="showLoginFormContent"></div>
+    <div id="breadcrumb-placeholder"></div>
+    <div class="info-section">
+        <h2 style="margin-bottom: 10px;">ข้อมูลลูกค้า</h2>
+
+        <div id="display-info">
+            <div class="info-item"><span class="info-label">ชื่อ-นามสกุล :</span><span id="name"></span></div>
+            <div class="info-item"><span class="info-label">เบอร์โทรศัพท์ :</span><span id="phone"></span></div>
+            <div class="info-item"><span class="info-label">Email:</span><span id="email"></span></div>
+            <div class="info-item"><span class="info-label">ที่อยู่:</span><span id="address"></span></div>
+            <div class="info-item"><span class="info-label">บันทึก:</span><span id="note"></span></div>
+            <button id="editBtn">แก้ไขข้อมูล</button>
+        </div>
+
+        <form id="editForm" class="edit-form">
+            <label for="editName">ชื่อ-นามสกุล :</label>
+            <input type="text" id="editName" required />
+
+            <label for="editPhone">เบอร์โทรศัพท์ :</label>
+            <input type="tel" id="editPhone" required pattern="[0-9\s\-\+]{7,15}" />
+
+            <label for="editEmail">Email:</label>
+            <input type="email" id="editEmail" required />
+
+            <label for="editAddress">ที่อยู่:</label>
+            <textarea id="editAddress" rows="3" required></textarea>
+
+            <label for="editNote">บันทึก:</label>
+            <textarea id="editNote" rows="2"></textarea>
+
+            <div class="edit-buttons">
+                <button type="submit" id="saveBtn">บันทึก</button>
+                <button type="button" id="cancelBtn">ยกเลิก</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="cart-section">
+        <h2>รถเข็นสินค้า</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody id="cartBody"></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Tổng cộng:</td>
+                    <td id="totalPrice"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script>
+
+        const cartItems = [
+            { name: 'Sữa UP5', quantity: 2, price: 120000 },
+            { name: 'Vitamin C', quantity: 1, price: 80000 },
+            { name: 'Sữa hạt', quantity: 3, price: 90000 }
+        ];
+
+        function formatCurrency(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' đ';
+        }
+
+
+
+        function renderCart() {
+            const tbody = document.getElementById('cartBody');
+            tbody.innerHTML = '';
+            let total = 0;
+            cartItems.forEach(item => {
+                const tr = document.createElement('tr');
+                const totalItem = item.quantity * item.price;
+                total += totalItem;
+                tr.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.quantity}</td>
+        <td>${formatCurrency(item.price)}</td>
+        <td>${formatCurrency(totalItem)}</td>
+      `;
+                tbody.appendChild(tr);
+            });
+            document.getElementById('totalPrice').textContent = formatCurrency(total);
+        }
+
+        // Bật form sửa
+
+
+
+        renderCart();
+    </script>
+    <div id="contact-placeholder"></div>
+
+    <div id="footer-placeholder"></div>
+    <!-- <button onclick="scrollToTop()" id="backToTop" title="Lên đầu trang">
+        ⬆
+    </button> -->
+    <script type="module" src="js/cart.js"></script>
+    <script type="module" src="js/loadcontact.js"></script>
+    <script type="module" src="js/loadlayout.js"></script>
+    <script type="module" src="js/renderPost.js"></script>
+
+    <script type="module" src="js/user.js"></script>
+
+</body>
+
+</html>

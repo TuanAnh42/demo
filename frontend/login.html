@@ -126,60 +126,51 @@
         <div class="login-container" id="loginForm">
             <span class="close-button" onclick="closeLoginForm()">×</span>
             <form action="#" id="loginContact">
-                <h2>เข้าสู่ระบบหรือสมัครสมาชิก</h2>
+                <h2>เข้าสู่ระบบ</h2>
                 <p>กรุณาเข้าสู่ระบบเพื่อรับสิทธิพิเศษสำหรับสมาชิก</p>
 
                 <input id="email" class="input-field" type="email" placeholder="อีเมลบัญชีผู้ใช้">
                 <input id="password" class="input-field" type="password" placeholder="รหัสผ่าน">
 
-                <button class="login-button">เข้าสู่ระบบ</button>
+                <button class="login-button" type="submit">เข้าสู่ระบบ</button>
 
                 <div class="separator">
                     <span>หรือเข้าสู่ระบบด้วย</span>
                 </div>
 
-                <div class="social-login">
-                    <div class="social-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google">
+                <!-- <div class="social-login">
+
+                    <div id="g_id_onload"
+                        data-client_id="254109891316-bk58u4bh2vcv7i6u720k0u89b9uj6kke.apps.googleusercontent.com"
+                        data-callback="handleCredentialResponse">
                     </div>
+
+                    <div class="g_id_signin" data-type="standard">
+                    </div>
+
+
                     <div class="social-icon">
                         <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
                     </div>
-                </div>
+                </div> -->
             </form>
         </div>
     </div>
+    <script src="../js/user.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
-        document.getElementById("loginContact").addEventListener("submit", async function (e) {
-            e.preventDefault();
-
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
-
-            const response = await fetch("http://127.0.0.1:8000/api/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ email, password })
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                alert("✅ Đăng nhập thành công!");
-                console.log(data);
-
-                // Lưu token để dùng cho các API tiếp theo
-                localStorage.setItem("token", data.token);
-
-                // Ẩn form đăng nhập
-                document.getElementById("loginOverlay").style.display = "none";
+        function handleCredentialResponse(response) {
+            const googleToken = response.credential;
+            console.log("Google token:", googleToken);
+            if (googleToken) {
+                handleGoogleLogin(googleToken); // Gọi hàm gửi token lên backend
             } else {
-                alert("❌ " + (data.message || "Đăng nhập thất bại"));
+                alert("Không nhận được token Google.");
             }
-        });
+        }
+
     </script>
+
 
 </body>
 
